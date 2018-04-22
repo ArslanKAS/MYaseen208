@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Muhammad Yaseen</title>
+    <link>/categories/python/</link>
+    <description>Recent content in Python on Muhammad Yaseen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 20 Apr 2018 22:13:31 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Help</title>
+      <link>/myaseen208/help/</link>
+      <pubDate>Fri, 20 Apr 2018 22:13:31 +0000</pubDate>
+      
+      <guid>/myaseen208/help/</guid>
+      <description>This is not a help service for all your Statistics, R, Python and/or LaTeX questions, so please don&amp;rsquo;t post questions in the comments, or send them to me by email.
+If you have questions about Statistics and/or data analysis, ask for help on crossvalidated.com.
+If you have questions about R, ask for help on stackoverflow.com.
+If you have questions about Python, ask for help on stackoverflow.com.
+If you have questions about LaTeX, ask for help on stackoverflow.</description>
+    </item>
+    
+    <item>
+      <title>About myaseen208</title>
+      <link>/myaseen208/about/</link>
+      <pubDate>Fri, 20 Apr 2018 16:17:53 +0000</pubDate>
+      
+      <guid>/myaseen208/about/</guid>
+      <description>This is my blog site where I will put my thoughts about Statistics, R, Python, LaTeX and Research.</description>
+    </item>
+    
+  </channel>
+</rss>

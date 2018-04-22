@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Mixed Models on Muhammad Yaseen</title>
+    <link>/categories/linear-mixed-models/</link>
+    <description>Recent content in Linear Mixed Models on Muhammad Yaseen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/linear-mixed-models/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VetResearchLMM v1.0.0 on CRAN</title>
+      <link>/myaseen208/vetresearchlmm/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/vetresearchlmm/</guid>
+      <description>The latest version of the VetResearchLMM package for R is now on CRAN. This package provides R Codes and Datasets for Duchateau, L. and Janssen, P. and Rowlands, G. J. (1998). Linear Mixed Models. An Introduction with applications in Veterinary Research. International Livestock Research Institute. The latest version of the package is prepare for new version of lmerTest.</description>
+    </item>
+    
+  </channel>
+</rss>

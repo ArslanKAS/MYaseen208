@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Muhammad Yaseen</title>
+    <link>/</link>
+    <description>Recent content on Muhammad Yaseen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VetResearchLMM v1.0.0 on CRAN</title>
+      <link>/myaseen208/vetresearchlmm/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/vetresearchlmm/</guid>
+      <description>The latest version of the VetResearchLMM package for R is now on CRAN. This package provides R Codes and Datasets for Duchateau, L. and Janssen, P. and Rowlands, G. J. (1998). Linear Mixed Models. An Introduction with applications in Veterinary Research. International Livestock Research Institute. The latest version of the package is prepare for new version of lmerTest.</description>
+    </item>
+    
+    <item>
+      <title>Diallel Analysis with R</title>
+      <link>/myaseen208/diallelanalysisr/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/diallelanalysisr/</guid>
+      <description>The latest versin 0.1.1 of DiallelAnalysisR is aviable on CRAN. It performs Diallel Analysis with R using Griffing’s and Hayman’s approaches. Four different methods (1: Method-I (Parents + F1’s + reciprocals); 2: Method-II (Parents and one set of F1’s); 3: Method-III (One set of F1’s and reciprocals); 4: Method-IV (One set of F1’s only)) and two methods (1: Fixed Effects Model; 2: Random Effects Model) can be applied using Griffing’s approach.</description>
+    </item>
+    
+    <item>
+      <title>Help</title>
+      <link>/myaseen208/help/</link>
+      <pubDate>Fri, 20 Apr 2018 22:13:31 +0000</pubDate>
+      
+      <guid>/myaseen208/help/</guid>
+      <description>This is not a help service for all your Statistics, R, Python and/or LaTeX questions, so please don&amp;rsquo;t post questions in the comments, or send them to me by email.
+If you have questions about Statistics and/or data analysis, ask for help on crossvalidated.com.
+If you have questions about R, ask for help on stackoverflow.com.
+If you have questions about Python, ask for help on stackoverflow.com.
+If you have questions about LaTeX, ask for help on stackoverflow.</description>
+    </item>
+    
+    <item>
+      <title>About myaseen208</title>
+      <link>/myaseen208/about/</link>
+      <pubDate>Fri, 20 Apr 2018 16:17:53 +0000</pubDate>
+      
+      <guid>/myaseen208/about/</guid>
+      <description>This is my blog site where I will put my thoughts about Statistics, R, Python, LaTeX and Research.</description>
+    </item>
+    
+    <item>
+      <title>A Comparative Study of Different Amendments on Amelioration of Saline-Sodic Soils Irrigated with Water Having Different EC: SAR Ratios</title>
+      <link>/publications/2017_murtaza_etal/</link>
+      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/2017_murtaza_etal/</guid>
+      <description>Soil degradation affects soil properties such as structure, water retention, porosity, electrical conductivity (EC), sodium adsorption ratio (SAR), and soil flora and fauna. This study was conducted to evaluate the response of contrasting textured soils irrigated with water having different EC:SAR ratios along with amendments: gypsum (G), farm manure (FM), and mulch (M). Water of different qualities viz. EC 0.6 + SAR 6, EC 1.0 + SAR 12, EC 2.0 + SAR 18, and EC 4.</description>
+    </item>
+    
+    <item>
+      <title>Structural Equation Modeling with Latent Variables using R</title>
+      <link>/seminars/2017-comsats-lahore-sem/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/seminars/2017-comsats-lahore-sem/</guid>
+      <description>Talk given at at COMSATS Institute of Information Technology, Lahore, Pakistan
+Abstract
+Structural Equation Modeling with Latent Variables using R during Symposium on Professional Development of New Generation of Research Scholars held on December 14, 2017 at COMSATS Institute of Information Technology, Lahore, Pakistan</description>
+    </item>
+    
+    <item>
+      <title>Applied Econometrics</title>
+      <link>/seminars/2017-nibaf-islamabad/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/seminars/2017-nibaf-islamabad/</guid>
+      <description>Workshop Applied Econometrics during Statistical Officers Training Scheme (SOTS-7) held on December 12-13, 2017 at National Institute of Banking &amp;amp; Finance (NIBAF), Islamabad, Pakistan</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Muhammad Yaseen, PhD (Statistics, UNL-USA), is Assistant Professor of Statistics in the Department of Mathematics &amp;amp; Statistics at University of Agriculture Faisalabad, Faisalabad 38000, Pakistan.
+ &amp;nbsp;&amp;nbsp;pdf Curriculum Vitae &amp;nbsp;  Email myaseen208 on GitHub Google Scholar Twitter  Office: Department of Mathematics &amp;amp; Statistics, University of Agriculture Faisalabad, Faisalabad 38000, Pakistan.
+Google map generator &amp;nbsp;
+Administrative responsibilities  Head of Department, Department of Mathematics &amp;amp; Statistics, University of Agriculture Faisalabad , Faisalabad 38000, Pakistan.</description>
+    </item>
+    
+    <item>
+      <title>Software I&#39;ve written</title>
+      <link>/software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/software/</guid>
+      <description>This page provides links to R &amp;amp; LaTeX packages I have (co)authored. The most recent versions of most packages are on github. Most R packages are also on CRAN.
+&amp;nbsp;
+R Packages/Software bayesammi : Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model [github]
+baystability : Bayesian Stability Analysis of Genotype by Environment Interaction (GEI) [github]
+DiallelAnalysisR : Diallel Analysis with R [github]
+eda4treeR : Experimental Design and Analysis for Tree Improvement [github]</description>
+    </item>
+    
+    <item>
+      <title>Subjects I&#39;m teaching</title>
+      <link>/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/</guid>
+      <description>Spring Semester 2017-2018 &amp;nbsp;
+Stat-705: Advanced Design of Experiments Learning Objectives
+ To impart knowledge of advanced topics in the design of experiments To impart practical skills through problem solving using manual as well as computer skills. This course shall help to enhance both these skills in students through assignments which would be solved manually as well as through computers  &amp;nbsp;
+Contents
+Incomplete block designs, two dimensional lattices, rectangular lattices, balanced incomplete and partial balanced incomplete block designs, generalized lattice designs, alpha designs, Fractional replication, design resolution, blocking in fractional replication, First and second order response surface designs, Taguchi methods, Quasi, magic and super magic latin squares and weighting designs.</description>
+    </item>
+    
+  </channel>
+</rss>

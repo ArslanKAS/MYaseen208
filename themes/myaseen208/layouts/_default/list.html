@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class='row'>
+  <div class="column small-12 medium-10 medium-offset-1 end large-offset-0 large-3 large-push-9">
+    {{ partial "post-aside" . }}
+    {{ partial "category-cloud" . }}
+  </div>
+  <div class="row">
+    <div class="column small-12 medium-10 medium-offset-1 end large-offset-0 large-8 large-pull-3">
+      <h1><a href="/categories/">Subject</a> &rtrif; {{ .Title }}</h1>
+      <div class="row">
+        <div class="column small-12">
+          {{ $paginator := .Paginate .Data.Pages }}
+          {{ range $paginator.Pages }}
+          {{ partial "post-summary" . }}
+          {{ end }}
+          {{ partial "pagination" . }}
+        </div>
+      </div>
+      <div class='sans'>
+      <a href="/myaseen208/">All myaseen208 posts by date</a>
+     </div>
+    </div>
+  </div>
+</div>
+{{ end }}

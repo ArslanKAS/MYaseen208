@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Muhammad Yaseen</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Muhammad Yaseen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VetResearchLMM v1.0.0 on CRAN</title>
+      <link>/myaseen208/vetresearchlmm/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/vetresearchlmm/</guid>
+      <description>The latest version of the VetResearchLMM package for R is now on CRAN. This package provides R Codes and Datasets for Duchateau, L. and Janssen, P. and Rowlands, G. J. (1998). Linear Mixed Models. An Introduction with applications in Veterinary Research. International Livestock Research Institute. The latest version of the package is prepare for new version of lmerTest.</description>
+    </item>
+    
+    <item>
+      <title>Diallel Analysis with R</title>
+      <link>/myaseen208/diallelanalysisr/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/diallelanalysisr/</guid>
+      <description>The latest versin 0.1.1 of DiallelAnalysisR is aviable on CRAN. It performs Diallel Analysis with R using Griffing’s and Hayman’s approaches. Four different methods (1: Method-I (Parents + F1’s + reciprocals); 2: Method-II (Parents and one set of F1’s); 3: Method-III (One set of F1’s and reciprocals); 4: Method-IV (One set of F1’s only)) and two methods (1: Fixed Effects Model; 2: Random Effects Model) can be applied using Griffing’s approach.</description>
+    </item>
+    
+    <item>
+      <title>Help</title>
+      <link>/myaseen208/help/</link>
+      <pubDate>Fri, 20 Apr 2018 22:13:31 +0000</pubDate>
+      
+      <guid>/myaseen208/help/</guid>
+      <description>This is not a help service for all your Statistics, R, Python and/or LaTeX questions, so please don&amp;rsquo;t post questions in the comments, or send them to me by email.
+If you have questions about Statistics and/or data analysis, ask for help on crossvalidated.com.
+If you have questions about R, ask for help on stackoverflow.com.
+If you have questions about Python, ask for help on stackoverflow.com.
+If you have questions about LaTeX, ask for help on stackoverflow.</description>
+    </item>
+    
+    <item>
+      <title>About myaseen208</title>
+      <link>/myaseen208/about/</link>
+      <pubDate>Fri, 20 Apr 2018 16:17:53 +0000</pubDate>
+      
+      <guid>/myaseen208/about/</guid>
+      <description>This is my blog site where I will put my thoughts about Statistics, R, Python, LaTeX and Research.</description>
+    </item>
+    
+  </channel>
+</rss>

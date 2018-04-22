@@ -1,0 +1,100 @@
+baseurl = "https://myaseen208.com/"
+title = "Muhammad Yaseen"
+canonifyurls = true
+relativeurls = false
+paginate = 10
+theme = "myaseen208"
+DisqusShortname = "researchtips"
+googleAnalytics = "UA-5004894-1"
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+pluralizeListTitles = false
+buildFuture = true
+
+[params]
+
+# Date format (refer to Go's date format: http://flippinggodateformat.com)
+date_format = "2 January 2006"
+
+# Number of posts to show on main page.
+posts_count = 2
+
+# Number of publications to show on main page.
+pubs_count = 4
+
+# Number of posts to show on main page.
+seminars_count = 4
+
+# options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion = "9.11.0"
+  highlightjsCDN = "//cdn.bootcss.com"
+  highlightjsLang = ["r", "yaml"]
+  highlightjsTheme = "github"
+
+[[params.social]]
+  icon = "university"
+  icon_pack = "fa"
+  link = "http://www.uaf.edu.pk/EmployeeDetail.aspx?userid=281"
+  text = "Department of Mathematics & Statistics, University of Agriculture Faisalabad, Faisalabad 38000, Pakistan."
+
+[[params.social]]
+  icon = "envelope"
+  icon_pack = "fa"
+  link = "mailto:myaseen208@gmail.com"
+  text = "myaseen208@gmail.com"
+
+[[params.social]]
+  icon = "twitter"
+  icon_pack = "fa"
+  link = "https://twitter.com/myaseen208"
+  text = "@myaseen208"
+  site = "Twitter"
+
+[[params.social]]
+  icon = "github-alt"
+  icon_pack = "fa"
+  link = "https://github.com/myaseen208/"
+  text = "myaseen208"
+  site = "GitHub"
+
+[[params.social]]
+  icon = "google-scholar"
+  icon_pack = "ai"
+  link = "https://scholar.google.com.pk/citations?user=mHkR-7cAAAAJ&hl=en"
+  text = "Google Scholar"
+
+
+
+# Navigation Links
+# The weight parameter defines the order that the links will appear in.
+
+[[menu.main]]
+  name = "myaseen208 blog"
+  url = "/myaseen208/"
+  weight = 1
+
+[[menu.main]]
+  name = "Publications"
+  url = "/publications/"
+  weight = 2
+
+[[menu.main]]
+  name = "Software"
+  url = "/software/"
+  weight = 3
+
+[[menu.main]]
+  name = "Seminars"
+  url = "/seminars/"
+  weight = 4
+
+[[menu.main]]
+  name = "Teaching"
+  url = "/teaching/"
+  weight = 4
+
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 5
+
