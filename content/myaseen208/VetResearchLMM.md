@@ -1,7 +1,7 @@
 ---
 title: VetResearchLMM v1.0.0 on CRAN
 author: Muhammad Yaseen
-date: '2018-04-22'
+date: '2018-04-23'
 slug: VetResearchLMM
 categories:
   - Statistics
