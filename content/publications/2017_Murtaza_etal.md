@@ -1,5 +1,5 @@
 ---
-author: Ghulam Murtaza, Behzad Murtaza, Umad Zafar Kahlon, Muhammad Yaseen
+author: Murtaza, G., Murtaza, B., Kahlon, U. Z., and <b>Yaseen, M.</b>
 date: 2017-12-26
 slug: 2017_Murtaza_etal
 title: "A Comparative Study of Different Amendments on Amelioration of Saline-Sodic Soils Irrigated with Water Having Different EC: SAR Ratios"

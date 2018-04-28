@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="column small-12 medium-6">
-      <h2>Unpublished working papers</h2>
+      <h2>Conference abstracts and proceedings</h2>
       {{ range (where .Data.Pages "Params.kind" "==" "unpublished").GroupByDate "2006" "desc" }}
       <div class="row">
         <div class="column small-2 medium-2">

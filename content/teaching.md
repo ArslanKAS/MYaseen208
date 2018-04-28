@@ -1,5 +1,5 @@
 ---
-title: "Subjects I'm teaching"
+title: "Teaching"
 ---
 
 ## Spring Semester 2017-2018

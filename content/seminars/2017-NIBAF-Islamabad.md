@@ -12,4 +12,4 @@ tags:
 
 ## Workshop
 
-*Applied Econometrics* during *Statistical Officers Training Scheme (SOTS-7)* held on December 12-13, 2017 at *National Institute of Banking & Finance (NIBAF), Islamabad, Pakistan*
+**Applied Econometrics** during **Statistical Officers Training Scheme (SOTS-7)** held on December 12-13, 2017 at **National Institute of Banking & Finance (NIBAF), Islamabad, Pakistan**

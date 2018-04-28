@@ -10,8 +10,6 @@ tags:
 - Structural Equation Modeling
 ---
 
-Talk given at at COMSATS Institute of Information Technology, Lahore, Pakistan
+## Symposium
 
-**Abstract**
-
-*Structural Equation Modeling with Latent Variables using R* during *Symposium on Professional Development of New Generation of Research Scholars* held on December 14, 2017 at *COMSATS Institute of Information Technology, Lahore, Pakistan*
+**Structural Equation Modeling with Latent Variables using R** during **Symposium on Professional Development of New Generation of Research Scholars** held on December 14, 2017 at **COMSATS Institute of Information Technology, Lahore, Pakistan**

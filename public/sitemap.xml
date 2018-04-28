@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/publications/2018_jabeen_etal/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/myaseen208/vetresearchlmm/</loc>
     <lastmod>2018-04-23T00:00:00+00:00</lastmod>
   </url>
@@ -35,6 +40,196 @@
   <url>
     <loc>/seminars/2017-nibaf-islamabad/</loc>
     <lastmod>2017-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2017_jameel_etal/</loc>
+    <lastmod>2017-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2017_ishaq_etal/</loc>
+    <lastmod>2017-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-r2-science-uaf/</loc>
+    <lastmod>2017-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-r1-science-uaf/</loc>
+    <lastmod>2017-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-bioconductor-nibge/</loc>
+    <lastmod>2017-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-latex-uaf/</loc>
+    <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-r2-vet-uaf/</loc>
+    <lastmod>2017-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-r1-vet-uaf/</loc>
+    <lastmod>2017-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-glmm-bzu/</loc>
+    <lastmod>2017-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2017-technical-uaf/</loc>
+    <lastmod>2017-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2016-latex-iccs14/</loc>
+    <lastmod>2016-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2016-glmm-iccs14/</loc>
+    <lastmod>2016-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2016_raza_etal/</loc>
+    <lastmod>2016-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2016_ansari_etal/</loc>
+    <lastmod>2016-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2016_aslam_etal/</loc>
+    <lastmod>2016-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publications/2016_batool_etal/</loc>
+    <lastmod>2016-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2016-econr-sbp/</loc>
+    <lastmod>2016-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2016-stat-uaf/</loc>
+    <lastmod>2016-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-mcmc-nim/</loc>
+    <lastmod>2015-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-latex-sbp/</loc>
+    <lastmod>2015-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-r-sbp/</loc>
+    <lastmod>2015-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-sem-iqra/</loc>
+    <lastmod>2015-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-gmm-iqra/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2015-r-uaf/</loc>
+    <lastmod>2015-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2014-latex-sbp/</loc>
+    <lastmod>2014-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2014-r-sbp/</loc>
+    <lastmod>2014-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2013-r-uaf/</loc>
+    <lastmod>2013-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2012-doe-ari/</loc>
+    <lastmod>2012-12-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2007-spss-uaf/</loc>
+    <lastmod>2007-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2007-doe-uaf/</loc>
+    <lastmod>2007-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2007-doe-azre/</loc>
+    <lastmod>2007-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2006-eviews-uaf/</loc>
+    <lastmod>2006-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2006-multivariate-uaf/</loc>
+    <lastmod>2006-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2005-statistica-uaf/</loc>
+    <lastmod>2005-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2005-spss-uaf/</loc>
+    <lastmod>2005-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2005-biometric-uaf/</loc>
+    <lastmod>2005-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2005-statistica-narc/</loc>
+    <lastmod>2005-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/seminars/2004-research-uaf/</loc>
+    <lastmod>2004-06-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -90,7 +285,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -102,7 +297,7 @@
   
   <url>
     <loc>/publications/</loc>
-    <lastmod>2017-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -113,14 +308,14 @@
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <loc>/categories/r/</loc>
+    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -153,14 +348,14 @@
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
-    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <loc>/categories/statistics/</loc>
+    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/statistics/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <loc>/tags/statistics/</loc>
+    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,13 +366,13 @@
   </url>
   
   <url>
-    <loc>/teaching/</loc>
-  </url>
-  
-  <url>
     <loc>/tags/</loc>
     <lastmod>2017-12-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/teaching/</loc>
   </url>
   
   <url>

@@ -27,10 +27,3 @@ Office: [Department of Mathematics & Statistics, University of Agriculture Faisa
 ## Administrative responsibilities
 
   * Head of Department,  [Department of Mathematics & Statistics, University of Agriculture Faisalabad , Faisalabad 38000, Pakistan](http://www.uaf.edu.pk/EmployeeDetail.aspx?userid=281).
-  
-
-## Memberships
-
-I am a member of the following organizations:
-
-  *  Elected President, *Pakistan Statistical Association (PSA), Faisalabad Chapter*.
