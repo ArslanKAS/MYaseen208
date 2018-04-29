@@ -19,7 +19,8 @@ title: "About me"
 
 Office: [Department of Mathematics & Statistics, University of Agriculture Faisalabad, Faisalabad 38000, Pakistan](http://www.uaf.edu.pk/EmployeeDetail.aspx?userid=281).
 
-<iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=31.4309821, 73.06951149999998&amp;q=Faisalabad+(Muhammad%20Yaseen)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.388057379087!2d73.06731744994273!3d31.43098208130791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922429065ab4f41%3A0x3a567c6cab2e2c63!2sUniversity+Of+Agriculture+Faisalabad!5e0!3m2!1sen!2s!4v1525032338452" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+
 
 &nbsp;
 
