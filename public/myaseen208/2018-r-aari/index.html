@@ -2,7 +2,7 @@
 <html class="no-js" lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>ppcSpatial: Spatial Analysis of Pakistan Population Census | Muhammad Yaseen</title>
+    <title>An introduction to R for Agricultural Research | Muhammad Yaseen</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|Fira+Mono" rel="stylesheet">
@@ -70,13 +70,13 @@
 <div class="wrapper">
 <div class="units-row" style='margin-bottom: 0px;'>
 <div class="unit-20">&nbsp;</div>
-<div class="unit-60"><h1>ppcSpatial: Spatial Analysis of Pakistan Population Census</h1></div>
+<div class="unit-60"><h1>An introduction to R for Agricultural Research</h1></div>
 </div>
 <div class="units-row">
   <div class="unit-20 dateblock" style='text-align: right;'><h4 style='padding: .8ex 0px .8ex 0px;'><a href="/myaseen208">myaseen208</a></h4>
       <div class="post-metadata">
   <span class="post-date">
-    <time datetime="2018-04-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">28 April 2018</time>
+    <time datetime="2018-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1 May 2018</time>
   </span>
   
   
@@ -88,10 +88,13 @@
      
     
     
-    <a class="post-tag" href="/categories/ppcspatial">ppcSpatial</a>, 
+    <a class="post-tag" href="/categories/statistics">Statistics</a>, 
     
     
-    <a class="post-tag" href="/categories/pakistan-population-census-2017">Pakistan Population Census 2017</a>
+    <a class="post-tag" href="/categories/research">Research</a>, 
+    
+    
+    <a class="post-tag" href="/categories/agriculture">Agriculture</a>
     
   </span>
   
@@ -101,43 +104,101 @@
     </div>
 <div class="unit-60">
 
-  <p>The latest version of the ppcSpatial package for R is now on <a href="https://cran.r-project.org/package=ppcSpatial">CRAN</a>. It performs spatial analysis for exploration of Pakistan Population Census 2017 (<a href="http://www.pbscensus.gov.pk/">http://www.pbscensus.gov.pk/</a>). It uses data from R package <a href="https://cran.r-project.org/package=PakPC2017">PakPC2017</a>.</p>
+  <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>.</p>
+<p> </p>
+</div>
+<div id="regression-analysis" class="section level2">
+<h2>Regression Analysis</h2>
+<ul>
+<li>Quantifying dependency of a normal response on quantitative explanatory variable(s)</li>
+</ul>
+<pre class="r"><code>Fert  &lt;- seq(from = 0.3, to = 2.4, by = 0.3)
+Yield &lt;- c(10, 15, 30, 35, 25, 30, 50, 45)
+df1   &lt;- data.frame(Fert, Yield)
+df1</code></pre>
+<pre><code>  Fert Yield
+1  0.3    10
+2  0.6    15
+3  0.9    30
+4  1.2    35
+5  1.5    25
+6  1.8    30
+7  2.1    50
+8  2.4    45</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p1 &lt;- 
+    ggplot(data = df1, mapping = aes(x = Fert, y = Yield)) + 
+    geom_point() +
+    labs(x = &quot;Fertilizer&quot;, y = &quot;Yield&quot;) +
+    theme_bw()
+print(p1)</code></pre>
+<p><img src="/myaseen208/2018-05-10_ARRI_files/figure-html/p1-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm1 &lt;- lm(formula = Yield ~ Fert, data = df1)
+summary(fm1)</code></pre>
+<pre><code>
+Call:
+lm(formula = Yield ~ Fert, data = df1)
 
-<p>A video showing some functionality of the package is</p>
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.441 -4.018 -2.441  7.351  7.798 
 
-<p><a href="https://www.youtube.com/watch?v=385nQNgcVgI" title="ppcSpatial"><img src="http://img.youtube.com/vi/385nQNgcVgI/0.jpg" alt="ppcSpatial" /></a></p>
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)    8.036      5.504   1.460   0.1946   
+Fert          16.270      3.633   4.478   0.0042 **
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 7.064 on 6 degrees of freedom
+Multiple R-squared:  0.7697,    Adjusted R-squared:  0.7313 
+F-statistic: 20.05 on 1 and 6 DF,  p-value: 0.004202</code></pre>
+<pre class="r"><code>fm1 &lt;- lm(formula = Yield ~ Fert, data = df1)
+anova(fm1)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Yield
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+Fert       1 1000.6  1000.6  20.052 0.004202 **
+Residuals  6  299.4    49.9                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
 
 
-      <meta itemprop="wordCount" content="41">
-      <meta itemprop="datePublished" content="2018-04-28">
-      <meta itemprop="url" content="/myaseen208/ppcspatialblog/">
+      <meta itemprop="wordCount" content="279">
+      <meta itemprop="datePublished" content="2018-05-01">
+      <meta itemprop="url" content="/myaseen208/2018-r-aari/">
 
 <div class='sans' style="background: #dddddd; padding: 2em;">
 <div style="padding-bottom: 1em" >
 <div class="share-box">
   <ul class="share">
     <li>
-      <a class="facebook" href="http://www.facebook.com/sharer.php?u=%2fmyaseen208%2fppcspatialblog%2f" target="_blank">
+      <a class="facebook" href="http://www.facebook.com/sharer.php?u=%2fmyaseen208%2f2018-r-aari%2f" target="_blank">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
-      <a class="twitter" href="https://twitter.com/intent/tweet?text=ppcSpatial%3a%20Spatial%20Analysis%20of%20Pakistan%20Population%20Census. %2fmyaseen208%2fppcspatialblog%2f from @myaseen208" target="_blank">
+      <a class="twitter" href="https://twitter.com/intent/tweet?text=An%20introduction%20to%20R%20for%20Agricultural%20Research. %2fmyaseen208%2f2018-r-aari%2f from @myaseen208" target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
-      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fmyaseen208%2fppcspatialblog%2f&amp;title=ppcSpatial%3a%20Spatial%20Analysis%20of%20Pakistan%20Population%20Census" target="_blank">
+      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fmyaseen208%2f2018-r-aari%2f&amp;title=An%20introduction%20to%20R%20for%20Agricultural%20Research" target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
-      <a class="weibo" href="http://service.weibo.com/share/share.php?url=%2fmyaseen208%2fppcspatialblog%2f&amp;title=ppcSpatial%3a%20Spatial%20Analysis%20of%20Pakistan%20Population%20Census" target="_blank">
+      <a class="weibo" href="http://service.weibo.com/share/share.php?url=%2fmyaseen208%2f2018-r-aari%2f&amp;title=An%20introduction%20to%20R%20for%20Agricultural%20Research" target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
-      <a class="email" href="mailto:?subject=ppcSpatial%3a%20Spatial%20Analysis%20of%20Pakistan%20Population%20Census&amp;body=%2fmyaseen208%2fppcspatialblog%2f">
+      <a class="email" href="mailto:?subject=An%20introduction%20to%20R%20for%20Agricultural%20Research&amp;body=%2fmyaseen208%2f2018-r-aari%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -149,10 +210,8 @@
 
     <ul class="pagination" role="navigation" aria-label="Pagination">
       
-      <li class="arrow" aria-disabled="true"><a href="/myaseen208/vetresearchlmm/">&laquo; <em>Previous<span class="show-for-sr"> page</span></em>: VetResearchLMM v1.0.0 on CRAN</a></li>
+      <li class="arrow" aria-disabled="true"><a href="/myaseen208/ppcspatialblog/">&laquo; <em>Previous<span class="show-for-sr"> page</span></em>: ppcSpatial: Spatial Analysis of Pakistan Population Census</a></li>
       
-      
-      <li class="arrow" aria-disabled="true"><a href="/myaseen208/2018-r-aari/"><em>Next<span class="show-for-sr"> page</span></em>: An introduction to R for Agricultural Research&nbsp;&raquo;</a></li>
       
     </ul>
     <a href="/myaseen208/">All myaseen208 posts by date</a>

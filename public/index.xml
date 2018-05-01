@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>An introduction to R for Agricultural Research</title>
+      <link>/myaseen208/2018-r-aari/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/2018-r-aari/</guid>
+      <description>Introduction R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from https://cran.r-project.org/bin/windows/base/.
+  Regression Analysis  Quantifying dependency of a normal response on quantitative explanatory variable(s)  Fert &amp;lt;- seq(from = 0.3, to = 2.4, by = 0.</description>
+    </item>
+    
+    <item>
       <title>ppcSpatial: Spatial Analysis of Pakistan Population Census</title>
       <link>/myaseen208/ppcspatialblog/</link>
       <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
@@ -471,7 +481,7 @@ eda4treeR : Experimental Design and Analysis for Tree Improvement [github]</desc
       
       <guid>/teaching/</guid>
       <description>Spring Semester 2017-2018 &amp;nbsp;
-Stat-705: Advanced Design of Experiments Learning Objectives
+Stat-705: Advanced Design of Experiments &amp;nbsp;&amp;nbsp;pdf Syllabus &amp;nbsp;  Learning Objectives
  To impart knowledge of advanced topics in the design of experiments To impart practical skills through problem solving using manual as well as computer skills. This course shall help to enhance both these skills in students through assignments which would be solved manually as well as through computers  &amp;nbsp;
 Contents
 Incomplete block designs, two dimensional lattices, rectangular lattices, balanced incomplete and partial balanced incomplete block designs, generalized lattice designs, alpha designs, Fractional replication, design resolution, blocking in fractional replication, First and second order response surface designs, Taguchi methods, Quasi, magic and super magic latin squares and weighting designs.</description>

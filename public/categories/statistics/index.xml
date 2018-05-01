@@ -5,10 +5,20 @@
     <link>/categories/statistics/</link>
     <description>Recent content in Statistics on Muhammad Yaseen</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 23 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An introduction to R for Agricultural Research</title>
+      <link>/myaseen208/2018-r-aari/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/2018-r-aari/</guid>
+      <description>Introduction R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from https://cran.r-project.org/bin/windows/base/.
+  Regression Analysis  Quantifying dependency of a normal response on quantitative explanatory variable(s)  Fert &amp;lt;- seq(from = 0.3, to = 2.4, by = 0.</description>
+    </item>
     
     <item>
       <title>VetResearchLMM v1.0.0 on CRAN</title>

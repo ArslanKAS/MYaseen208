@@ -8,6 +8,9 @@ title: "Teaching"
 
 ## Stat-705: Advanced Design of Experiments
 
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-01-23_Spring_2017-18_Stat-705_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-01-23_Spring_2017-18_Stat-705_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
 **Learning Objectives**
 
 * To impart knowledge of advanced topics in the design of experiments
@@ -35,6 +38,11 @@ magic latin squares and weighting designs. Latin square type crossover designs. 
 &nbsp;
 
 ## Stat-703: Design and Analysis of Experiments for Researchers
+
+
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2017-08-15_Winter_2017-18_Stat-703_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2017-08-15_Winter_2017-18_Stat-703_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
 
 **Learning Objectives**
 

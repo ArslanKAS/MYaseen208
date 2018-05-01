@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/myaseen208/2018-r-aari/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/myaseen208/ppcspatialblog/</loc>
     <lastmod>2018-04-28T00:00:00+00:00</lastmod>
   </url>
@@ -248,6 +253,12 @@
   </url>
   
   <url>
+    <loc>/categories/agriculture/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/amendments/</loc>
     <lastmod>2017-12-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -255,6 +266,7 @@
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -296,7 +308,7 @@
   
   <url>
     <loc>/myaseen208/</loc>
-    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -332,7 +344,7 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -344,7 +356,7 @@
   
   <url>
     <loc>/categories/research/</loc>
-    <lastmod>2018-04-20T22:13:31+00:00</lastmod>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -372,7 +384,7 @@
   
   <url>
     <loc>/categories/statistics/</loc>
-    <lastmod>2018-04-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

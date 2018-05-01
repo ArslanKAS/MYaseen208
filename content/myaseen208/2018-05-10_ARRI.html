@@ -1,0 +1,77 @@
+---
+date: 2018-05-01
+comments: false
+slug: 2018-R-AARI
+title: "An introduction to R for Agricultural Research"
+categories:
+- R
+- Statistics
+- Research
+- Agriculture
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>.</p>
+<p> </p>
+</div>
+<div id="regression-analysis" class="section level2">
+<h2>Regression Analysis</h2>
+<ul>
+<li>Quantifying dependency of a normal response on quantitative explanatory variable(s)</li>
+</ul>
+<pre class="r"><code>Fert  &lt;- seq(from = 0.3, to = 2.4, by = 0.3)
+Yield &lt;- c(10, 15, 30, 35, 25, 30, 50, 45)
+df1   &lt;- data.frame(Fert, Yield)
+df1</code></pre>
+<pre><code>  Fert Yield
+1  0.3    10
+2  0.6    15
+3  0.9    30
+4  1.2    35
+5  1.5    25
+6  1.8    30
+7  2.1    50
+8  2.4    45</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p1 &lt;- 
+    ggplot(data = df1, mapping = aes(x = Fert, y = Yield)) + 
+    geom_point() +
+    labs(x = &quot;Fertilizer&quot;, y = &quot;Yield&quot;) +
+    theme_bw()
+print(p1)</code></pre>
+<p><img src="/myaseen208/2018-05-10_ARRI_files/figure-html/p1-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm1 &lt;- lm(formula = Yield ~ Fert, data = df1)
+summary(fm1)</code></pre>
+<pre><code>
+Call:
+lm(formula = Yield ~ Fert, data = df1)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.441 -4.018 -2.441  7.351  7.798 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)    8.036      5.504   1.460   0.1946   
+Fert          16.270      3.633   4.478   0.0042 **
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 7.064 on 6 degrees of freedom
+Multiple R-squared:  0.7697,    Adjusted R-squared:  0.7313 
+F-statistic: 20.05 on 1 and 6 DF,  p-value: 0.004202</code></pre>
+<pre class="r"><code>fm1 &lt;- lm(formula = Yield ~ Fert, data = df1)
+anova(fm1)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Yield
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+Fert       1 1000.6  1000.6  20.052 0.004202 **
+Residuals  6  299.4    49.9                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
