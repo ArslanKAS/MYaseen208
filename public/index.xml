@@ -449,6 +449,16 @@ If you have questions about LaTeX, ask for help on stackoverflow.</description>
     </item>
     
     <item>
+      <title></title>
+      <link>/myaseen208/docs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/myaseen208/docs/</guid>
+      <description>Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model • bayesammi          bayesammi 0.1.0        Reference   Changelog       bayesammi Installation Use devtools to install the development version from Github:
+if(!require(&#34;devtools&#34;)) install.packages(&#34;devtools&#34;) devtools::install_github(&#39;MYaseen208/bayesammi&#39;, build_vignettes = TRUE)  License This package is free and open source software, licensed under GPL.</description>
+    </item>
+    
+    <item>
       <title>About me</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -468,10 +478,10 @@ Administrative responsibilities  Head of Department, Department of Mathematics &
       <guid>/software/</guid>
       <description>This page provides links to R &amp;amp; LaTeX packages I have (co)authored. The most recent versions of most packages are on github. Most R packages are also on CRAN.
 &amp;nbsp;
-R Packages/Software bayesammi : Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model [github]
-baystability : Bayesian Stability Analysis of Genotype by Environment Interaction (GEI) [github]
-DiallelAnalysisR : Diallel Analysis with R [github]
-eda4treeR : Experimental Design and Analysis for Tree Improvement [github]</description>
+R Packages/Software bayesammi : Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model [Website]
+baystability : Bayesian Stability Analysis of Genotype by Environment Interaction (GEI) [Website]
+DiallelAnalysisR : Diallel Analysis with R [Website]
+eda4treeR : Experimental Design and Analysis for Tree Improvement [Website]</description>
     </item>
     
     <item>
