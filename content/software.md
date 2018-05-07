@@ -50,7 +50,7 @@ This page provides links to R & LaTeX packages I have (co)authored. The most rec
 [**stability**](https://cran.r-project.org/web/packages/stability/index.html) :  *Stability Analysis of Genotype by Environment Interaction (GEI)* [[Website](https://myaseen208.github.io/stability)]
 
 
-[**StroupGLMM**](https://cran.r-project.org/web/packages/StroupGLMM/index.html) :  *R Codes and Datasets for Generalized Linear Mixed Models: Modern Concepts, Methods and Applications by Walter W. Stroup* [[github](https://github.com/myaseen208/StroupGLMM)]
+[**StroupGLMM**](https://cran.r-project.org/web/packages/StroupGLMM/index.html) :  *R Codes and Datasets for Generalized Linear Mixed Models: Modern Concepts, Methods and Applications by Walter W. Stroup* [[github](https://myaseen208.github.io/StroupGLMM)]
 
 
 [**VetResearchLMM**](https://cran.r-project.org/web/packages/VetResearchLMM/index.html) :  *Linear Mixed Models: An Introduction with Applications in Veterinary Research* [[Website](https://myaseen208.github.io/VetResearchLMM)]
