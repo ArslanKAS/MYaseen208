@@ -22,11 +22,11 @@
     <item>
       <title>An introduction to R for Agricultural Research</title>
       <link>/myaseen208/2018-r-aari/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/myaseen208/2018-r-aari/</guid>
-      <description>Introduction R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from https://cran.r-project.org/bin/windows/base/.
-  Regression Analysis  Quantifying dependency of a normal response on quantitative explanatory variable(s)  Fert &amp;lt;- seq(from = 0.3, to = 2.4, by = 0.</description>
+      <description>Introduction  R is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R is 3.5.0 which can be obtained from https://cran.r-project.org/bin/windows/base/.
+    R R-3.5.0 for Windows (32/64 bit)     RStudio RStudio     Manual An Introduction to R     Ref Card R Reference Card    Regression Analysis   Quantifying dependency of a normal response on quantitative explanatory variable(s)     Simple Linear Regression   Quantifying dependency of a normal response on a quantitative explanatory variable    Example   Fertilizer (Kg/acre) Production (Bushels/acre)    100 70  200 70  400 80  500 100    # Fertilizer (Kg/acre) # Production (Bushels/acre) Fertilizer &amp;lt;- c(100, 200, 400, 500) Production &amp;lt;- c( 70, 70, 80, 100) df1 &amp;lt;- data.</description>
     </item>
     
     <item>
@@ -449,23 +449,13 @@ If you have questions about LaTeX, ask for help on stackoverflow.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>/myaseen208/docs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/myaseen208/docs/</guid>
-      <description>Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model • bayesammi          bayesammi 0.1.0        Reference   Changelog       bayesammi Installation Use devtools to install the development version from Github:
-if(!require(&#34;devtools&#34;)) install.packages(&#34;devtools&#34;) devtools::install_github(&#39;MYaseen208/bayesammi&#39;, build_vignettes = TRUE)  License This package is free and open source software, licensed under GPL.</description>
-    </item>
-    
-    <item>
       <title>About me</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
       <description>Muhammad Yaseen, PhD (Statistics, UNL-USA), is Assistant Professor of Statistics in the Department of Mathematics &amp;amp; Statistics at University of Agriculture Faisalabad, Faisalabad 38000, Pakistan.
- &amp;nbsp;&amp;nbsp;pdf Curriculum Vitae &amp;nbsp;  Email myaseen208 on GitHub Google Scholar Twitter  Office: Department of Mathematics &amp;amp; Statistics, University of Agriculture Faisalabad, Faisalabad 38000, Pakistan.
+ &amp;nbsp;&amp;nbsp;CV Curriculum Vitae &amp;nbsp;  Email myaseen208 on GitHub Google Scholar Twitter  Office: Department of Mathematics &amp;amp; Statistics, University of Agriculture Faisalabad, Faisalabad 38000, Pakistan.
  &amp;nbsp;
 Administrative responsibilities  Head of Department, Department of Mathematics &amp;amp; Statistics, University of Agriculture Faisalabad , Faisalabad 38000, Pakistan.</description>
     </item>

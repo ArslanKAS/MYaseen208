@@ -1,0 +1,213 @@
+```{r, label = setup, include = FALSE, cache = FALSE}
+library(knitr)
+opts_chunk$set(
+              #  fig.path   = 'figure/'
+                cache.path = 'cache/'
+               , cache      = FALSE
+               , dev        = c("svg", "tikz", "pdf", "png")[1]
+               , fig.align  = 'center'
+              # , fig.show   = 'asis'
+              # , fig.width  = 6
+              # , fig.height = 6
+              # , out.width  = '0.9\\linewidth'
+               , par        = TRUE
+               , echo       = TRUE
+               , results    = 'markup'
+               , warning    = FALSE
+               , message    = FALSE
+               , comment    = NA
+               )
+options(
+          replace.assign = TRUE
+        , width          = 80
+        , knitr.kable.NA = ''
+        )
+
+knit_hooks$set(par = function(before, options, envir){
+if (before && options$fig.show!='none')
+ par(mar=c(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis =0.9, mgp = c(2, 0.7, 0), tcl = -0.3)
+}, crop = hook_pdfcrop)
+
+# Suppressing Error Messages in knitr
+muffleError <- function(x,options) {}
+knit_hooks$set(error=muffleError)
+```
+
+
+```{r label = ARRI, echo = FALSE}
+knitr::read_chunk("2018-05-09_ARRI.R")
+```
+
+---
+date: 2018-05-09
+comments: false
+slug: 2018-R-AARI
+title: "An introduction to R for Agricultural Research"
+categories:
+- R
+- Statistics
+- Research
+- Agriculture
+---
+
+
+## Introduction
+>**R** is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. **R** provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of **R** is 3.5.0 which can be obtained from [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/).
+
+&nbsp;
+
+
+<h4><a href="https://cran.r-project.org/bin/windows/base/" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;R</a> <a href="https://cran.r-project.org/bin/windows/base/">R-3.5.0 for Windows (32/64 bit)</a> &nbsp; </h4>
+
+&nbsp;
+
+<h4><a href="https://www.rstudio.com/products/rstudio/download/" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;RStudio</a> <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a> &nbsp; </h4>
+
+
+&nbsp;
+
+<h4><a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Manual</a> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">An Introduction to R</a> &nbsp; </h4>
+
+&nbsp;
+
+<h4><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Ref Card</a> <a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">R Reference Card</a> &nbsp; </h4>
+
+
+&nbsp;
+
+## Regression Analysis
+> * Quantifying dependency of a normal response on quantitative explanatory variable(s)
+
+&nbsp;
+
+## Simple Linear Regression
+> * Quantifying dependency of a normal response on a quantitative explanatory variable
+
+&nbsp;
+
+### Example
+
+  Fertilizer (Kg/acre)  | Production (Bushels/acre)
+  ------------| -------------
+       100    |  70
+       200    |  70
+       400    |  80
+       500    | 100
+  
+
+```{r, label = reg.df1}
+```
+
+```{r, label = reg.p1}
+```
+
+```{r, label = reg.fm1}
+```
+
+
+```{r, label = reg.fm1anova}
+```
+&nbsp;
+
+### Example
+
+  Fertilizer  | Yield
+  ------------| -------------
+       0.3    |  10
+       0.6    |  15
+       0.9    |  30
+       1.2    |  35
+       1.5    |  25
+       1.8    |  30
+       2.1    |  50
+       2.4    |  45  
+    
+
+```{r, label = reg.df2}
+```
+
+
+```{r, label = reg.p2}
+```
+
+```{r, label = reg.fm2}
+```
+
+
+```{r, label = reg.fm2anova}
+```
+
+&nbsp;
+
+## Multiple Linear Regression
+> * Quantifying dependency of a normal response on two or more quantitative explanatory variables
+
+&nbsp;
+
+### Example
+
+Fertilizer (Kg)  | Rainfall (mm) | Yield (Kg)
+  ------------| -------------| -------------
+       100    |  10   |  40
+       200    |  20   |  50
+       300    |  10   |  50
+       400    |  30   |  70
+       500    |  20   |  65
+       600    |  20   |  65
+       700    |  30   |  80
+
+```{r, label = reg.df3}
+```
+
+
+```{r, label = reg.p3}
+```
+
+```{r, label = reg.fm3}
+```
+
+
+```{r, label = reg.fm3anova}
+```
+
+
+```{r, label = reg.fm3sbeta}
+```
+
+
+&nbsp;
+
+## Polynomial Regression Analysis
+> * Quantifying non-linear dependency of a normal response on quantitative explanatory variable(s)
+
+### Example
+> An experiment was conducted to evaluate the effects of different
+levels of nitrogen. Three levels of nitrogen: 0, 10 and 20 grams per
+plot were used in the experiment. Each treatment was replicated
+twice and data is given below:
+  
+  Nitrogen    | Yield
+  ------------| -------------
+        0     |   5
+        0     |   7
+       10     |  15
+       10     |  17
+       20     |   9
+       20     |  11
+
+
+```{r, label = reg.df4}
+```
+
+
+```{r, label = reg.p4}
+```
+
+```{r, label = reg.fm4}
+```
+
+
+```{r, label = reg.fm4anova}
+```
+
+  
