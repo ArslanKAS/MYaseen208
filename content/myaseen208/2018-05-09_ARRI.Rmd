@@ -90,7 +90,7 @@ categories:
 &nbsp;
 
 ```{r label = PopRegFn, echo = FALSE, fig.cap = "Population Regression Function", out.width = '100%'}
-knitr::include_graphics("/Figures/PopRegFn.png")
+knitr::include_graphics("/img/PopRegFn.png")
 ```
 
 
@@ -267,6 +267,12 @@ twice and data is given below:
 different factor(s)
 
 &nbsp;
+
+```{r label = ANOVANormalMeans, echo = FALSE, fig.cap = "Analysis of Variance", out.width = '100%'}
+knitr::include_graphics("/img/ANOVANormalMeans.png")
+```
+
+&nbsp;
   
 
 ### Example
@@ -334,7 +340,12 @@ different factor(s)
 different factor(s)
 
 &nbsp;
+
+```{r label = ANCOVA, echo = FALSE, fig.cap = "Analysis of Covariance", out.width = '100%'}
+knitr::include_graphics("/img/ANCOVA.png")
+```
   
+&nbsp;
 
 ### Example
 
