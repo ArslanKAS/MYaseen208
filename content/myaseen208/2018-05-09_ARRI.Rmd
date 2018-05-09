@@ -89,6 +89,14 @@ categories:
 
 &nbsp;
 
+```{r label = PopRegFn, echo = FALSE, fig.cap = "Population Regression Function", out.width = '100%'}
+knitr::include_graphics("/Figures/PopRegFn.png")
+```
+
+
+&nbsp;
+
+
 ## Simple Linear Regression
 > * Quantifying dependency of a normal response on a quantitative explanatory variable
 
@@ -148,6 +156,39 @@ categories:
 
 &nbsp;
 
+### Example
+
+  Weekly Income (\$)  | Weekly Expenditures (\$)
+  ------------| -------------
+        80    |  70
+       100    |  65
+       120    |  90
+       140    |  95
+       160    | 110
+       180    | 115
+       200    | 120
+       220    | 140
+       240    | 155
+       260    | 150
+    
+
+```{r, label = reg.df3}
+```
+
+
+```{r, label = reg.p3}
+```
+
+```{r, label = reg.fm3}
+```
+
+
+```{r, label = reg.fm3anova}
+```
+
+&nbsp;
+
+
 ## Multiple Linear Regression
 > * Quantifying dependency of a normal response on two or more quantitative explanatory variables
 
@@ -165,22 +206,22 @@ Fertilizer (Kg)  | Rainfall (mm) | Yield (Kg)
        600    |  20   |  65
        700    |  30   |  80
 
-```{r, label = reg.df3}
+```{r, label = reg.df4}
 ```
 
 
-```{r, label = reg.p3}
+```{r, label = reg.p4}
 ```
 
-```{r, label = reg.fm3}
-```
-
-
-```{r, label = reg.fm3anova}
+```{r, label = reg.fm4}
 ```
 
 
-```{r, label = reg.fm3sbeta}
+```{r, label = reg.fm4anova}
+```
+
+
+```{r, label = reg.fm4sbeta}
 ```
 
 
@@ -205,18 +246,143 @@ twice and data is given below:
        20     |  11
 
 
-```{r, label = reg.df4}
+```{r, label = reg.df5}
 ```
 
 
-```{r, label = reg.p4}
+```{r, label = reg.p5}
 ```
 
-```{r, label = reg.fm4}
+```{r, label = reg.fm5}
 ```
 
 
-```{r, label = reg.fm4anova}
+```{r, label = reg.fm5anova}
 ```
 
+&nbsp;
   
+## Analysis of Variance (ANOVA)
+> * Comparing means of Normal dependent variable for levels of
+different factor(s)
+
+&nbsp;
+  
+
+### Example
+
+  Consumption | Gender
+  ------------| -------------
+       5      |  Male
+       6      |  Male
+       7      |  Male
+       15     |  Female
+       16     |  Female
+       17     |  Female
+       
+    
+
+```{r, label = anova.df6}
+```
+
+
+```{r, label = anova.p6}
+```
+
+```{r, label = anova.fm6}
+```
+
+
+```{r, label = anova.fm6anova}
+```
+
+
+### Example
+
+  Consumption | Education Group
+  ------------| -------------
+       5      |  NoEdu
+       7      |  NoEdu
+       15     |  SchoolEdu
+       17     |  SchoolEdu
+       17     |  CollegeEdu
+       19     |  CollegeEdu
+       
+    
+
+```{r, label = anova.df7}
+```
+
+
+```{r, label = anova.p7}
+```
+
+```{r, label = anova.fm7}
+```
+
+
+```{r, label = anova.fm7anova}
+```
+
+
+
+&nbsp;
+  
+## Analysis of Covariance (ANCOVA)
+> * Quantifying dependency of a normal response on quantitative explanatory variable(s)
+* Comparing means of Normal dependent variable for levels of
+different factor(s)
+
+&nbsp;
+  
+
+### Example
+
+  Consumption | Income | Gender
+  ------------| -------|-----------
+    51        |  80    | Male
+    52        |  80    | Male
+    53        |  90    | Male
+    54        |  90    | Male
+    56        | 100    | Male
+    57        | 100    | Male
+    55        |  80    | Female
+    56        |  80    | Female
+    58        |  90    | Female
+    59        |  90    | Female
+    62        | 100    | Female
+    63        | 100    | Female
+          
+
+&nbsp;
+
+### Same intercepts but different slopes    
+
+```{r, label = ancova.df8}
+```
+
+```{r, label = ancova.fm8}
+```
+
+
+```{r, label = ancova.fm8anova}
+```
+
+
+```{r, label = ancova.p8}
+```
+
+&nbsp;
+
+### Different intercepts and different slopes    
+
+```{r, label = ancova.fm9}
+```
+
+
+```{r, label = ancova.fm9anova}
+```
+
+
+```{r, label = ancova.p9}
+```

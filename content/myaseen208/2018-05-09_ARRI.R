@@ -50,54 +50,186 @@ summary(fm2)
 anova(fm2)
 
 ##----reg.df3----
+# Weekly Income ($) of a Family
+# Weekly Expenditures ($) of a Family
+Income       <- seq(from = 80, to = 260, by = 20)
+Expenditures <- c(70, 65, 90, 95, 110, 115, 120, 140, 155, 150)
+df3          <- data.frame(Income, Expenditures)
+df3
+
+##----reg.p3----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p3 <- 
+  ggplot(data = df3, mapping = aes(x = Income, y = Expenditures)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::dollar) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = "Weekly income, $", y = "Weekly consumption expenditures, $") +
+  theme_bw()
+print(p3)
+
+##----reg.fm3----
+fm3 <- lm(formula = Expenditures ~ Income, data = df3)
+summary(fm3)
+
+##----reg.fm3anova----
+anova(fm3)
+
+##----reg.df4----
 # Fertilizer (Kg)
 # Rainfall (mm)
 # Yield (Kg)
 Fertilizer <- seq(from = 100, to = 700, by = 100)
 Rainfall   <- c(10, 20, 10, 30, 20, 20, 30)
 Yield      <- c(40, 50, 50, 70, 65, 65, 80)
-df3        <- data.frame(Fertilizer, Rainfall, Yield)
-df3
-
-##----reg.p3----
-library(car)
-car::scatter3d(formula = Yield ~ Fertilizer + Rainfall, data = df3)
-
-##----reg.fm3----
-fm3 <- lm(formula = Yield ~ Fertilizer + Rainfall, data = df3)
-summary(fm3)
-
-##----reg.fm3anova----
-anova(fm3)
-
-##----reg.fm3sbeta----
-library(lm.beta)
-# if (!require("lm.beta")) install.packages("lm.beta")
-lm.beta(fm3)
-
-##----reg.df4----
-Nitrogen <- c(0, 0, 10, 10, 20, 20)
-Yield    <- c(5, 7, 15, 17,  9, 11)
-df4      <- data.frame(Nitrogen, Yield)
+df4        <- data.frame(Fertilizer, Rainfall, Yield)
 df4
 
-
 ##----reg.p4----
-library(ggplot2)
-# if (!require("ggplot2")) install.packages("ggplot2")
-p4 <- 
-  ggplot(data = df4, mapping = aes(x = Nitrogen, y = Yield)) + 
-  geom_point() +
-  labs(x = "Nitrogen", y = "Yield") +
-  theme_bw()
-print(p4)
-
+library(car)
+# if (!require("car")) install.packages("car")
+car::scatter3d(formula = Yield ~ Fertilizer + Rainfall, data = df4)
 
 ##----reg.fm4----
-fm4 <- lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df4)
-# fm4 <- lm(formula = Yield ~ poly(x = Nitrogen, degree = 2, raw = TRUE), data = df4)
+fm4 <- lm(formula = Yield ~ Fertilizer + Rainfall, data = df4)
 summary(fm4)
 
 ##----reg.fm4anova----
 anova(fm4)
 
+##----reg.fm4sbeta----
+library(lm.beta)
+# if (!require("lm.beta")) install.packages("lm.beta")
+lm.beta(fm4)
+
+##----reg.df5----
+Nitrogen <- c(0, 0, 10, 10, 20, 20)
+Yield    <- c(5, 7, 15, 17,  9, 11)
+df5      <- data.frame(Nitrogen, Yield)
+df5
+
+
+##----reg.p5----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p5 <- 
+  ggplot(data = df5, mapping = aes(x = Nitrogen, y = Yield)) + 
+  geom_point() +
+  labs(x = "Nitrogen", y = "Yield") +
+  theme_bw()
+print(p5)
+
+
+##----reg.fm5----
+fm5 <- lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df5)
+# fm5 <- lm(formula = Yield ~ poly(x = Nitrogen, degree = 2, raw = TRUE), data = df5)
+summary(fm5)
+
+##----reg.fm5anova----
+anova(fm5)
+
+
+##----anova.df6----
+Consumption <- c(5, 6, 7, 15, 16, 17)
+Gender      <- gl(n = 2, k = 3, length = 2*3, labels = c("Male", "Female"))
+df6         <- data.frame(Consumption, Gender)
+df6
+
+##----anova.p6----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p6 <- 
+  ggplot(data = df6, mapping = aes(x = Gender, y = Consumption)) + 
+  geom_point() +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = "Gender", y = "Weekly consumption expenditures, $") +
+  theme_bw()
+print(p6)
+
+##----anova.fm6----
+fm6 <- lm(formula = Consumption ~ Gender, data = df6)
+summary(fm6)
+
+##----anova.fm6anova----
+anova(fm6)
+
+
+
+##----anova.df7----
+Consumption <- c(5, 7, 15, 17, 17, 19)
+EduGroup    <- gl(n = 3, k = 2, length = 3*2,
+                  labels = c("NoEdu", "SchoolEdu", "CollegeEdu"))
+df7         <- data.frame(Consumption, EduGroup)
+df7
+
+##----anova.p7----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p7 <- 
+  ggplot(data = df7, mapping = aes(x = EduGroup, y = Consumption)) + 
+  geom_point() +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = "Education Group", y = "Weekly consumption expenditures, $") +
+  theme_bw()
+print(p7)
+
+##----anova.fm7----
+fm7 <- lm(formula = Consumption ~ EduGroup, data = df7)
+summary(fm7)
+
+##----anova.fm7anova----
+anova(fm7)
+
+
+##----ancova.df8----
+Consumption <- c(51, 52, 53, 54, 56, 57, 55, 56, 58, 59, 62, 63)
+Income      <- rep(x = c(80, 90, 100), each = 2)
+Gender      <- gl(n = 2, k = 6, length = 2*6,
+                  labels = c("Male", "Female"), ordered = FALSE)
+df8         <- data.frame(Consumption, Income, Gender)
+df8
+
+
+##----ancova.fm8----
+fm8 <- lm(formula = Consumption ~ Income + Gender, data = df8)
+summary(fm8)
+
+##----ancova.fm8anova----
+anova(fm8)
+
+
+##----ancova.p8----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p8 <- 
+  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  geom_point() +
+  geom_line(mapping = aes(y = predict(fm8))) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = "Gender", y = "Weekly consumption expenditures, $") +
+  theme_bw()
+print(p8)
+
+
+##----ancova.fm9----
+fm9 <- lm(formula = Consumption ~ Income * Gender, data = df8)
+summary(fm9)
+
+##----ancova.fm9anova----
+anova(fm9)
+
+
+##----ancova.p9----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p9 <- 
+  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  geom_point() +
+  geom_line(mapping = aes(y = predict(fm9))) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = "Gender", y = "Weekly consumption expenditures, $") +
+  theme_bw()
+print(p9)

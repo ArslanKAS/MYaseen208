@@ -51,6 +51,13 @@ categories:
 </ul>
 </blockquote>
 <p> </p>
+<div class="figure" style="text-align: center"><span id="fig:PopRegFn"></span>
+<img src="/Figures/PopRegFn.png" alt="Population Regression Function" width="100%" />
+<p class="caption">
+Figure 1: Population Regression Function
+</p>
+</div>
+<p> </p>
 </div>
 <div id="simple-linear-regression" class="section level2">
 <h2>Simple Linear Regression</h2>
@@ -236,6 +243,117 @@ Residuals  6  299.4    49.9
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p> </p>
 </div>
+<div id="example-2" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Weekly Income ($)</th>
+<th>Weekly Expenditures ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>80</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>65</td>
+</tr>
+<tr class="odd">
+<td>120</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>140</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td>160</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<td>180</td>
+<td>115</td>
+</tr>
+<tr class="odd">
+<td>200</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td>220</td>
+<td>140</td>
+</tr>
+<tr class="odd">
+<td>240</td>
+<td>155</td>
+</tr>
+<tr class="even">
+<td>260</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Weekly Income ($) of a Family
+# Weekly Expenditures ($) of a Family
+Income       &lt;- seq(from = 80, to = 260, by = 20)
+Expenditures &lt;- c(70, 65, 90, 95, 110, 115, 120, 140, 155, 150)
+df3          &lt;- data.frame(Income, Expenditures)
+df3</code></pre>
+<pre><code>   Income Expenditures
+1      80           70
+2     100           65
+3     120           90
+4     140           95
+5     160          110
+6     180          115
+7     200          120
+8     220          140
+9     240          155
+10    260          150</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p3 &lt;- 
+  ggplot(data = df3, mapping = aes(x = Income, y = Expenditures)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::dollar) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = &quot;Weekly income, $&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  theme_bw()
+print(p3)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/reg.p3-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm3 &lt;- lm(formula = Expenditures ~ Income, data = df3)
+summary(fm3)</code></pre>
+<pre><code>
+Call:
+lm(formula = Expenditures ~ Income, data = df3)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-10.364  -4.977   1.409   4.364   8.364 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 24.45455    6.41382   3.813  0.00514 ** 
+Income       0.50909    0.03574  14.243 5.75e-07 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.493 on 8 degrees of freedom
+Multiple R-squared:  0.9621,    Adjusted R-squared:  0.9573 
+F-statistic: 202.9 on 1 and 8 DF,  p-value: 5.753e-07</code></pre>
+<pre class="r"><code>anova(fm3)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Expenditures
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+Income     1 8552.7  8552.7  202.87 5.753e-07 ***
+Residuals  8  337.3    42.2                      
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p> </p>
+</div>
 </div>
 <div id="multiple-linear-regression" class="section level2">
 <h2>Multiple Linear Regression</h2>
@@ -245,7 +363,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </ul>
 </blockquote>
 <p> </p>
-<div id="example-2" class="section level3">
+<div id="example-3" class="section level3">
 <h3>Example</h3>
 <table>
 <thead>
@@ -299,8 +417,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Fertilizer &lt;- seq(from = 100, to = 700, by = 100)
 Rainfall   &lt;- c(10, 20, 10, 30, 20, 20, 30)
 Yield      &lt;- c(40, 50, 50, 70, 65, 65, 80)
-df3        &lt;- data.frame(Fertilizer, Rainfall, Yield)
-df3</code></pre>
+df4        &lt;- data.frame(Fertilizer, Rainfall, Yield)
+df4</code></pre>
 <pre><code>  Fertilizer Rainfall Yield
 1        100       10    40
 2        200       20    50
@@ -310,12 +428,13 @@ df3</code></pre>
 6        600       20    65
 7        700       30    80</code></pre>
 <pre class="r"><code>library(car)
-car::scatter3d(formula = Yield ~ Fertilizer + Rainfall, data = df3)</code></pre>
-<pre class="r"><code>fm3 &lt;- lm(formula = Yield ~ Fertilizer + Rainfall, data = df3)
-summary(fm3)</code></pre>
+# if (!require(&quot;car&quot;)) install.packages(&quot;car&quot;)
+car::scatter3d(formula = Yield ~ Fertilizer + Rainfall, data = df4)</code></pre>
+<pre class="r"><code>fm4 &lt;- lm(formula = Yield ~ Fertilizer + Rainfall, data = df4)
+summary(fm4)</code></pre>
 <pre><code>
 Call:
-lm(formula = Yield ~ Fertilizer + Rainfall, data = df3)
+lm(formula = Yield ~ Fertilizer + Rainfall, data = df4)
 
 Residuals:
       1       2       3       4       5       6       7 
@@ -332,7 +451,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 2.315 on 4 degrees of freedom
 Multiple R-squared:  0.9814,    Adjusted R-squared:  0.972 
 F-statistic: 105.3 on 2 and 4 DF,  p-value: 0.0003472</code></pre>
-<pre class="r"><code>anova(fm3)</code></pre>
+<pre class="r"><code>anova(fm4)</code></pre>
 <pre><code>Analysis of Variance Table
 
 Response: Yield
@@ -344,10 +463,10 @@ Residuals   4  21.43    5.36
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>library(lm.beta)
 # if (!require(&quot;lm.beta&quot;)) install.packages(&quot;lm.beta&quot;)
-lm.beta(fm3)</code></pre>
+lm.beta(fm4)</code></pre>
 <pre><code>
 Call:
-lm(formula = Yield ~ Fertilizer + Rainfall, data = df3)
+lm(formula = Yield ~ Fertilizer + Rainfall, data = df4)
 
 Standardized Coefficients::
 (Intercept)  Fertilizer    Rainfall 
@@ -362,7 +481,7 @@ Standardized Coefficients::
 <li>Quantifying non-linear dependency of a normal response on quantitative explanatory variable(s)</li>
 </ul>
 </blockquote>
-<div id="example-3" class="section level3">
+<div id="example-4" class="section level3">
 <h3>Example</h3>
 <blockquote>
 <p>An experiment was conducted to evaluate the effects of different
@@ -406,8 +525,8 @@ twice and data is given below:</p>
 </table>
 <pre class="r"><code>Nitrogen &lt;- c(0, 0, 10, 10, 20, 20)
 Yield    &lt;- c(5, 7, 15, 17,  9, 11)
-df4      &lt;- data.frame(Nitrogen, Yield)
-df4</code></pre>
+df5      &lt;- data.frame(Nitrogen, Yield)
+df5</code></pre>
 <pre><code>  Nitrogen Yield
 1        0     5
 2        0     7
@@ -417,19 +536,19 @@ df4</code></pre>
 6       20    11</code></pre>
 <pre class="r"><code>library(ggplot2)
 # if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
-p4 &lt;- 
-  ggplot(data = df4, mapping = aes(x = Nitrogen, y = Yield)) + 
+p5 &lt;- 
+  ggplot(data = df5, mapping = aes(x = Nitrogen, y = Yield)) + 
   geom_point() +
   labs(x = &quot;Nitrogen&quot;, y = &quot;Yield&quot;) +
   theme_bw()
-print(p4)</code></pre>
-<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/reg.p4-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>fm4 &lt;- lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df4)
-# fm4 &lt;- lm(formula = Yield ~ poly(x = Nitrogen, degree = 2, raw = TRUE), data = df4)
-summary(fm4)</code></pre>
+print(p5)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/reg.p5-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm5 &lt;- lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df5)
+# fm5 &lt;- lm(formula = Yield ~ poly(x = Nitrogen, degree = 2, raw = TRUE), data = df5)
+summary(fm5)</code></pre>
 <pre><code>
 Call:
-lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df4)
+lm(formula = Yield ~ Nitrogen + I(Nitrogen^2), data = df5)
 
 Residuals:
  1  2  3  4  5  6 
@@ -446,7 +565,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 1.414 on 3 degrees of freedom
 Multiple R-squared:  0.9441,    Adjusted R-squared:  0.9068 
 F-statistic: 25.33 on 2 and 3 DF,  p-value: 0.01322</code></pre>
-<pre class="r"><code>anova(fm4)</code></pre>
+<pre class="r"><code>anova(fm5)</code></pre>
 <pre><code>Analysis of Variance Table
 
 Response: Yield
@@ -456,5 +575,393 @@ I(Nitrogen^2)  1 85.333  85.333  42.667 0.007292 **
 Residuals      3  6.000   2.000                    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="analysis-of-variance-anova" class="section level2">
+<h2>Analysis of Variance (ANOVA)</h2>
+<blockquote>
+<ul>
+<li>Comparing means of Normal dependent variable for levels of
+different factor(s)</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-5" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Consumption</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>Consumption &lt;- c(5, 6, 7, 15, 16, 17)
+Gender      &lt;- gl(n = 2, k = 3, length = 2*3, labels = c(&quot;Male&quot;, &quot;Female&quot;))
+df6         &lt;- data.frame(Consumption, Gender)
+df6</code></pre>
+<pre><code>  Consumption Gender
+1           5   Male
+2           6   Male
+3           7   Male
+4          15 Female
+5          16 Female
+6          17 Female</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p6 &lt;- 
+  ggplot(data = df6, mapping = aes(x = Gender, y = Consumption)) + 
+  geom_point() +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  theme_bw()
+print(p6)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/anova.p6-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm6 &lt;- lm(formula = Consumption ~ Gender, data = df6)
+summary(fm6)</code></pre>
+<pre><code>
+Call:
+lm(formula = Consumption ~ Gender, data = df6)
+
+Residuals:
+         1          2          3          4          5          6 
+-1.000e+00 -4.774e-15  1.000e+00 -1.000e+00 -1.110e-16  1.000e+00 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    6.0000     0.5774   10.39 0.000484 ***
+GenderFemale  10.0000     0.8165   12.25 0.000255 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1 on 4 degrees of freedom
+Multiple R-squared:  0.974, Adjusted R-squared:  0.9675 
+F-statistic:   150 on 1 and 4 DF,  p-value: 0.0002552</code></pre>
+<pre class="r"><code>anova(fm6)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Consumption
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+Gender     1    150     150     150 0.0002552 ***
+Residuals  4      4       1                      
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="example-6" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Consumption</th>
+<th>Education Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>NoEdu</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>NoEdu</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>SchoolEdu</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>SchoolEdu</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>CollegeEdu</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>CollegeEdu</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>Consumption &lt;- c(5, 7, 15, 17, 17, 19)
+EduGroup    &lt;- gl(n = 3, k = 2, length = 3*2,
+                  labels = c(&quot;NoEdu&quot;, &quot;SchoolEdu&quot;, &quot;CollegeEdu&quot;))
+df7         &lt;- data.frame(Consumption, EduGroup)
+df7</code></pre>
+<pre><code>  Consumption   EduGroup
+1           5      NoEdu
+2           7      NoEdu
+3          15  SchoolEdu
+4          17  SchoolEdu
+5          17 CollegeEdu
+6          19 CollegeEdu</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p7 &lt;- 
+  ggplot(data = df7, mapping = aes(x = EduGroup, y = Consumption)) + 
+  geom_point() +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = &quot;Education Group&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  theme_bw()
+print(p7)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/anova.p7-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm7 &lt;- lm(formula = Consumption ~ EduGroup, data = df7)
+summary(fm7)</code></pre>
+<pre><code>
+Call:
+lm(formula = Consumption ~ EduGroup, data = df7)
+
+Residuals:
+ 1  2  3  4  5  6 
+-1  1 -1  1 -1  1 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)           6.000      1.000   6.000  0.00927 **
+EduGroupSchoolEdu    10.000      1.414   7.071  0.00582 **
+EduGroupCollegeEdu   12.000      1.414   8.485  0.00344 **
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.414 on 3 degrees of freedom
+Multiple R-squared:  0.965, Adjusted R-squared:  0.9416 
+F-statistic: 41.33 on 2 and 3 DF,  p-value: 0.006553</code></pre>
+<pre class="r"><code>anova(fm7)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Consumption
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+EduGroup   2 165.33  82.667  41.333 0.006553 **
+Residuals  3   6.00   2.000                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="analysis-of-covariance-ancova" class="section level2">
+<h2>Analysis of Covariance (ANCOVA)</h2>
+<blockquote>
+<ul>
+<li>Quantifying dependency of a normal response on quantitative explanatory variable(s)</li>
+<li>Comparing means of Normal dependent variable for levels of
+different factor(s)</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-7" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Consumption</th>
+<th>Income</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>51</td>
+<td>80</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>52</td>
+<td>80</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>53</td>
+<td>90</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>54</td>
+<td>90</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>56</td>
+<td>100</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>57</td>
+<td>100</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td>80</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>56</td>
+<td>80</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>90</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>59</td>
+<td>90</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>100</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>100</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+</div>
+<div id="same-intercepts-but-different-slopes" class="section level3">
+<h3>Same intercepts but different slopes</h3>
+<pre class="r"><code>Consumption &lt;- c(51, 52, 53, 54, 56, 57, 55, 56, 58, 59, 62, 63)
+Income      &lt;- rep(x = c(80, 90, 100), each = 2)
+Gender      &lt;- gl(n = 2, k = 6, length = 2*6,
+                  labels = c(&quot;Male&quot;, &quot;Female&quot;), ordered = FALSE)
+df8         &lt;- data.frame(Consumption, Income, Gender)
+df8</code></pre>
+<pre><code>   Consumption Income Gender
+1           51     80   Male
+2           52     80   Male
+3           53     90   Male
+4           54     90   Male
+5           56    100   Male
+6           57    100   Male
+7           55     80 Female
+8           56     80 Female
+9           58     90 Female
+10          59     90 Female
+11          62    100 Female
+12          63    100 Female</code></pre>
+<pre class="r"><code>fm8 &lt;- lm(formula = Consumption ~ Income + Gender, data = df8)
+summary(fm8)</code></pre>
+<pre><code>
+Call:
+lm(formula = Consumption ~ Income + Gender, data = df8)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.8333 -0.8333  0.1667  0.1667  1.1667 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  26.83333    2.54557   10.54 2.30e-06 ***
+Income        0.30000    0.02805   10.69 2.04e-06 ***
+GenderFemale  5.00000    0.45812   10.91 1.72e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.7935 on 9 degrees of freedom
+Multiple R-squared:  0.9629,    Adjusted R-squared:  0.9546 
+F-statistic: 116.7 on 2 and 9 DF,  p-value: 3.657e-07</code></pre>
+<pre class="r"><code>anova(fm8)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Consumption
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+Income     1 72.000   72.00  114.35 2.042e-06 ***
+Gender     1 75.000   75.00  119.12 1.720e-06 ***
+Residuals  9  5.667    0.63                      
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p8 &lt;- 
+  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  geom_point() +
+  geom_line(mapping = aes(y = predict(fm8))) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  theme_bw()
+print(p8)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/ancova.p8-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+<div id="different-intercepts-and-different-slopes" class="section level3">
+<h3>Different intercepts and different slopes</h3>
+<pre class="r"><code>fm9 &lt;- lm(formula = Consumption ~ Income * Gender, data = df8)
+summary(fm9)</code></pre>
+<pre><code>
+Call:
+lm(formula = Consumption ~ Income * Gender, data = df8)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.83333 -0.33333 -0.08333  0.66667  0.66667 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         31.33333    3.05903  10.243 7.09e-06 ***
+Income               0.25000    0.03385   7.385 7.73e-05 ***
+GenderFemale        -4.00000    4.32612  -0.925   0.3822    
+Income:GenderFemale  0.10000    0.04787   2.089   0.0701 .  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.677 on 8 degrees of freedom
+Multiple R-squared:  0.976, Adjusted R-squared:  0.967 
+F-statistic: 108.4 on 3 and 8 DF,  p-value: 8.11e-07</code></pre>
+<pre class="r"><code>anova(fm9)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Consumption
+              Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+Income         1 72.000  72.000 157.0909 1.538e-06 ***
+Gender         1 75.000  75.000 163.6364 1.315e-06 ***
+Income:Gender  1  2.000   2.000   4.3636   0.07013 .  
+Residuals      8  3.667   0.458                       
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p9 &lt;- 
+  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  geom_point() +
+  geom_line(mapping = aes(y = predict(fm9))) +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  theme_bw()
+print(p9)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/ancova.p9-1.svg" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
