@@ -75,6 +75,15 @@ categories:
 
 &nbsp;
 
+<h4><a href="https://github.com/myaseen208/R-Workshop/raw/master/2009NewYorkTimes.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;New York Times</a> <a href="https://github.com/myaseen208/R-Workshop/raw/master/2009NewYorkTimes.pdf">New York Times</a> &nbsp; </h4>
+
+&nbsp;
+
+<h4><a href="https://github.com/myaseen208/R-Workshop/raw/master/2015NatureArticle.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Nature Article</a> <a href="https://github.com/myaseen208/R-Workshop/raw/master/2015NatureArticle.pdf">Nature Article</a> &nbsp; </h4>
+
+&nbsp;
+
+
 ## Regression Analysis
 > * Quantifying dependency of a normal response on quantitative explanatory variable(s)
 
