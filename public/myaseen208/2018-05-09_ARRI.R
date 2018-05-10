@@ -233,3 +233,44 @@ p9 <-
   labs(x = "Gender", y = "Weekly consumption expenditures, $") +
   theme_bw()
 print(p9)
+
+
+##----corr.df10----
+WingLength  <- c(10.4, 10.8, 11.1, 10.2, 10.3, 10.2, 10.7, 10.5, 10.8, 11.2, 10.6, 11.4)
+TailLength  <- c(7.4, 7.6, 7.9, 7.2, 7.4, 7.1, 7.4, 7.2, 7.8, 7.7, 7.8, 8.3)
+df10        <- data.frame(WingLength, TailLength)
+df10
+
+##----corr.p10----
+library(ggplot2)
+# if (!require("ggplot2")) install.packages("ggplot2")
+p10 <- 
+  ggplot(data = df10, mapping = aes(x= WingLength, y = TailLength)) + 
+  geom_point() +
+  labs(x = "Sparrow Wing Length (cm)", y = "Sparrow Tail Length (cm)") +
+  theme_bw()
+print(p10)
+
+##----corr.fm10----
+cor(df10$WingLength, df10$TailLength)
+cor.test(df10$WingLength, df10$TailLength)
+
+
+##----corr.df11----
+LeafArea    <- c(72, 174, 116, 78, 134, 95, 113, 98, 148, 42)
+LeafMoist   <- c(75, 81, 83, 79, 81, 80, 81, 74, 78, 58)
+TotShLength <- c(307, 529, 632, 527, 442, 525, 481, 710, 422, 345)
+df11        <- data.frame(LeafArea, LeafMoist, TotShLength)
+df11
+
+
+##----corr.fm11----
+library(ppcor)
+# if (!require("ppcor")) install.packages("ppcor")
+pcor(df11)
+
+
+
+##----corr.fm12----
+fm12 <- lm(formula = TotShLength ~ LeafArea + LeafMoist, data = df11)
+sqrt(summary(fm12)$r.squared)

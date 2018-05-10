@@ -1071,9 +1071,327 @@ print(p9)</code></pre>
 <p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/ancova.p9-1.svg" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
+<div id="correlation-analysis" class="section level2">
+<h2>Correlation Analysis</h2>
+<blockquote>
+<ul>
+<li>Linear Relationship between Quantitative Variables</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="simple-correlation-analysis" class="section level2">
+<h2>Simple Correlation Analysis</h2>
+<blockquote>
+<ul>
+<li>Linear Relationship between Two Quantitative Variables</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-8" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Sparrow Wing length (cm)</th>
+<th>Sparrow Tail length (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10.4</td>
+<td>7.4</td>
+</tr>
+<tr class="even">
+<td>10.8</td>
+<td>7.6</td>
+</tr>
+<tr class="odd">
+<td>11.1</td>
+<td>7.9</td>
+</tr>
+<tr class="even">
+<td>10.2</td>
+<td>7.2</td>
+</tr>
+<tr class="odd">
+<td>10.3</td>
+<td>7.4</td>
+</tr>
+<tr class="even">
+<td>10.2</td>
+<td>7.1</td>
+</tr>
+<tr class="odd">
+<td>10.7</td>
+<td>7.4</td>
+</tr>
+<tr class="even">
+<td>10.5</td>
+<td>7.2</td>
+</tr>
+<tr class="odd">
+<td>10.8</td>
+<td>7.8</td>
+</tr>
+<tr class="even">
+<td>11.2</td>
+<td>7.7</td>
+</tr>
+<tr class="odd">
+<td>10.6</td>
+<td>7.8</td>
+</tr>
+<tr class="even">
+<td>11.4</td>
+<td>8.3</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>WingLength  &lt;- c(10.4, 10.8, 11.1, 10.2, 10.3, 10.2, 10.7, 10.5, 10.8, 11.2, 10.6, 11.4)
+TailLength  &lt;- c(7.4, 7.6, 7.9, 7.2, 7.4, 7.1, 7.4, 7.2, 7.8, 7.7, 7.8, 8.3)
+df10        &lt;- data.frame(WingLength, TailLength)
+df10</code></pre>
+<pre><code>   WingLength TailLength
+1        10.4        7.4
+2        10.8        7.6
+3        11.1        7.9
+4        10.2        7.2
+5        10.3        7.4
+6        10.2        7.1
+7        10.7        7.4
+8        10.5        7.2
+9        10.8        7.8
+10       11.2        7.7
+11       10.6        7.8
+12       11.4        8.3</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p10 &lt;- 
+  ggplot(data = df10, mapping = aes(x= WingLength, y = TailLength)) + 
+  geom_point() +
+  labs(x = &quot;Sparrow Wing Length (cm)&quot;, y = &quot;Sparrow Tail Length (cm)&quot;) +
+  theme_bw()
+print(p10)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/corr.p10-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cor(df10$WingLength, df10$TailLength)</code></pre>
+<pre><code>[1] 0.8703546</code></pre>
+<pre class="r"><code>cor.test(df10$WingLength, df10$TailLength)</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  df10$WingLength and df10$TailLength
+t = 5.5893, df = 10, p-value = 0.0002311
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.5923111 0.9631599
+sample estimates:
+      cor 
+0.8703546 </code></pre>
+<p> </p>
+</div>
+</div>
+<div id="partial-correlation-analysis" class="section level2">
+<h2>Partial Correlation Analysis</h2>
+<blockquote>
+<ul>
+<li>Linear Relationship between Quantitative Variables while holding/keeping all other constants</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-9" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Leaf Area (cm^2)</th>
+<th>Leaf Moisture (%)</th>
+<th>Total Shoot Length (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>72</td>
+<td>80</td>
+<td>307</td>
+</tr>
+<tr class="even">
+<td>174</td>
+<td>75</td>
+<td>529</td>
+</tr>
+<tr class="odd">
+<td>116</td>
+<td>81</td>
+<td>632</td>
+</tr>
+<tr class="even">
+<td>78</td>
+<td>83</td>
+<td>527</td>
+</tr>
+<tr class="odd">
+<td>134</td>
+<td>79</td>
+<td>442</td>
+</tr>
+<tr class="even">
+<td>95</td>
+<td>81</td>
+<td>525</td>
+</tr>
+<tr class="odd">
+<td>113</td>
+<td>80</td>
+<td>481</td>
+</tr>
+<tr class="even">
+<td>98</td>
+<td>81</td>
+<td>710</td>
+</tr>
+<tr class="odd">
+<td>148</td>
+<td>74</td>
+<td>422</td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>78</td>
+<td>345</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>LeafArea    &lt;- c(72, 174, 116, 78, 134, 95, 113, 98, 148, 42)
+LeafMoist   &lt;- c(75, 81, 83, 79, 81, 80, 81, 74, 78, 58)
+TotShLength &lt;- c(307, 529, 632, 527, 442, 525, 481, 710, 422, 345)
+df11        &lt;- data.frame(LeafArea, LeafMoist, TotShLength)
+df11</code></pre>
+<pre><code>   LeafArea LeafMoist TotShLength
+1        72        75         307
+2       174        81         529
+3       116        83         632
+4        78        79         527
+5       134        81         442
+6        95        80         525
+7       113        81         481
+8        98        74         710
+9       148        78         422
+10       42        58         345</code></pre>
+<pre class="r"><code>library(ppcor)
+# if (!require(&quot;ppcor&quot;)) install.packages(&quot;ppcor&quot;)
+pcor(df11)</code></pre>
+<pre><code>$estimate
+                LeafArea LeafMoist  TotShLength
+LeafArea     1.000000000 0.6509096 -0.007012236
+LeafMoist    0.650909618 1.0000000  0.324334659
+TotShLength -0.007012236 0.3243347  1.000000000
+
+$p.value
+              LeafArea  LeafMoist TotShLength
+LeafArea    0.00000000 0.05760462   0.9857154
+LeafMoist   0.05760462 0.00000000   0.3944839
+TotShLength 0.98571537 0.39448385   0.0000000
+
+$statistic
+               LeafArea LeafMoist TotShLength
+LeafArea     0.00000000  2.268502 -0.01855309
+LeafMoist    2.26850175  0.000000  0.90714704
+TotShLength -0.01855309  0.907147  0.00000000
+
+$n
+[1] 10
+
+$gp
+[1] 1
+
+$method
+[1] &quot;pearson&quot;</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="multiple-correlation-analysis" class="section level2">
+<h2>Multiple Correlation Analysis</h2>
+<blockquote>
+<ul>
+<li>Linear Relationship between a Quantitative Variable and set of other Quantitative Variables</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-10" class="section level3">
+<h3>Example</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Leaf Area (cm^2)</th>
+<th>Leaf Moisture (%)</th>
+<th>Total Shoot Length (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>72</td>
+<td>80</td>
+<td>307</td>
+</tr>
+<tr class="even">
+<td>174</td>
+<td>75</td>
+<td>529</td>
+</tr>
+<tr class="odd">
+<td>116</td>
+<td>81</td>
+<td>632</td>
+</tr>
+<tr class="even">
+<td>78</td>
+<td>83</td>
+<td>527</td>
+</tr>
+<tr class="odd">
+<td>134</td>
+<td>79</td>
+<td>442</td>
+</tr>
+<tr class="even">
+<td>95</td>
+<td>81</td>
+<td>525</td>
+</tr>
+<tr class="odd">
+<td>113</td>
+<td>80</td>
+<td>481</td>
+</tr>
+<tr class="even">
+<td>98</td>
+<td>81</td>
+<td>710</td>
+</tr>
+<tr class="odd">
+<td>148</td>
+<td>74</td>
+<td>422</td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>78</td>
+<td>345</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>fm12 &lt;- lm(formula = TotShLength ~ LeafArea + LeafMoist, data = df11)
+sqrt(summary(fm12)$r.squared)</code></pre>
+<pre><code>[1] 0.421277</code></pre>
+</div>
+</div>
 
 
-      <meta itemprop="wordCount" content="2506">
+      <meta itemprop="wordCount" content="2975">
       <meta itemprop="datePublished" content="2018-05-09">
       <meta itemprop="url" content="/myaseen208/2018-r-aari/">
 

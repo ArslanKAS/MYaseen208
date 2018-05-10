@@ -397,3 +397,114 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 ```{r, label = ancova.p9}
 ```
+
+
+## Correlation Analysis
+> * Linear Relationship between Quantitative Variables
+
+&nbsp;
+
+
+## Simple Correlation Analysis
+> * Linear Relationship between Two Quantitative Variables
+
+  
+&nbsp;
+
+
+### Example
+
+  Sparrow Wing length (cm) | Sparrow Tail length (cm)
+  --------------------|------------------------------
+        10.4          |         7.4
+        10.8          |         7.6
+        11.1          |         7.9
+        10.2          |         7.2
+        10.3          |         7.4
+        10.2          |         7.1
+        10.7          |         7.4
+        10.5          |         7.2
+        10.8          |         7.8
+        11.2          |         7.7
+        10.6          |         7.8
+        11.4          |         8.3
+
+
+
+&nbsp;
+
+```{r, label = corr.df10}
+```
+
+
+```{r, label = corr.p10}
+```
+
+
+```{r, label = corr.fm10}
+```
+
+&nbsp;
+
+## Partial Correlation Analysis
+> *  Linear Relationship between Quantitative Variables while holding/keeping all other constants
+  
+&nbsp;
+
+### Example
+
+  Leaf Area (cm^2) | Leaf Moisture (%) | Total Shoot Length (cm)
+  -----------------|-------------------|------------------------
+    72             |  80               | 307  
+    174            |  75               | 529 
+    116            |  81               | 632
+    78             |  83               | 527 
+    134            |  79               | 442 
+    95             |  81               | 525 
+    113            |  80               | 481
+    98             |  81               | 710 
+    148            |  74               | 422
+    42             |  78               | 345
+    
+
+&nbsp;
+
+```{r, label = corr.df11}
+```
+
+
+
+```{r, label = corr.fm11}
+```
+
+&nbsp;
+
+
+
+## Multiple Correlation Analysis
+> * Linear Relationship between a Quantitative Variable and set of other Quantitative Variables
+  
+
+&nbsp;
+
+### Example
+
+  Leaf Area (cm^2) | Leaf Moisture (%) | Total Shoot Length (cm)
+  -----------------|-------------------|------------------------
+    72             |  80               | 307  
+    174            |  75               | 529 
+    116            |  81               | 632
+    78             |  83               | 527 
+    134            |  79               | 442 
+    95             |  81               | 525 
+    113            |  80               | 481
+    98             |  81               | 710 
+    148            |  74               | 422
+    42             |  78               | 345
+    
+
+&nbsp;
+
+
+```{r, label = corr.fm12}
+```
