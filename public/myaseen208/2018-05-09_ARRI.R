@@ -204,7 +204,6 @@ p8 <-
   ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm8))) +
-  scale_y_continuous(labels = scales::dollar) +
   labs(x = "Fert", y = "Yield") +
   theme_bw()
 print(p8)
@@ -225,7 +224,6 @@ p9 <-
   ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm9))) +
-  scale_y_continuous(labels = scales::dollar) +
   labs(x = "Fert", y = "Yield") +
   theme_bw()
 print(p9)

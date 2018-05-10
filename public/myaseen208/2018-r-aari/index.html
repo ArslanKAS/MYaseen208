@@ -1013,7 +1013,6 @@ p8 &lt;-
   ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm8))) +
-  scale_y_continuous(labels = scales::dollar) +
   labs(x = &quot;Fert&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p8)</code></pre>
@@ -1061,7 +1060,6 @@ p9 &lt;-
   ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm9))) +
-  scale_y_continuous(labels = scales::dollar) +
   labs(x = &quot;Fert&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p9)</code></pre>
@@ -1714,7 +1712,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 
 
-      <meta itemprop="wordCount" content="4407">
+      <meta itemprop="wordCount" content="4399">
       <meta itemprop="datePublished" content="2018-05-09">
       <meta itemprop="url" content="/myaseen208/2018-r-aari/">
 
