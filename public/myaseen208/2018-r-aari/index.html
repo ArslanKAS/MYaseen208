@@ -691,73 +691,72 @@ Figure 2: Analysis of Variance
 <table>
 <thead>
 <tr class="header">
-<th>Consumption</th>
-<th>Gender</th>
+<th>Yield</th>
+<th>Variety</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>5</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>15</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="odd">
 <td>16</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="even">
 <td>17</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>Consumption &lt;- c(5, 6, 7, 15, 16, 17)
-Gender      &lt;- gl(n = 2, k = 3, length = 2*3, labels = c(&quot;Male&quot;, &quot;Female&quot;))
-df6         &lt;- data.frame(Consumption, Gender)
+<pre class="r"><code>Yield   &lt;- c(5, 6, 7, 15, 16, 17)
+Variety &lt;- gl(n = 2, k = 3, length = 2*3, labels = c(&quot;V1&quot;, &quot;V2&quot;))
+df6     &lt;- data.frame(Yield, Variety)
 df6</code></pre>
-<pre><code>  Consumption Gender
-1           5   Male
-2           6   Male
-3           7   Male
-4          15 Female
-5          16 Female
-6          17 Female</code></pre>
+<pre><code>  Yield Variety
+1     5      V1
+2     6      V1
+3     7      V1
+4    15      V2
+5    16      V2
+6    17      V2</code></pre>
 <pre class="r"><code>library(ggplot2)
 # if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
 p6 &lt;- 
-  ggplot(data = df6, mapping = aes(x = Gender, y = Consumption)) + 
+  ggplot(data = df6, mapping = aes(x = Variety, y = Yield)) + 
   geom_point() +
   geom_boxplot() +
-  scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  labs(x = &quot;Variety&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p6)</code></pre>
 <p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/anova.p6-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>fm6 &lt;- lm(formula = Consumption ~ Gender, data = df6)
+<pre class="r"><code>fm6 &lt;- lm(formula = Yield ~ Variety, data = df6)
 summary(fm6)</code></pre>
 <pre><code>
 Call:
-lm(formula = Consumption ~ Gender, data = df6)
+lm(formula = Yield ~ Variety, data = df6)
 
 Residuals:
          1          2          3          4          5          6 
 -1.000e+00 -4.774e-15  1.000e+00 -1.000e+00 -1.110e-16  1.000e+00 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    6.0000     0.5774   10.39 0.000484 ***
-GenderFemale  10.0000     0.8165   12.25 0.000255 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   6.0000     0.5774   10.39 0.000484 ***
+VarietyV2    10.0000     0.8165   12.25 0.000255 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -767,87 +766,86 @@ F-statistic:   150 on 1 and 4 DF,  p-value: 0.0002552</code></pre>
 <pre class="r"><code>anova(fm6)</code></pre>
 <pre><code>Analysis of Variance Table
 
-Response: Consumption
+Response: Yield
           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-Gender     1    150     150     150 0.0002552 ***
+Variety    1    150     150     150 0.0002552 ***
 Residuals  4      4       1                      
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p> </p>
 </div>
 <div id="example-6" class="section level3">
 <h3>Example</h3>
 <table>
 <thead>
 <tr class="header">
-<th>Consumption</th>
-<th>Education Group</th>
+<th>Yield</th>
+<th>Variety</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>5</td>
-<td>NoEdu</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>7</td>
-<td>NoEdu</td>
+<td>V1</td>
 </tr>
 <tr class="odd">
 <td>15</td>
-<td>SchoolEdu</td>
+<td>V2</td>
 </tr>
 <tr class="even">
 <td>17</td>
-<td>SchoolEdu</td>
+<td>V2</td>
 </tr>
 <tr class="odd">
 <td>17</td>
-<td>CollegeEdu</td>
+<td>V3</td>
 </tr>
 <tr class="even">
 <td>19</td>
-<td>CollegeEdu</td>
+<td>V3</td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>Consumption &lt;- c(5, 7, 15, 17, 17, 19)
-EduGroup    &lt;- gl(n = 3, k = 2, length = 3*2,
-                  labels = c(&quot;NoEdu&quot;, &quot;SchoolEdu&quot;, &quot;CollegeEdu&quot;))
-df7         &lt;- data.frame(Consumption, EduGroup)
+<pre class="r"><code>Yield   &lt;- c(5, 7, 15, 17, 17, 19)
+Variety &lt;- gl(n = 3, k = 2, length = 3*2, labels = c(&quot;V1&quot;, &quot;V2&quot;, &quot;V3&quot;))
+df7     &lt;- data.frame(Yield, Variety)
 df7</code></pre>
-<pre><code>  Consumption   EduGroup
-1           5      NoEdu
-2           7      NoEdu
-3          15  SchoolEdu
-4          17  SchoolEdu
-5          17 CollegeEdu
-6          19 CollegeEdu</code></pre>
+<pre><code>  Yield Variety
+1     5      V1
+2     7      V1
+3    15      V2
+4    17      V2
+5    17      V3
+6    19      V3</code></pre>
 <pre class="r"><code>library(ggplot2)
 # if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
 p7 &lt;- 
-  ggplot(data = df7, mapping = aes(x = EduGroup, y = Consumption)) + 
+  ggplot(data = df7, mapping = aes(x = Variety, y = Yield)) + 
   geom_point() +
   geom_boxplot() +
-  scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Education Group&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  labs(x = &quot;Variety&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p7)</code></pre>
 <p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/anova.p7-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>fm7 &lt;- lm(formula = Consumption ~ EduGroup, data = df7)
+<pre class="r"><code>fm7 &lt;- lm(formula = Yield ~ Variety, data = df7)
 summary(fm7)</code></pre>
 <pre><code>
 Call:
-lm(formula = Consumption ~ EduGroup, data = df7)
+lm(formula = Yield ~ Variety, data = df7)
 
 Residuals:
  1  2  3  4  5  6 
 -1  1 -1  1 -1  1 
 
 Coefficients:
-                   Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)           6.000      1.000   6.000  0.00927 **
-EduGroupSchoolEdu    10.000      1.414   7.071  0.00582 **
-EduGroupCollegeEdu   12.000      1.414   8.485  0.00344 **
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)    6.000      1.000   6.000  0.00927 **
+VarietyV2     10.000      1.414   7.071  0.00582 **
+VarietyV3     12.000      1.414   8.485  0.00344 **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -857,9 +855,9 @@ F-statistic: 41.33 on 2 and 3 DF,  p-value: 0.006553</code></pre>
 <pre class="r"><code>anova(fm7)</code></pre>
 <pre><code>Analysis of Variance Table
 
-Response: Consumption
+Response: Yield
           Df Sum Sq Mean Sq F value   Pr(&gt;F)   
-EduGroup   2 165.33  82.667  41.333 0.006553 **
+Variety    2 165.33  82.667  41.333 0.006553 **
 Residuals  3   6.00   2.000                    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
@@ -888,112 +886,111 @@ Figure 3: Analysis of Covariance
 <table>
 <thead>
 <tr class="header">
-<th>Consumption</th>
-<th>Income</th>
-<th>Gender</th>
+<th>Yield</th>
+<th>Fert</th>
+<th>Variety</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>51</td>
 <td>80</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>52</td>
 <td>80</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="odd">
 <td>53</td>
 <td>90</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>54</td>
 <td>90</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="odd">
 <td>56</td>
 <td>100</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="even">
 <td>57</td>
 <td>100</td>
-<td>Male</td>
+<td>V1</td>
 </tr>
 <tr class="odd">
 <td>55</td>
 <td>80</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="even">
 <td>56</td>
 <td>80</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="odd">
 <td>58</td>
 <td>90</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="even">
 <td>59</td>
 <td>90</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="odd">
 <td>62</td>
 <td>100</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 <tr class="even">
 <td>63</td>
 <td>100</td>
-<td>Female</td>
+<td>V2</td>
 </tr>
 </tbody>
 </table>
 <p> </p>
+<pre class="r"><code>Yield    &lt;- c(51, 52, 53, 54, 56, 57, 55, 56, 58, 59, 62, 63)
+Fert     &lt;- rep(x = c(80, 90, 100), each = 2)
+Variety  &lt;- gl(n = 2, k = 6, length = 2*6, labels = c(&quot;V1&quot;, &quot;V2&quot;), ordered = FALSE)
+df8         &lt;- data.frame(Yield, Fert, Variety)
+df8</code></pre>
+<pre><code>   Yield Fert Variety
+1     51   80      V1
+2     52   80      V1
+3     53   90      V1
+4     54   90      V1
+5     56  100      V1
+6     57  100      V1
+7     55   80      V2
+8     56   80      V2
+9     58   90      V2
+10    59   90      V2
+11    62  100      V2
+12    63  100      V2</code></pre>
 </div>
 <div id="same-intercepts-but-different-slopes" class="section level3">
 <h3>Same intercepts but different slopes</h3>
-<pre class="r"><code>Consumption &lt;- c(51, 52, 53, 54, 56, 57, 55, 56, 58, 59, 62, 63)
-Income      &lt;- rep(x = c(80, 90, 100), each = 2)
-Gender      &lt;- gl(n = 2, k = 6, length = 2*6,
-                  labels = c(&quot;Male&quot;, &quot;Female&quot;), ordered = FALSE)
-df8         &lt;- data.frame(Consumption, Income, Gender)
-df8</code></pre>
-<pre><code>   Consumption Income Gender
-1           51     80   Male
-2           52     80   Male
-3           53     90   Male
-4           54     90   Male
-5           56    100   Male
-6           57    100   Male
-7           55     80 Female
-8           56     80 Female
-9           58     90 Female
-10          59     90 Female
-11          62    100 Female
-12          63    100 Female</code></pre>
-<pre class="r"><code>fm8 &lt;- lm(formula = Consumption ~ Income + Gender, data = df8)
+<pre class="r"><code>fm8 &lt;- lm(formula = Yield ~ Fert + Variety, data = df8)
 summary(fm8)</code></pre>
 <pre><code>
 Call:
-lm(formula = Consumption ~ Income + Gender, data = df8)
+lm(formula = Yield ~ Fert + Variety, data = df8)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
 -0.8333 -0.8333  0.1667  0.1667  1.1667 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  26.83333    2.54557   10.54 2.30e-06 ***
-Income        0.30000    0.02805   10.69 2.04e-06 ***
-GenderFemale  5.00000    0.45812   10.91 1.72e-06 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 26.83333    2.54557   10.54 2.30e-06 ***
+Fert         0.30000    0.02805   10.69 2.04e-06 ***
+VarietyV2    5.00000    0.45812   10.91 1.72e-06 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -1003,21 +1000,21 @@ F-statistic: 116.7 on 2 and 9 DF,  p-value: 3.657e-07</code></pre>
 <pre class="r"><code>anova(fm8)</code></pre>
 <pre><code>Analysis of Variance Table
 
-Response: Consumption
+Response: Yield
           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-Income     1 72.000   72.00  114.35 2.042e-06 ***
-Gender     1 75.000   75.00  119.12 1.720e-06 ***
+Fert       1 72.000   72.00  114.35 2.042e-06 ***
+Variety    1 75.000   75.00  119.12 1.720e-06 ***
 Residuals  9  5.667    0.63                      
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>library(ggplot2)
 # if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
 p8 &lt;- 
-  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm8))) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  labs(x = &quot;Fert&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p8)</code></pre>
 <p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/ancova.p8-1.svg" width="672" style="display: block; margin: auto;" /></p>
@@ -1025,22 +1022,22 @@ print(p8)</code></pre>
 </div>
 <div id="different-intercepts-and-different-slopes" class="section level3">
 <h3>Different intercepts and different slopes</h3>
-<pre class="r"><code>fm9 &lt;- lm(formula = Consumption ~ Income * Gender, data = df8)
+<pre class="r"><code>fm9 &lt;- lm(formula = Yield ~ Fert * Variety, data = df8)
 summary(fm9)</code></pre>
 <pre><code>
 Call:
-lm(formula = Consumption ~ Income * Gender, data = df8)
+lm(formula = Yield ~ Fert * Variety, data = df8)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -0.83333 -0.33333 -0.08333  0.66667  0.66667 
 
 Coefficients:
-                    Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)         31.33333    3.05903  10.243 7.09e-06 ***
-Income               0.25000    0.03385   7.385 7.73e-05 ***
-GenderFemale        -4.00000    4.32612  -0.925   0.3822    
-Income:GenderFemale  0.10000    0.04787   2.089   0.0701 .  
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    31.33333    3.05903  10.243 7.09e-06 ***
+Fert            0.25000    0.03385   7.385 7.73e-05 ***
+VarietyV2      -4.00000    4.32612  -0.925   0.3822    
+Fert:VarietyV2  0.10000    0.04787   2.089   0.0701 .  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -1050,22 +1047,22 @@ F-statistic: 108.4 on 3 and 8 DF,  p-value: 8.11e-07</code></pre>
 <pre class="r"><code>anova(fm9)</code></pre>
 <pre><code>Analysis of Variance Table
 
-Response: Consumption
-              Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
-Income         1 72.000  72.000 157.0909 1.538e-06 ***
-Gender         1 75.000  75.000 163.6364 1.315e-06 ***
-Income:Gender  1  2.000   2.000   4.3636   0.07013 .  
-Residuals      8  3.667   0.458                       
+Response: Yield
+             Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+Fert          1 72.000  72.000 157.0909 1.538e-06 ***
+Variety       1 75.000  75.000 163.6364 1.315e-06 ***
+Fert:Variety  1  2.000   2.000   4.3636   0.07013 .  
+Residuals     8  3.667   0.458                       
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>library(ggplot2)
 # if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
 p9 &lt;- 
-  ggplot(data = df8, mapping = aes(x= Income, y = Consumption, color = Gender)) + 
+  ggplot(data = df8, mapping = aes(x = Fert, y = Yield, color = Variety)) + 
   geom_point() +
   geom_line(mapping = aes(y = predict(fm9))) +
   scale_y_continuous(labels = scales::dollar) +
-  labs(x = &quot;Gender&quot;, y = &quot;Weekly consumption expenditures, $&quot;) +
+  labs(x = &quot;Fert&quot;, y = &quot;Yield&quot;) +
   theme_bw()
 print(p9)</code></pre>
 <p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/ancova.p9-1.svg" width="672" style="display: block; margin: auto;" /></p>
@@ -1387,11 +1384,337 @@ $method
 <pre class="r"><code>fm12 &lt;- lm(formula = TotShLength ~ LeafArea + LeafMoist, data = df11)
 sqrt(summary(fm12)$r.squared)</code></pre>
 <pre><code>[1] 0.421277</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="completely-randomized-design-crd" class="section level2">
+<h2>Completely Randomized Design (CRD)</h2>
+<blockquote>
+<ul>
+<li>Used when experimental material is homogeneous</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-11" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following table shows some of the results of an experiment on the effects of applications of sulphur in reducing scab disease of potatoes. The object in applying sulphur is to increase the acidity of the soil, since scab does not thrive in very acid soil. In addition to untreated plots which serve as a control, 3 amounts of dressing were compared—300, 600, and 900 lb. per acre. Both a fall and a spring application of each amount was tested, so that in
+all there were seven distinct treatments. The sulphur was spread by hand on the surface of the soil, and then diced into a depth of about 4 inches. The quantity to be analyzed is the “scab index”. That is roughly speaking, the percentage of the surface area of the potato that is infected with scab. It is obtained by examining 100 potatoes at random from each plot, grading each potato on a scale from 0 to 100% infected, and taking the average.</p>
+</blockquote>
+<pre class="r"><code>ScabIndex &lt;-
+      c(
+        12, 10,  24, 29, 
+        30, 18,  32, 26, 
+         9,  9,  16,  4,
+        30,  7,  21,  9,
+        16, 10,  18, 18,
+        18, 24,  12, 19,
+        10,  4,   4,  5,
+        17,  7,  16, 17
+      )
+Trt  &lt;- factor(
+          x = rep(x = 1:7, times = c(8, 4, 4, 4, 4, 4, 4))
+        , labels = c(&quot;O&quot;, &quot;F3&quot;, &quot;S3&quot;, &quot;F6&quot;, &quot;S6&quot;, &quot;F9&quot;, &quot;S9&quot;)
+        )
+
+df13 &lt;- data.frame(Trt, ScabIndex)
+df13</code></pre>
+<pre><code>   Trt ScabIndex
+1    O        12
+2    O        10
+3    O        24
+4    O        29
+5    O        30
+6    O        18
+7    O        32
+8    O        26
+9   F3         9
+10  F3         9
+11  F3        16
+12  F3         4
+13  S3        30
+14  S3         7
+15  S3        21
+16  S3         9
+17  F6        16
+18  F6        10
+19  F6        18
+20  F6        18
+21  S6        18
+22  S6        24
+23  S6        12
+24  S6        19
+25  F9        10
+26  F9         4
+27  F9         4
+28  F9         5
+29  S9        17
+30  S9         7
+31  S9        16
+32  S9        17</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p13 &lt;- 
+  ggplot(data = df13, mapping = aes(x = Trt, y = ScabIndex)) + 
+  geom_point() +
+  geom_boxplot() +
+  labs(x = &quot;Treatment&quot;, y = &quot;Scab Index&quot;) +
+  theme_bw()
+print(p13)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/crd.p13-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm13 &lt;- lm(formula = ScabIndex ~ Trt, data = df13)
+summary(fm13)</code></pre>
+<pre><code>
+Call:
+lm(formula = ScabIndex ~ Trt, data = df13)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-12.625  -4.844   0.625   3.594  13.250 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   22.625      2.369   9.549 8.08e-10 ***
+TrtF3        -13.125      4.104  -3.198 0.003734 ** 
+TrtS3         -5.875      4.104  -1.432 0.164666    
+TrtF6         -7.125      4.104  -1.736 0.094858 .  
+TrtS6         -4.375      4.104  -1.066 0.296601    
+TrtF9        -16.875      4.104  -4.112 0.000372 ***
+TrtS9         -8.375      4.104  -2.041 0.051977 .  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.702 on 25 degrees of freedom
+Multiple R-squared:  0.4641,    Adjusted R-squared:  0.3355 
+F-statistic: 3.608 on 6 and 25 DF,  p-value: 0.01026</code></pre>
+<pre class="r"><code>anova(fm13)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: ScabIndex
+          Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+Trt        6  972.34 162.057  3.6081 0.01026 *
+Residuals 25 1122.88  44.915                  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="randomized-complete-block-design-rcbd" class="section level2">
+<h2>Randomized Complete Block Design (RCBD)</h2>
+<blockquote>
+<ul>
+<li>Used when experimental material is heterogenous in one direction</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-12" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>Yield : Yield of barley, SoilType : Soil Type, and Trt : 5 sources and a control</p>
+</blockquote>
+<pre class="r"><code>Yield &lt;- c(
+             32.1,  35.6,   41.9,   35.4
+          ,  30.1,  31.5,   37.1,   30.8
+          ,  25.4,  27.4,   33.8,   31.1
+          ,  24.1,  33.0,   35.6,   31.4
+          ,  26.1,  31.0,   33.8,   31.9
+          ,  23.2,  24.8,   26.7,   26.7
+          )
+SoilType &lt;- gl(n = 4, k = 6, length = 4*6
+               , labels = c(&quot;I&quot;, &quot;II&quot;, &quot;III&quot;, &quot;IV&quot;), ordered = FALSE)
+Trt      &lt;- gl(n = 6, k = 1, length = 4*6
+               , labels = c(&quot;(NH4)2SO4&quot;, &quot;NH4NO3&quot;, &quot;CO(NH2)2&quot;, &quot;Ca(NO3)2&quot;, &quot;NaNO3&quot;, &quot;Control&quot;), ordered = FALSE)
+
+df14 &lt;- data.frame(Yield, SoilType, Trt)
+df14</code></pre>
+<pre><code>   Yield SoilType       Trt
+1   32.1        I (NH4)2SO4
+2   35.6        I    NH4NO3
+3   41.9        I  CO(NH2)2
+4   35.4        I  Ca(NO3)2
+5   30.1        I     NaNO3
+6   31.5        I   Control
+7   37.1       II (NH4)2SO4
+8   30.8       II    NH4NO3
+9   25.4       II  CO(NH2)2
+10  27.4       II  Ca(NO3)2
+11  33.8       II     NaNO3
+12  31.1       II   Control
+13  24.1      III (NH4)2SO4
+14  33.0      III    NH4NO3
+15  35.6      III  CO(NH2)2
+16  31.4      III  Ca(NO3)2
+17  26.1      III     NaNO3
+18  31.0      III   Control
+19  33.8       IV (NH4)2SO4
+20  31.9       IV    NH4NO3
+21  23.2       IV  CO(NH2)2
+22  24.8       IV  Ca(NO3)2
+23  26.7       IV     NaNO3
+24  26.7       IV   Control</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p14 &lt;- 
+  ggplot(data = df14, mapping = aes(x = Trt, y = Yield)) + 
+  geom_point() +
+  geom_boxplot() +
+  labs(x = &quot;Treatment&quot;, y = &quot;Yield&quot;) +
+  theme_bw()
+print(p14)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/rcbd.p14-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm14 &lt;- lm(formula = Yield ~ SoilType + Trt, data = df14)
+summary(fm14)</code></pre>
+<pre><code>
+Call:
+lm(formula = Yield ~ SoilType + Trt, data = df14)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.0208 -2.4229  0.0792  2.1354  6.7958 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   35.354      2.826  12.511 2.44e-09 ***
+SoilTypeII    -3.500      2.664  -1.314   0.2087    
+SoilTypeIII   -4.233      2.664  -1.589   0.1329    
+SoilTypeIV    -6.583      2.664  -2.471   0.0259 *  
+TrtNH4NO3      1.050      3.263   0.322   0.7521    
+TrtCO(NH2)2   -0.250      3.263  -0.077   0.9399    
+TrtCa(NO3)2   -2.025      3.263  -0.621   0.5442    
+TrtNaNO3      -2.600      3.263  -0.797   0.4380    
+TrtControl    -1.700      3.263  -0.521   0.6100    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 4.615 on 15 degrees of freedom
+Multiple R-squared:  0.3512,    Adjusted R-squared:  0.005215 
+F-statistic: 1.015 on 8 and 15 DF,  p-value: 0.4653</code></pre>
+<pre class="r"><code>anova(fm14)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Yield
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+SoilType   3 133.62  44.539  2.0915 0.1443
+Trt        5  39.31   7.862  0.3692 0.8618
+Residuals 15 319.43  21.295               </code></pre>
+<p> </p>
+</div>
+</div>
+<div id="latin-square-design" class="section level2">
+<h2>Latin Square Design</h2>
+<blockquote>
+<ul>
+<li>Used when experimental material is heterogenous in two perpendicular directions</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example-13" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following table shows the field layout and yield of a 5×5 Latin square experiment on the effect of spacing on yield of millet plants. Five levels of spacing were used. The data on yield (grams/plot) was recorded and is given below:</p>
+</blockquote>
+<pre class="r"><code>Yield &lt;- c(
+           257, 230, 279, 287, 202,
+           245, 283, 245, 280, 260,
+           182, 252, 280, 246, 250,
+           203, 204, 227, 193, 259,
+           231, 271, 266, 334, 338
+           )
+Row &lt;- factor(x = rep(x = 1:5, each = 5))
+Col &lt;- factor(x = rep(x = 1:5, times = 5))
+Trt &lt;- c(
+          &quot;B&quot;, &quot;E&quot;, &quot;A&quot;, &quot;C&quot;, &quot;D&quot;
+        , &quot;D&quot;, &quot;A&quot;, &quot;E&quot;, &quot;B&quot;, &quot;C&quot;
+        , &quot;E&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;A&quot;
+        , &quot;A&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;B&quot;
+        , &quot;C&quot;, &quot;D&quot;, &quot;B&quot;, &quot;A&quot;, &quot;E&quot;
+         )
+
+df15 &lt;- data.frame(Yield, Row, Col, Trt)
+df15</code></pre>
+<pre><code>   Yield Row Col Trt
+1    257   1   1   B
+2    230   1   2   E
+3    279   1   3   A
+4    287   1   4   C
+5    202   1   5   D
+6    245   2   1   D
+7    283   2   2   A
+8    245   2   3   E
+9    280   2   4   B
+10   260   2   5   C
+11   182   3   1   E
+12   252   3   2   B
+13   280   3   3   C
+14   246   3   4   D
+15   250   3   5   A
+16   203   4   1   A
+17   204   4   2   C
+18   227   4   3   D
+19   193   4   4   E
+20   259   4   5   B
+21   231   5   1   C
+22   271   5   2   D
+23   266   5   3   B
+24   334   5   4   A
+25   338   5   5   E</code></pre>
+<pre class="r"><code>library(ggplot2)
+# if (!require(&quot;ggplot2&quot;)) install.packages(&quot;ggplot2&quot;)
+p15 &lt;- 
+  ggplot(data = df15, mapping = aes(x = Trt, y = Yield)) + 
+  geom_point() +
+  geom_boxplot() +
+  labs(x = &quot;Treatment&quot;, y = &quot;Yield&quot;) +
+  theme_bw()
+print(p15)</code></pre>
+<p><img src="/myaseen208/2018-05-09_ARRI_files/figure-html/latin.p15-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>fm15 &lt;- lm(formula = Yield ~ Row + Col + Trt, data = df15)
+summary(fm15)</code></pre>
+<pre><code>
+Call:
+lm(formula = Yield ~ Row + Col + Trt, data = df15)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-44.68 -12.48   1.12  16.52  54.92 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   240.08      23.43  10.247 2.75e-07 ***
+Row2           11.60      20.55   0.565   0.5828    
+Row3           -9.00      20.55  -0.438   0.6692    
+Row4          -33.80      20.55  -1.645   0.1259    
+Row5           37.00      20.55   1.801   0.0969 .  
+Col2           24.40      20.55   1.187   0.2580    
+Col3           35.80      20.55   1.742   0.1070    
+Col4           44.40      20.55   2.161   0.0516 .  
+Col5           38.20      20.55   1.859   0.0877 .  
+TrtB           -7.00      20.55  -0.341   0.7393    
+TrtC          -17.40      20.55  -0.847   0.4137    
+TrtD          -31.60      20.55  -1.538   0.1500    
+TrtE          -32.20      20.55  -1.567   0.1431    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 32.49 on 12 degrees of freedom
+Multiple R-squared:  0.6536,    Adjusted R-squared:  0.3073 
+F-statistic: 1.887 on 12 and 12 DF,  p-value: 0.1426</code></pre>
+<pre class="r"><code>anova(fm15)</code></pre>
+<pre><code>Analysis of Variance Table
+
+Response: Yield
+          Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+Row        4 13601.4  3400.3  3.2212 0.05164 .
+Col        4  6146.2  1536.5  1.4556 0.27581  
+Trt        4  4156.6  1039.1  0.9844 0.45229  
+Residuals 12 12667.3  1055.6                  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 </div>
 
 
-      <meta itemprop="wordCount" content="2975">
+      <meta itemprop="wordCount" content="4407">
       <meta itemprop="datePublished" content="2018-05-09">
       <meta itemprop="url" content="/myaseen208/2018-r-aari/">
 

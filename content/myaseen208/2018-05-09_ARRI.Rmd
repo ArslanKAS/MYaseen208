@@ -277,14 +277,14 @@ knitr::include_graphics("/img/ANOVANormalMeans.png")
 
 ### Example
 
-  Consumption | Gender
+  Yield       | Variety
   ------------| -------------
-       5      |  Male
-       6      |  Male
-       7      |  Male
-       15     |  Female
-       16     |  Female
-       17     |  Female
+       5      |  V1
+       6      |  V1
+       7      |  V1
+       15     |  V2
+       16     |  V2
+       17     |  V2
        
     
 
@@ -302,17 +302,18 @@ knitr::include_graphics("/img/ANOVANormalMeans.png")
 ```{r, label = anova.fm6anova}
 ```
 
+&nbsp;
 
 ### Example
 
-  Consumption | Education Group
+  Yield       | Variety
   ------------| -------------
-       5      |  NoEdu
-       7      |  NoEdu
-       15     |  SchoolEdu
-       17     |  SchoolEdu
-       17     |  CollegeEdu
-       19     |  CollegeEdu
+       5      |  V1
+       7      |  V1
+       15     |  V2
+       17     |  V2
+       17     |  V3
+       19     |  V3
        
     
 
@@ -349,28 +350,29 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 ### Example
 
-  Consumption | Income | Gender
+   Yield      | Fert   | Variety
   ------------| -------|-----------
-    51        |  80    | Male
-    52        |  80    | Male
-    53        |  90    | Male
-    54        |  90    | Male
-    56        | 100    | Male
-    57        | 100    | Male
-    55        |  80    | Female
-    56        |  80    | Female
-    58        |  90    | Female
-    59        |  90    | Female
-    62        | 100    | Female
-    63        | 100    | Female
+    51        |  80    | V1
+    52        |  80    | V1
+    53        |  90    | V1
+    54        |  90    | V1
+    56        | 100    | V1
+    57        | 100    | V1
+    55        |  80    | V2
+    56        |  80    | V2
+    58        |  90    | V2
+    59        |  90    | V2
+    62        | 100    | V2
+    63        | 100    | V2
           
 
 &nbsp;
 
-### Same intercepts but different slopes    
 
 ```{r, label = ancova.df8}
 ```
+
+### Same intercepts but different slopes    
 
 ```{r, label = ancova.fm8}
 ```
@@ -507,4 +509,87 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 
 ```{r, label = corr.fm12}
+```
+
+
+&nbsp;
+  
+## Completely Randomized Design (CRD)
+> * Used when experimental material is homogeneous
+
+&nbsp;
+
+
+### Example
+> The following table shows some of the results of an experiment on the effects of applications of sulphur in reducing scab disease of potatoes. The object in applying sulphur is to increase the acidity of the soil, since scab does not thrive in very acid soil. In addition to untreated plots which serve as a control, 3 amounts of dressing were compared—300, 600, and 900 lb. per acre. Both a fall and a spring application of each amount was tested, so that in
+all there were seven distinct treatments. The sulphur was spread by hand on the surface of the soil, and then diced into a depth of about 4 inches. The quantity to be analyzed is the “scab index”. That is roughly speaking, the percentage of the surface area of the potato that is infected with scab. It is obtained by examining 100 potatoes at random from each plot, grading each potato on a scale from 0 to 100% infected, and taking the average.
+
+  
+```{r, label = crd.df13}
+```
+
+
+```{r, label = crd.p13}
+```
+
+```{r, label = crd.fm13}
+```
+
+
+```{r, label = crd.fm13anova}
+```
+
+&nbsp;
+
+
+## Randomized Complete Block Design (RCBD)
+> * Used when experimental material is heterogenous in one direction
+
+&nbsp;
+
+
+### Example
+> Yield    : Yield of barley, SoilType : Soil Type, and  Trt      : 5 sources and a control
+  
+  
+```{r, label = rcbd.df14}
+```
+
+
+```{r, label = rcbd.p14}
+```
+
+```{r, label = rcbd.fm14}
+```
+
+
+```{r, label = rcbd.fm14anova}
+```
+
+
+&nbsp;
+
+
+## Latin Square Design
+> * Used when experimental material is heterogenous in two perpendicular directions
+
+&nbsp;
+
+
+### Example
+> The following table shows the field layout and yield of a 5×5 Latin square experiment on the effect of spacing on yield of millet plants. Five levels of spacing were used. The data on yield (grams/plot) was recorded and is given below:
+
+  
+```{r, label = latin.df15}
+```
+
+
+```{r, label = latin.p15}
+```
+
+```{r, label = latin.fm15}
+```
+
+
+```{r, label = latin.fm15anova}
 ```
