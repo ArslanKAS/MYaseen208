@@ -48,10 +48,14 @@ categories:
 - Statistics
 - Research
 - Agriculture
+mathjax: true
+output:
+  html_document:
+    df_print: paged
 ---
 
-
 ## Introduction
+
 >**R** is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. **R** provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of **R** is 3.5.0 which can be obtained from [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/).
 
 &nbsp;
@@ -409,6 +413,7 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 ## Simple Correlation Analysis
 > * Linear Relationship between Two Quantitative Variables
+  *  $\left(X_{1},X_{2}\right)$
 
   
 &nbsp;
@@ -450,6 +455,7 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 ## Partial Correlation Analysis
 > *  Linear Relationship between Quantitative Variables while holding/keeping all other constants
+ * $\left(X_{1},X_{2}\right)|X_{3}$
   
 &nbsp;
 
@@ -485,6 +491,7 @@ knitr::include_graphics("/img/ANCOVA.png")
 
 ## Multiple Correlation Analysis
 > * Linear Relationship between a Quantitative Variable and set of other Quantitative Variables
+* $\left(X_{1},\left[X_{2},X_{3}\right]\right)$ 
   
 
 &nbsp;
