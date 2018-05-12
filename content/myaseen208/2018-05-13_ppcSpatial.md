@@ -16,9 +16,9 @@ The latest version of the ppcSpatial package for R is now on [CRAN](https://cran
 &nbsp;
 
 The Spatial map is
-<iframe src="https://myaseen208.netlify.com/myaseen208/2018-05-12_ppcspatial/" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://myaseen208.netlify.com/myaseen208/2018-05-12_ppcspatial/" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-and fullview is [here](https://myaseen208.netlify.com/myaseen208/2018-05-12_ppcspatial/).
+and full view is [here](https://myaseen208.netlify.com/myaseen208/2018-05-12_ppcspatial/).
 
 &nbsp;
 
