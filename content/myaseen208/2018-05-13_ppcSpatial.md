@@ -15,7 +15,7 @@ The latest version of the ppcSpatial package for R is now on [CRAN](https://cran
 
 &nbsp;
 
-The Spatial map is [here](https://myaseen208.netlify.com/2018-05-12_ppcspatial/).
+The Spatial map is [here](https://myaseen208.netlify.com/myaseen208/2018-05-12_ppcspatial/).
 
 &nbsp;
 
