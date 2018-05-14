@@ -1,7 +1,7 @@
 ---
 title: 'ppcSpatial: Spatial Analysis of Pakistan Population Census'
 author: Muhammad Yaseen
-date: '2018-05-14'
+date: '2018-04-30'
 slug: ppcSpatialBlog
 categories:
   - R

@@ -34,9 +34,15 @@ output:
 * Statistics is the Art & Science of learning from data
 
 &nbsp;
+<center>
+![alt text](/img/DataGeneralStore.png)
+</center>
+
+&nbsp;
 
 ## Variable
 > * Characteristic that may vary from individual to individual
+
 
 &nbsp;
 
