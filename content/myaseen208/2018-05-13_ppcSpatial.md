@@ -16,9 +16,9 @@ The latest version of the ppcSpatial package for R is now on [CRAN](https://cran
 &nbsp;
 
 The Spatial map is
-<iframe src="https://myaseen208.netlify.com/myaseen208/PakPopCensus2017/PakPopCensus2017Districts/" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="/PakPopCensus2017/PakPopCensus2017Districts.html" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-and full view is [here](https://myaseen208.netlify.com/myaseen208/PakPopCensus2017/PakPopCensus2017Districts/).
+and full view is [here](/PakPopCensus2017/PakPopCensus2017Districts.html).
 
 &nbsp;
 
