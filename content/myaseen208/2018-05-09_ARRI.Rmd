@@ -1,3 +1,20 @@
+---
+title: "An introduction to R for Agricultural Research"
+author: "Muhammad Yaseen"
+date: 2018-05-09
+comments: false
+slug: 2018-R-AARI
+categories:
+- R
+- Statistics
+- Research
+- Agriculture
+mathjax: true
+output:
+  blogdown::html_page:
+    toc: true
+---
+
 ```{r, label = setup, include = FALSE, cache = FALSE}
 library(knitr)
 opts_chunk$set(
@@ -37,22 +54,6 @@ knit_hooks$set(error=muffleError)
 ```{r label = ARRI, echo = FALSE}
 knitr::read_chunk("2018-05-09_ARRI.R")
 ```
-
----
-date: 2018-05-09
-comments: false
-slug: 2018-R-AARI
-title: "An introduction to R for Agricultural Research"
-categories:
-- R
-- Statistics
-- Research
-- Agriculture
-mathjax: true
-output:
-  blogdown::html_page:
-    toc: true
----
 
 ## Introduction
 
