@@ -8,7 +8,6 @@ categories:
 - R
 - Statistics
 - Research
-- Agriculture
 mathjax: true
 output:
   blogdown::html_page:
