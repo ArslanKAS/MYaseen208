@@ -519,12 +519,8 @@ Administrative responsibilities  Head of Department, Department of Mathematics &
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/software/</guid>
-      <description>This page provides links to R &amp;amp; LaTeX packages I have (co)authored. The most recent versions of most packages are on github. Most R packages are also on CRAN.
-&amp;nbsp;
-R Packages/Software bayesammi : Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model [Website]
-baystability : Bayesian Stability Analysis of Genotype by Environment Interaction (GEI) [Website]
-DiallelAnalysisR : Diallel Analysis with R [Website]
-eda4treeR : Experimental Design and Analysis for Tree Improvement [Website]</description>
+      <description>R Packages/Software bayesammi baystability DiallelAnalysisR eda4treeR gvcR PakPC2017 PakPMICS2014Ch PakPMICS2014HH PakPMICS2014HL PakPMICS2014Wm ppcSpatial PSLM2015 stability StroupGLMM VetResearchLMM  LaTeX Packages/Software UAFSynopsis UAFThesis PakJAS     This page provides links to R &amp;amp; LaTeX packages I have (co)authored. The most recent versions of most packages are on github. Most R packages are also on CRAN.
+ R Packages/Software bayesammi  bayesammi : Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model [Website]</description>
     </item>
     
     <item>
@@ -533,11 +529,8 @@ eda4treeR : Experimental Design and Analysis for Tree Improvement [Website]</des
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/teaching/</guid>
-      <description>Spring Semester 2017-2018 &amp;nbsp;
-Stat-705: Advanced Design of Experiments &amp;nbsp;&amp;nbsp;pdf Syllabus &amp;nbsp;  Learning Objectives
- To impart knowledge of advanced topics in the design of experiments To impart practical skills through problem solving using manual as well as computer skills. This course shall help to enhance both these skills in students through assignments which would be solved manually as well as through computers  &amp;nbsp;
-Contents
-Incomplete block designs, two dimensional lattices, rectangular lattices, balanced incomplete and partial balanced incomplete block designs, generalized lattice designs, alpha designs, Fractional replication, design resolution, blocking in fractional replication, First and second order response surface designs, Taguchi methods, Quasi, magic and super magic latin squares and weighting designs.</description>
+      <description>Summer Semester 2017-2018 Stat-703: Design and Analysis of Experiments for Researchers  Spring Semester 2017-2018 Stat-705: Advanced Design of Experiments Stat-703: Design and Analysis of Experiments for Researchers Stat-609: Experimental Design-I     Summer Semester 2017-2018 Stat-703: Design and Analysis of Experiments for Researchers   pdf Syllabus  Learning Objectives
+ To impart knowledge of the design of experiments as applied in many areas of biological &amp;amp; experimental sciences To impart practical skills through problem solving using manual as well as computer skills   Contents</description>
     </item>
     
   </channel>

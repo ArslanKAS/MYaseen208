@@ -1,10 +1,84 @@
 ---
 title: "Teaching"
+mathjax: true
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
-## Spring Semester 2017-2018
+```{r, label = setup, include = FALSE, cache = FALSE}
+library(knitr)
+opts_chunk$set(
+              #  fig.path   = 'figure/'
+                cache.path = 'cache/'
+               , cache      = FALSE
+               , dev        = c("svg", "tikz", "pdf", "png")[1]
+               , fig.align  = 'center'
+              # , fig.show   = 'asis'
+              # , fig.width  = 6
+              # , fig.height = 6
+              # , out.width  = '0.9\\linewidth'
+               , par        = TRUE
+               , echo       = TRUE
+               , results    = 'markup'
+               , warning    = FALSE
+               , message    = FALSE
+               , comment    = NA
+               )
+options(
+          replace.assign = TRUE
+        , width          = 80
+        , knitr.kable.NA = ''
+        )
+
+knit_hooks$set(par = function(before, options, envir){
+if (before && options$fig.show!='none')
+ par(mar=c(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis =0.9, mgp = c(2, 0.7, 0), tcl = -0.3)
+}, crop = hook_pdfcrop)
+
+# Suppressing Error Messages in knitr
+muffleError <- function(x,options) {}
+knit_hooks$set(error=muffleError)
+```
 
 &nbsp;
+
+# Summer Semester 2017-2018
+
+
+## Stat-703: Design and Analysis of Experiments for Researchers
+
+
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-06-04_Summer_2017-18_Stat-703_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-06-04_Summer_2017-18_Stat-703_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
+
+**Learning Objectives**
+
+* To impart knowledge of the design of experiments as applied in many areas of biological & experimental sciences
+* To impart practical skills through problem solving using manual as well as computer skills
+
+&nbsp;
+
+
+**Contents**
+
+Factorial experiments, main effects & interactions, ANOVA model, fixed, random & mixed models, treatment structure, contrasts, orthogonal contrasts, & polynomials for quantitative treatment factors, single replicated trials, split plot design & its variants, hierarchical classification, combining experiments over locations, seasons & years, confounding in $2^n$ & $3^n$ factorial experiments & their analysis, Fractional factorials, crossover designs, response surface designs for optimal response
+
+&nbsp;
+
+**Recommended Books**
+
+1. Damon, R. A. and Harvey, W. R. (1997). *Experimental Design, ANOVA, and Regression*
+2. Gomez, K. A. and Gomez, A. A. (1984). *Statistical Procedures for Agricultural Research*
+3. Kuehl, R. O. (1999). *Design of Experiments: Statistical Principles of Research Design and Analysis*
+4. Montgomery, D. C. (2012). *Design and Analysis of Experiments*
+
+
+&nbsp;
+
+
+# Spring Semester 2017-2018
 
 ## Stat-705: Advanced Design of Experiments
 
@@ -40,7 +114,7 @@ magic latin squares and weighting designs. Latin square type crossover designs. 
 ## Stat-703: Design and Analysis of Experiments for Researchers
 
 
-<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2017-08-15_Winter_2017-18_Stat-703_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2017-08-15_Winter_2017-18_Stat-703_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-01-23_Spring_2017-18_Stat-703_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-01-23_Spring_2017-18_Stat-703_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
 
 
 
@@ -54,7 +128,7 @@ magic latin squares and weighting designs. Latin square type crossover designs. 
 
 **Contents**
 
-Factorial experiments, main effects & interactions, ANOVA model, fixed, random & mixed models, treatment structure, contrasts, orthogonal contrasts, & polynomials for quantitative treatment factors, single replicated trials, split plot design & its variants, hierarchical classification, combining experiments over locations, seasons & years, confounding in 2^n & 3^n factorial experiments & their analysis. Fractional factorials, crossover designs, response surface designs for optimal response
+Factorial experiments, main effects & interactions, ANOVA model, fixed, random & mixed models, treatment structure, contrasts, orthogonal contrasts, & polynomials for quantitative treatment factors, single replicated trials, split plot design & its variants, hierarchical classification, combining experiments over locations, seasons & years, confounding in $2^n$ & $3^n$ factorial experiments & their analysis. Fractional factorials, crossover designs, response surface designs for optimal response
 
 &nbsp;
 
