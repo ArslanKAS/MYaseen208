@@ -185,6 +185,7 @@ knitr::read_chunk("2018-08-16-PASTIC-NTU.R")
 &nbsp;
 
 ### Example
+> Effact of Two drying methods (Line Dry and Tumble Dry) are to be compared for some kind of shrinkage of some particular brand of fabric. Following data was observed from an experiment:
 
 Drying Method  | Length Shrinkage | Drying Method |Length Shrinkage
 ---------------|------------------|---------------|---------
@@ -936,16 +937,17 @@ ether/alcohol extracted | 10  |  35.6
 ![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/08ANCOVA.png)
 </center>
 
-<center>
-![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/09ANCOVA.png)
-</center>
-
 &nbsp;
 
 
 ### Different Intercepts and different Slopes    
 
 *__Analyze > General Linear Model > Univariate ...__*
+
+
+<center>
+![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/09ANCOVA.png)
+</center>
 
 
 <center>
@@ -957,10 +959,6 @@ ether/alcohol extracted | 10  |  35.6
 ![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/11ANCOVA.png)
 </center>
 
-
-<center>
-![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/12ANCOVA.png)
-</center>
 
 
 
