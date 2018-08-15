@@ -73,11 +73,6 @@ knitr::read_chunk("2018-08-16-PASTIC-NTU.R")
 * Statistics is the Art & Science of learning from data
 
 &nbsp;
-<center>
-![alt text](/img/DataGeneralStore.png)
-</center>
-
-&nbsp;
 
 ## Variable
 > * Characteristic that may vary from individual to individual
