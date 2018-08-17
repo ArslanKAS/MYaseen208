@@ -956,6 +956,11 @@ ether/alcohol extracted | 10  |  35.6
 
 
 
+<center>
+![alt text](/img/2018-08-16_PASTIC-NTU/10-ANCOVA/12ANCOVA.png)
+</center>
+
+
 
 &nbsp;
 
