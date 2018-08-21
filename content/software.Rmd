@@ -49,6 +49,11 @@ This page provides links to R & LaTeX packages I have (co)authored. The most rec
 
 # R Packages/Software
 
+## agriTutorial
+
+> [**agriTutorial**](https://cran.r-project.org/web/packages/agriTutorial/index.html) :  *Tutorial Analysis of Some Agricultural Experiments* [[Website](https://myaseen208.github.io/agriTutorial)]
+
+
 ## bayesammi
 
 > [**bayesammi**](https://cran.r-project.org/web/packages/bayesammi/index.html) :  *Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model* [[Website](https://myaseen208.github.io/bayesammi)]
