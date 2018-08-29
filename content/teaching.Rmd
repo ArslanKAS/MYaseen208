@@ -61,6 +61,8 @@ knit_hooks$set(error=muffleError)
 
 
 **Contents**
+
+
 Introduction to factorial experiments, simple, main and interaction effects. Hidden replication. $2^k$ & $3^k$ series and mixed level factorial experiments and their analysis. Analysis of Covariance (ANCOVA). Confounding in factorial experiments, complete and partial confounding; Single replication of factorial experiments. Fractional factorial experiments. Introduction of response surface methods; first and second order designs, central composite designs, fitting of response surface models and estimation of optimum response
 
 &nbsp;
