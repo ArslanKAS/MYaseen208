@@ -43,6 +43,41 @@ knit_hooks$set(error=muffleError)
 
 &nbsp;
 
+# Winter Semester 2018-2019
+
+
+## Stat-703: Design and Analysis of Experiments for Researchers
+
+
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-703_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-703_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
+
+**Learning Objectives**
+
+* To impart knowledge of the design of experiments as applied in many areas of biological & experimental sciences
+* To impart practical skills through problem solving using manual as well as computer skills
+
+&nbsp;
+
+
+**Contents**
+
+Factorial experiments, main effects & interactions, ANOVA model, fixed, random & mixed models, treatment structure, contrasts, orthogonal contrasts, & polynomials for quantitative treatment factors, single replicated trials, split plot design & its variants, hierarchical classification, combining experiments over locations, seasons & years, confounding in $2^n$ & $3^n$ factorial experiments & their analysis, Fractional factorials, crossover designs, response surface designs for optimal response
+
+&nbsp;
+
+**Recommended Books**
+
+1. Damon, R. A. and Harvey, W. R. (1997). *Experimental Design, ANOVA, and Regression*
+2. Gomez, K. A. and Gomez, A. A. (1984). *Statistical Procedures for Agricultural Research*
+3. Kuehl, R. O. (1999). *Design of Experiments: Statistical Principles of Research Design and Analysis*
+4. Montgomery, D. C. (2012). *Design and Analysis of Experiments*
+
+
+&nbsp;
+
+
 # Summer Semester 2017-2018
 
 
