@@ -46,6 +46,38 @@ knit_hooks$set(error=muffleError)
 # Winter Semester 2018-2019
 
 
+## Stat-610: Experimental Design-II
+
+
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-610_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-610_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
+
+**Learning Objectives**
+
+* To provide basic and advanced learning of investigation for conclusions through planning and designing of experiments. To train students through innovative instruction in design theory and methodology that will help them in addressing the significance of experimental design in statistics and across the universal disciplines
+
+&nbsp;
+
+
+**Contents**
+Introduction to factorial experiments, simple, main and interaction effects. Hidden replication. $2^k$ & $3^k$ series and mixed level factorial experiments and their analysis. Analysis of Covariance (ANCOVA). Confounding in factorial experiments, complete and partial confounding; Single replication of factorial experiments. Fractional factorial experiments. Introduction of response surface methods; first and second order designs, central composite designs, fitting of response surface models and estimation of optimum response
+
+&nbsp;
+
+**Recommended Books**
+
+1. Gomez, K. A. and Gomez, A. A. (1984). *Statistical Procedures for Agricultural Research*
+2. Kuehl, R. O. (1999). *Design of Experiments: Statistical Principles of Research Design and Analysis*
+3. Montgomery, D. C. (2012). *Design and Analysis of Experiments*
+4. Steel, R.G.D, J.H. Torrie and D. A. Dickey. (2008). *Principles and Procedures of Statistics: A Biometrical Approach*
+5. Stroup, W.W., (2012). *Generalized Linear Mixed Models: Modern Concepts, Methods and Applications*
+
+
+&nbsp;
+
+
+
 ## Stat-703: Design and Analysis of Experiments for Researchers
 
 
@@ -75,6 +107,38 @@ Factorial experiments, main effects & interactions, ANOVA model, fixed, random &
 4. Montgomery, D. C. (2012). *Design and Analysis of Experiments*
 
 
+&nbsp;
+
+## Stat-712: Theory of Experimental Design
+
+
+<h4><a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-712_Syllabus.pdf" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;pdf</a> <a href="https://github.com/myaseen208/Teaching/raw/master/2018-08-28_Winter_2018-2019_Stat-712_Syllabus.pdf">Syllabus</a> &nbsp; </h4>
+
+
+
+**Learning Objectives**
+
+* To train students through innovative instruction in design theory and methodology that will help them in addressing the significance of experimental design in Statistics and across the universal disciplines
+
+&nbsp;
+
+
+**Contents**
+
+**Block Designs**: Introduction, Balanced Incomplete Block Designs (BIBD), Intra-Block Model, Least Squares Analysis, Estimability, Analysis of Variance, Intra-Block Analysis of a BIBD, Connectedness, Orthogonality; **Cyclic Designs**: Introduction, Efficiency factors of Cyclic Designs, Construction of Efficient Designs, n-Cyclic Designs, Generalized Cyclic Designs; **Resolvable Block Designs**: Introduction, Square Lattice Designs, Rectangular Lattice Designs, $\alpha$-Designs, Latinized Block Designs, Two-Replicate Designs; **Row-Column Designs**: Model and Information Matrix, Latin Square Designs, Row-Orthogonal Designs, Non-Orthogonal Row-Column Designs; **Recovery of Inter-Block Information**: Orthogonal Block Structure, Generalized Least Squares Analysis; **Factorial Experiments**: Introduction, Single Replicate and Fractional Factorials; Response Surface Methodology; Design Optimality Criteria; Mathematical and Computer-Aided Design Theory
+
+&nbsp;
+
+**Recommended Books**
+
+1. Cox, D.R. and N. Reid. (2006). *The Theory of the Design of Experiments*
+2. Giesbrecht, F.G. and M.L. Gumpertz. (2004). *Planning, Construction, and Statistical Analysis of Comparative Experiments*
+3. John, J.A. and E.R. Williams. (2013). *Cyclic and Computer Generated Designs*
+4. Lawson, J. (2014). *Design and Analysis of Experiments with R*
+5. Mead, R., S.G. Gilmour and A. Mead. (2012). *Statistical Principles for the Design of Experiments: Applications to Real Experiments*
+
+
+&nbsp;
 &nbsp;
 
 
