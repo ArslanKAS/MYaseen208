@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/myaseen208/2018-bioinfor/</loc>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/myaseen208/2018-08-16-pastic-ntu/</loc>
     <lastmod>2018-08-16T00:00:00+00:00</lastmod>
   </url>
@@ -294,7 +299,14 @@
   </url>
   
   <url>
+    <loc>/categories/bioinformatics/</loc>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -348,7 +360,7 @@
   
   <url>
     <loc>/myaseen208/</loc>
-    <lastmod>2018-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -384,7 +396,7 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -430,7 +442,7 @@
   
   <url>
     <loc>/categories/statistics/</loc>
-    <lastmod>2018-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

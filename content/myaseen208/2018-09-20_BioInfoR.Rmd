@@ -1,0 +1,344 @@
+---
+title: "Bioinformatics with R"
+description: |
+  Bioinformatics with R.
+author:
+  - name: Muhammad Yaseen 
+    url: http://myaseen208.netlify.com/
+    affiliation: Dept of Math & Stat, Univ of Agriculture, Faisalabad Pakistan
+    affiliation_url: http://uaf.edu.pk/
+date: 2018-09-20
+comments: false
+slug: 2018-BioInfoR
+categories:
+- R
+- Statistics
+- Bioinformatics
+mathjax: true
+output:
+  radix::radix_article:
+    toc: true
+---
+
+```{r, label = setup, include = FALSE, cache = FALSE}
+library(knitr)
+opts_chunk$set(
+              #  fig.path   = 'figure/'
+                cache.path = 'cache/'
+               , cache      = FALSE
+               , dev        = c("svg", "tikz", "pdf", "png")[1]
+               , fig.align  = 'center'
+              # , fig.show   = 'asis'
+              # , fig.width  = 6
+              # , fig.height = 6
+              # , out.width  = '0.9\\linewidth'
+               , par        = TRUE
+               , echo       = TRUE
+               , results    = 'markup'
+               , warning    = FALSE
+               , message    = FALSE
+               , comment    = NA
+               )
+options(
+          replace.assign = TRUE
+        , width          = 80
+        , knitr.kable.NA = ''
+        )
+
+knit_hooks$set(par = function(before, options, envir){
+if (before && options$fig.show!='none')
+ par(mar=c(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis =0.9, mgp = c(2, 0.7, 0), tcl = -0.3)
+}, crop = hook_pdfcrop)
+
+# Suppressing Error Messages in knitr
+muffleError <- function(x,options) {}
+knit_hooks$set(error=muffleError)
+```
+
+# Discrete Data Presentation
+Following data presents the number of nucleotides of gene sequence (A, C, G, T). This is illustrated by the Zyxin gene which plays an important role in cell adhesion (Golub et al, 1999). The accession number (X94991.1) of one of its variants can be found in a data base like NCBI (UniGene). Given data will be used to illustrate the construction of pie chart from the frequency table of four nucleotides.
+
+A|C|G|T
+-------- |-------- |--------- |--------
+410 |789|573  |394 
+
+
+
+Data from the GenBank can also be imported directly by the following code.
+
+```{r label = DownloadingData, echo = TRUE}
+# install.packages(pkgs = "ape", repo = "http://cran.r-project.org", dependencies =TRUE)
+# library(ape)
+# df1 <- table(read.GenBank(c("X94991.1"),as.character=TRUE))
+# df1
+```
+## Simple Bar Chart
+```{r}
+if (!require("tidyverse")) install.packages("tidyverse")
+# library(tidyverse)
+df2 <- tibble(
+    G.Sequence   = c("A", "C", "G", "T")
+  , Nucleotides  = c(410, 789, 573, 394)
+  )
+df2
+
+ggplot(
+        data = df2
+      , mapping = aes(x = G.Sequence, y = Nucleotides)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+# Two Way Contingency Table
+Source: OMB Statistical Policy Working Paper 22. https://www.hhs.gov/sites/default/files/spwp22.pdf
+Following data set consists of information concerning delinquent children. Recorded variables are Number of Delinquent Children by County and Education Level of Household Head.
+
+```{r}
+df3 <- tibble(
+  Delinquent = gl(n = 4, k = 4, length = 16, labels = c("Alpha","Beta","Gamma","Delta"))
+, EduLevel   = gl(n = 4, k = 1, length = 16, labels = c("Low","Medium","High","Very High"))
+, Freq       = c(15, 0, 5, 0, 20, 10, 10, 15, 5, 10, 10, 0, 10, 15, 5, 5)
+)
+
+df3
+```
+
+```{r}
+ggplot(
+       data = df3
+    ,  mapping = aes(x = Delinquent, y = Freq)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(
+    data = df3
+  , mapping = aes(x = EduLevel, y = Freq)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(
+       data = df3
+     , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(
+        data = df3
+      , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(
+        data = df3
+      , mapping = aes(x = EduLevel, y = Freq, fill = Delinquent)) +
+  geom_bar(stat = "identity",position = "dodge") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+# Continuous Data Presentation
+The golub table contains gene expression values from 3051 genes taken from 38 Leukemia patients. Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and eleven as acute myeloid leukemia (AML). The golub.gnames table contains information on the gene, including gene index, manufacturing ID, and biological name. Following table presents the gene expression value by their tumor type.
+
+tumortype|genevalue|tumortype|genevalue
+-------- |-------- |--------- |--------
+ALL | 2.10892 | ALL  | 1.78352 
+ALL | 1.52405 | ALL  | 0.45827 
+ALL | 1.96403 | ALL  | 2.18119 
+ALL | 2.33597 | ALL  | 2.31428 
+ALL | 1.85111 | ALL  | 1.99927 
+ALL | 1.99391 | ALL  | 1.36844 
+ALL | 2.06597 | ALL  | 2.37351 
+ALL | 1.81649 | ALL  | 1.83485 
+ALL | 2.17622 | AML  | 0.88941 
+ALL | 1.80861 | AML  | 1.45014 
+ALL | 2.44562 | AML  | 0.42904 
+ALL | 1.90496 | AML  | 0.82667 
+ALL | 2.76610 | AML  | 0.63637 
+ALL | 1.32551 | AML  | 1.02250
+ALL | 2.59385 | AML  | 0.12758 
+ALL | 1.92776 | AML  | -0.74333 
+ALL | 1.10546 | AML  | 0.73784 
+ALL | 1.27645 | AML  | 0.49470 
+ALL | 1.83051 | AML  | 1.12058
+
+```{r}
+df4 <- tibble(
+   genevalue = c(
+              2.10892, 1.52405, 1.96403, 2.33597, 1.85111, 1.99391
+            , 2.06597, 1.81649, 2.17622, 1.80861, 2.44562, 1.90496
+            , 2.76610, 1.32551, 2.59385, 1.92776, 1.10546, 1.27645
+            , 1.83051, 1.78352, 0.45827, 2.18119, 2.31428, 1.99927
+            , 1.36844, 2.37351, 1.83485, 0.88941, 1.45014, 0.42904
+            , 0.82667, 0.63637, 1.02250, 0.12758, -0.74333, 0.73784
+            , 0.49470, 1.12058
+            )
+  , tumortype = rep(c("ALL","AML"), c(27, 11))
+)
+
+df4
+```
+
+# Frequency Distribution
+
+```{r}
+df5 <- df4 %>% 
+  summarize(
+    R = max(genevalue) - min(genevalue)
+  , k = floor(1 + 3.3*log10(length(genevalue)))
+  , h = R/k
+    )
+
+df4Freq <- df4 %>% 
+  mutate(
+          Classes = cut(
+                         x              = genevalue
+                       , breaks         = df5$k
+                       , include.lowest = TRUE
+                       , right          = FALSE
+                       )
+          ) %>%
+  count(Classes) %>% 
+  tidyr::separate(col = Classes, into = c("LB", "UB"), sep = ",", remove = FALSE) %>%
+  rename(f = n) %>%
+  mutate(
+    LB = readr::parse_number(x = LB)
+  , UB = readr::parse_number(x = UB)
+  , rf = f/sum(f)
+  , pf = f/sum(f)*100
+  , cf = cumsum(f)
+  , MidPoint = (LB + UB)/2
+  ) 
+  
+df4Freq
+```
+
+## Histogram
+
+```{r}
+ggplot(
+       data = df4
+     , mapping = aes(x = genevalue)) + 
+  geom_histogram(color = "blue", fill = "white", binwidth = 0.25) +
+  theme_bw()+
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = "Histogram for Gene Value", x = "Gene Value", y = "Count")
+```
+
+
+```{r}
+ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f)) +
+  geom_bar(stat = "identity", width = 0.5, colour = "black", fill = "white") +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f))  + 
+  geom_point() + 
+  geom_line() + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = rf)) + 
+  geom_point() + 
+  geom_line() + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = pf)) + 
+  geom_point() + 
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = cf)) + 
+  geom_point()+ 
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+
+## Stem and Leaf Plot
+
+```{r}
+stem(x = df4$genevalue, scale = 1, width = 80, atom = 1e-08)
+```
+
+## Box Plot
+
+```{r}
+ggplot(data = df4 , aes(x = tumortype, y = genevalue)) + 
+  geom_boxplot()+
+  theme_bw()
+```
+
+
+# Measures of Centeral Tendency
+
+```{r}
+df4 %>%
+  group_by(tumortype) %>%
+  summarize(
+            n       = length(genevalue)
+          , Mean    = mean(genevalue)
+          , Median  = median(genevalue)
+          , Minimum = min(genevalue) 
+          , Maximum = max(genevalue) 
+          , Q1      = quantile(x = genevalue, probs = 0.25)
+          , Q2      = quantile(x = genevalue, probs = 0.50)
+          , Q3      = quantile(x = genevalue, probs = 0.75)
+  )
+```
+
+# Measures of Dispersion
+
+
+```{r}
+df4 %>%
+  group_by(tumortype) %>%
+  summarize(
+            IQR      = IQR(genevalue)
+          , Variance = var(genevalue)
+          ,  SD      = sd(genevalue)
+          )
+```
+
+# Measures of Skewness
+
+```{r}
+df4 %>% 
+  group_by(tumortype) %>%
+  summarize(
+           SK = sum((genevalue - mean(genevalue))^3)/(n()*(sd(genevalue))^3)
+          )
+```
+
+# Measures of Skewness
+
+```{r}
+df4 %>% 
+  group_by(tumortype) %>%
+  summarize(
+            K = sum((genevalue - mean(genevalue))^4)/(n()*(sd(genevalue))^4) - 3
+          )
+```

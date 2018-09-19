@@ -5,9 +5,19 @@
     <link>/categories/</link>
     <description>Recent content in Categories on Muhammad Yaseen</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bioinformatics</title>
+      <link>/categories/bioinformatics/</link>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/bioinformatics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science</title>
@@ -84,7 +94,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Sun, 13 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -111,7 +121,7 @@
     <item>
       <title>Statistics</title>
       <link>/categories/statistics/</link>
-      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/statistics/</guid>
       <description></description>

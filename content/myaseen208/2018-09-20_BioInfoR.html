@@ -1,0 +1,463 @@
+---
+title: "Bioinformatics with R"
+description: |
+  Bioinformatics with R.
+author:
+  - name: Muhammad Yaseen 
+    url: http://myaseen208.netlify.com/
+    affiliation: Dept of Math & Stat, Univ of Agriculture, Faisalabad Pakistan
+    affiliation_url: http://uaf.edu.pk/
+date: 2018-09-20
+comments: false
+slug: 2018-BioInfoR
+categories:
+- R
+- Statistics
+- Bioinformatics
+mathjax: true
+output:
+  radix::radix_article:
+    toc: true
+---
+
+
+
+<div id="discrete-data-presentation" class="section level1">
+<h1>Discrete Data Presentation</h1>
+<p>Following data presents the number of nucleotides of gene sequence (A, C, G, T). This is illustrated by the Zyxin gene which plays an important role in cell adhesion (Golub et al, 1999). The accession number (X94991.1) of one of its variants can be found in a data base like NCBI (UniGene). Given data will be used to illustrate the construction of pie chart from the frequency table of four nucleotides.</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>C</th>
+<th>G</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>410</td>
+<td>789</td>
+<td>573</td>
+<td>394</td>
+</tr>
+</tbody>
+</table>
+<p>Data from the GenBank can also be imported directly by the following code.</p>
+<pre class="r"><code># install.packages(pkgs = &quot;ape&quot;, repo = &quot;http://cran.r-project.org&quot;, dependencies =TRUE)
+# library(ape)
+# df1 &lt;- table(read.GenBank(c(&quot;X94991.1&quot;),as.character=TRUE))
+# df1</code></pre>
+<div id="simple-bar-chart" class="section level2">
+<h2>Simple Bar Chart</h2>
+<pre class="r"><code>if (!require(&quot;tidyverse&quot;)) install.packages(&quot;tidyverse&quot;)
+# library(tidyverse)
+df2 &lt;- tibble(
+    G.Sequence   = c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;)
+  , Nucleotides  = c(410, 789, 573, 394)
+  )
+df2</code></pre>
+<pre><code># A tibble: 4 x 2
+  G.Sequence Nucleotides
+  &lt;chr&gt;            &lt;dbl&gt;
+1 A                  410
+2 C                  789
+3 G                  573
+4 T                  394</code></pre>
+<pre class="r"><code>ggplot(
+        data = df2
+      , mapping = aes(x = G.Sequence, y = Nucleotides)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-1-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="two-way-contingency-table" class="section level1">
+<h1>Two Way Contingency Table</h1>
+<p>Source: OMB Statistical Policy Working Paper 22. <a href="https://www.hhs.gov/sites/default/files/spwp22.pdf" class="uri">https://www.hhs.gov/sites/default/files/spwp22.pdf</a>
+Following data set consists of information concerning delinquent children. Recorded variables are Number of Delinquent Children by County and Education Level of Household Head.</p>
+<pre class="r"><code>df3 &lt;- tibble(
+  Delinquent = gl(n = 4, k = 4, length = 16, labels = c(&quot;Alpha&quot;,&quot;Beta&quot;,&quot;Gamma&quot;,&quot;Delta&quot;))
+, EduLevel   = gl(n = 4, k = 1, length = 16, labels = c(&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;,&quot;Very High&quot;))
+, Freq       = c(15, 0, 5, 0, 20, 10, 10, 15, 5, 10, 10, 0, 10, 15, 5, 5)
+)
+
+df3</code></pre>
+<pre><code># A tibble: 16 x 3
+   Delinquent EduLevel   Freq
+   &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt;
+ 1 Alpha      Low          15
+ 2 Alpha      Medium        0
+ 3 Alpha      High          5
+ 4 Alpha      Very High     0
+ 5 Beta       Low          20
+ 6 Beta       Medium       10
+ 7 Beta       High         10
+ 8 Beta       Very High    15
+ 9 Gamma      Low           5
+10 Gamma      Medium       10
+11 Gamma      High         10
+12 Gamma      Very High     0
+13 Delta      Low          10
+14 Delta      Medium       15
+15 Delta      High          5
+16 Delta      Very High     5</code></pre>
+<pre class="r"><code>ggplot(
+       data = df3
+    ,  mapping = aes(x = Delinquent, y = Freq)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-3-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+    data = df3
+  , mapping = aes(x = EduLevel, y = Freq)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-4-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+       data = df3
+     , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-5-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+        data = df3
+      , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+  geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-6-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+        data = df3
+      , mapping = aes(x = EduLevel, y = Freq, fill = Delinquent)) +
+  geom_bar(stat = &quot;identity&quot;,position = &quot;dodge&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-7-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="continuous-data-presentation" class="section level1">
+<h1>Continuous Data Presentation</h1>
+<p>The golub table contains gene expression values from 3051 genes taken from 38 Leukemia patients. Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and eleven as acute myeloid leukemia (AML). The golub.gnames table contains information on the gene, including gene index, manufacturing ID, and biological name. Following table presents the gene expression value by their tumor type.</p>
+<table>
+<thead>
+<tr class="header">
+<th>tumortype</th>
+<th>genevalue</th>
+<th>tumortype</th>
+<th>genevalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ALL</td>
+<td>2.10892</td>
+<td>ALL</td>
+<td>1.78352</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.52405</td>
+<td>ALL</td>
+<td>0.45827</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>1.96403</td>
+<td>ALL</td>
+<td>2.18119</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>2.33597</td>
+<td>ALL</td>
+<td>2.31428</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>1.85111</td>
+<td>ALL</td>
+<td>1.99927</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.99391</td>
+<td>ALL</td>
+<td>1.36844</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>2.06597</td>
+<td>ALL</td>
+<td>2.37351</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.81649</td>
+<td>ALL</td>
+<td>1.83485</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>2.17622</td>
+<td>AML</td>
+<td>0.88941</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.80861</td>
+<td>AML</td>
+<td>1.45014</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>2.44562</td>
+<td>AML</td>
+<td>0.42904</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.90496</td>
+<td>AML</td>
+<td>0.82667</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>2.76610</td>
+<td>AML</td>
+<td>0.63637</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.32551</td>
+<td>AML</td>
+<td>1.02250</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>2.59385</td>
+<td>AML</td>
+<td>0.12758</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.92776</td>
+<td>AML</td>
+<td>-0.74333</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>1.10546</td>
+<td>AML</td>
+<td>0.73784</td>
+</tr>
+<tr class="even">
+<td>ALL</td>
+<td>1.27645</td>
+<td>AML</td>
+<td>0.49470</td>
+</tr>
+<tr class="odd">
+<td>ALL</td>
+<td>1.83051</td>
+<td>AML</td>
+<td>1.12058</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>df4 &lt;- tibble(
+   genevalue = c(
+              2.10892, 1.52405, 1.96403, 2.33597, 1.85111, 1.99391
+            , 2.06597, 1.81649, 2.17622, 1.80861, 2.44562, 1.90496
+            , 2.76610, 1.32551, 2.59385, 1.92776, 1.10546, 1.27645
+            , 1.83051, 1.78352, 0.45827, 2.18119, 2.31428, 1.99927
+            , 1.36844, 2.37351, 1.83485, 0.88941, 1.45014, 0.42904
+            , 0.82667, 0.63637, 1.02250, 0.12758, -0.74333, 0.73784
+            , 0.49470, 1.12058
+            )
+  , tumortype = rep(c(&quot;ALL&quot;,&quot;AML&quot;), c(27, 11))
+)
+
+df4</code></pre>
+<pre><code># A tibble: 38 x 2
+   genevalue tumortype
+       &lt;dbl&gt; &lt;chr&gt;    
+ 1      2.11 ALL      
+ 2      1.52 ALL      
+ 3      1.96 ALL      
+ 4      2.34 ALL      
+ 5      1.85 ALL      
+ 6      1.99 ALL      
+ 7      2.07 ALL      
+ 8      1.82 ALL      
+ 9      2.18 ALL      
+10      1.81 ALL      
+# ... with 28 more rows</code></pre>
+</div>
+<div id="frequency-distribution" class="section level1">
+<h1>Frequency Distribution</h1>
+<pre class="r"><code>df5 &lt;- df4 %&gt;% 
+  summarize(
+    R = max(genevalue) - min(genevalue)
+  , k = floor(1 + 3.3*log10(length(genevalue)))
+  , h = R/k
+    )
+
+df4Freq &lt;- df4 %&gt;% 
+  mutate(
+          Classes = cut(
+                         x              = genevalue
+                       , breaks         = df5$k
+                       , include.lowest = TRUE
+                       , right          = FALSE
+                       )
+          ) %&gt;%
+  count(Classes) %&gt;% 
+  tidyr::separate(col = Classes, into = c(&quot;LB&quot;, &quot;UB&quot;), sep = &quot;,&quot;, remove = FALSE) %&gt;%
+  rename(f = n) %&gt;%
+  mutate(
+    LB = readr::parse_number(x = LB)
+  , UB = readr::parse_number(x = UB)
+  , rf = f/sum(f)
+  , pf = f/sum(f)*100
+  , cf = cumsum(f)
+  , MidPoint = (LB + UB)/2
+  ) 
+  
+df4Freq</code></pre>
+<pre><code># A tibble: 6 x 8
+  Classes             LB     UB     f     rf    pf    cf MidPoint
+  &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;
+1 [-0.747,-0.158) -0.747 -0.158     1 0.0263  2.63     1   -0.452
+2 [-0.158,0.426)  -0.158  0.426     1 0.0263  2.63     2    0.134
+3 [0.426,1.01)     0.426  1.01      7 0.184  18.4      9    0.718
+4 [1.01,1.6)       1.01   1.6       8 0.211  21.1     17    1.31 
+5 [1.6,2.18)       1.6    2.18     15 0.395  39.5     32    1.89 
+6 [2.18,2.77]      2.18   2.77      6 0.158  15.8     38    2.48 </code></pre>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<pre class="r"><code>ggplot(
+       data = df4
+     , mapping = aes(x = genevalue)) + 
+  geom_histogram(color = &quot;blue&quot;, fill = &quot;white&quot;, binwidth = 0.25) +
+  theme_bw()+
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Histogram for Gene Value&quot;, x = &quot;Gene Value&quot;, y = &quot;Count&quot;)</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-10-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f)) +
+  geom_bar(stat = &quot;identity&quot;, width = 0.5, colour = &quot;black&quot;, fill = &quot;white&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-11-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f))  + 
+  geom_point() + 
+  geom_line() + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-12-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = rf)) + 
+  geom_point() + 
+  geom_line() + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-13-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = pf)) + 
+  geom_point() + 
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-14-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = cf)) + 
+  geom_point()+ 
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-15-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="stem-and-leaf-plot" class="section level2">
+<h2>Stem and Leaf Plot</h2>
+<pre class="r"><code>stem(x = df4$genevalue, scale = 1, width = 80, atom = 1e-08)</code></pre>
+<pre><code>
+  The decimal point is at the |
+
+  -0 | 7
+  -0 | 
+   0 | 14
+   0 | 556789
+   1 | 011334
+   1 | 5588888999
+   2 | 00011223344
+   2 | 68</code></pre>
+</div>
+<div id="box-plot" class="section level2">
+<h2>Box Plot</h2>
+<pre class="r"><code>ggplot(data = df4 , aes(x = tumortype, y = genevalue)) + 
+  geom_boxplot()+
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-17-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="measures-of-centeral-tendency" class="section level1">
+<h1>Measures of Centeral Tendency</h1>
+<pre class="r"><code>df4 %&gt;%
+  group_by(tumortype) %&gt;%
+  summarize(
+            n       = length(genevalue)
+          , Mean    = mean(genevalue)
+          , Median  = median(genevalue)
+          , Minimum = min(genevalue) 
+          , Maximum = max(genevalue) 
+          , Q1      = quantile(x = genevalue, probs = 0.25)
+          , Q2      = quantile(x = genevalue, probs = 0.50)
+          , Q3      = quantile(x = genevalue, probs = 0.75)
+  )</code></pre>
+<pre><code># A tibble: 2 x 9
+  tumortype     n  Mean Median Minimum Maximum    Q1    Q2    Q3
+  &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 ALL          27 1.89   1.93    0.458    2.77 1.80  1.93  2.18 
+2 AML          11 0.636  0.738  -0.743    1.45 0.462 0.738 0.956</code></pre>
+</div>
+<div id="measures-of-dispersion" class="section level1">
+<h1>Measures of Dispersion</h1>
+<pre class="r"><code>df4 %&gt;%
+  group_by(tumortype) %&gt;%
+  summarize(
+            IQR      = IQR(genevalue)
+          , Variance = var(genevalue)
+          ,  SD      = sd(genevalue)
+          )</code></pre>
+<pre><code># A tibble: 2 x 4
+  tumortype   IQR Variance    SD
+  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1 ALL       0.383    0.241 0.491
+2 AML       0.494    0.338 0.582</code></pre>
+</div>
+<div id="measures-of-skewness" class="section level1">
+<h1>Measures of Skewness</h1>
+<pre class="r"><code>df4 %&gt;% 
+  group_by(tumortype) %&gt;%
+  summarize(
+           SK = sum((genevalue - mean(genevalue))^3)/(n()*(sd(genevalue))^3)
+          )</code></pre>
+<pre><code># A tibble: 2 x 2
+  tumortype     SK
+  &lt;chr&gt;      &lt;dbl&gt;
+1 ALL       -0.802
+2 AML       -0.937</code></pre>
+</div>
+<div id="measures-of-skewness-1" class="section level1">
+<h1>Measures of Skewness</h1>
+<pre class="r"><code>df4 %&gt;% 
+  group_by(tumortype) %&gt;%
+  summarize(
+            K = sum((genevalue - mean(genevalue))^4)/(n()*(sd(genevalue))^4) - 3
+          )</code></pre>
+<pre><code># A tibble: 2 x 2
+  tumortype     K
+  &lt;chr&gt;     &lt;dbl&gt;
+1 ALL       0.855
+2 AML       0.345</code></pre>
+</div>
