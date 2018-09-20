@@ -104,6 +104,7 @@ knitr::read_chunk("2018-08-16-PASTIC-NTU.R")
 
 ### Example
 > Following data presents a subset of Yarn strength and Elongation percentage from an experiment to test yarn strength and extension of blue jeans designed under Conducted in Sudan Textile Factory	Method. 
+
 &nbsp;
 
   Single Strength  | Elongation

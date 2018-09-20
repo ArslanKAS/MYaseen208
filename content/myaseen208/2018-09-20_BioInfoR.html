@@ -16,15 +16,252 @@ categories:
 - Bioinformatics
 mathjax: true
 output:
-  radix::radix_article:
+  blogdown::html_page:
     toc: true
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#statistics">Statistics</a></li>
+<li><a href="#variable">Variable</a></li>
+<li><a href="#measurement">Measurement</a></li>
+<li><a href="#measurement-scales">Measurement Scales</a><ul>
+<li><a href="#nominal-data">Nominal Data</a><ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#example-1">Example</a></li>
+</ul></li>
+<li><a href="#ordinal-data">Ordinal Data</a><ul>
+<li><a href="#example-2">Example</a></li>
+</ul></li>
+<li><a href="#two-way-contingency-table">Two Way Contingency Table</a><ul>
+<li><a href="#example-3">Example</a></li>
+<li><a href="#example-4">Example</a></li>
+</ul></li>
+<li><a href="#count-data">Count Data</a><ul>
+<li><a href="#example-5">Example</a></li>
+</ul></li>
+<li><a href="#continuous-data">Continuous Data</a><ul>
+<li><a href="#example-6">Example</a></li>
+<li><a href="#example-7">Example</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#measures-of-centeral-tendency">Measures of Centeral Tendency</a></li>
+<li><a href="#measures-of-dispersion">Measures of Dispersion</a></li>
+<li><a href="#measures-of-skewness">Measures of Skewness</a></li>
+<li><a href="#measures-of-skewness-1">Measures of Skewness</a></li>
+</ul>
+</div>
 
-<div id="discrete-data-presentation" class="section level1">
-<h1>Discrete Data Presentation</h1>
+<div id="statistics" class="section level1">
+<h1>Statistics</h1>
+<blockquote>
+<ul>
+<li>Statistics is the science of uncertainty &amp; variability</li>
+<li>Statistics turns data into information</li>
+<li>Data -&gt; Information -&gt; Knowledge -&gt; Wisdom</li>
+<li>Data Driven Decisions (3Ds)</li>
+<li>Statistics is the interpretation of Science</li>
+<li>Statistics is the Art &amp; Science of learning from data</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="variable" class="section level1">
+<h1>Variable</h1>
+<blockquote>
+<ul>
+<li>Characteristic that may vary from individual to individual</li>
+<li>Height, Weight, CGPA etc</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="measurement" class="section level1">
+<h1>Measurement</h1>
+<blockquote>
+<ul>
+<li>Process of assigning numbers or labels to objects or states in accordance with logically accepted rules</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="measurement-scales" class="section level1">
+<h1>Measurement Scales</h1>
+<blockquote>
+<ul>
+<li><strong>Nominal Scale:</strong> Obersvations may be classified into mutually exclusive &amp; exhaustive classes or categories</li>
+<li><strong>Ordinal Scale:</strong> Obersvations may be ranked</li>
+<li><strong>Interval Scale:</strong> Difference between obersvations is meaningful</li>
+<li><strong>Ratio Scale:</strong> Ratio between obersvations is meaningful &amp; true zero point</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="nominal-data" class="section level2">
+<h2>Nominal Data</h2>
+<div id="example" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following data shows the gender of a sample of twenty students from the University of Agriculture, Faisalabad.</p>
+</blockquote>
+<p> </p>
+<table>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Male</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>if (!require(&quot;tidyverse&quot;)) install.packages(&quot;tidyverse&quot;)
+# library(tidyverse)
+df1 &lt;- tibble::tibble(
+    Student = seq(from = 1, to = 20, by = 1)
+  , Gender  = rep(x = c(&quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;), c(2, 4, 4, 2, 2, 2, 4))
+  )
+df1</code></pre>
+<pre><code># A tibble: 20 x 2
+   Student Gender
+     &lt;dbl&gt; &lt;chr&gt; 
+ 1       1 Male  
+ 2       2 Male  
+ 3       3 Female
+ 4       4 Female
+ 5       5 Female
+ 6       6 Female
+ 7       7 Male  
+ 8       8 Male  
+ 9       9 Male  
+10      10 Male  
+11      11 Female
+12      12 Female
+13      13 Male  
+14      14 Male  
+15      15 Female
+16      16 Female
+17      17 Male  
+18      18 Male  
+19      19 Male  
+20      20 Male  </code></pre>
+<div id="frequency-table" class="section level4">
+<h4>Frequency Table</h4>
+<pre class="r"><code>df1Freq &lt;- 
+      df1 %&gt;%
+      dplyr::count(Gender) %&gt;%
+      dplyr::rename(f = n) %&gt;%
+      dplyr::mutate(
+        rf = f/sum(f)
+      , pf = rf*100  
+      )
+df1Freq</code></pre>
+<pre><code># A tibble: 2 x 4
+  Gender     f    rf    pf
+  &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Female     8   0.4    40
+2 Male      12   0.6    60</code></pre>
+</div>
+<div id="simple-bar-chart" class="section level4">
+<h4>Simple Bar Chart</h4>
+<pre class="r"><code>ggplot(
+       data = df1
+    ,  mapping = aes(x = Gender)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Gender&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-3-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="example-1" class="section level3">
+<h3>Example</h3>
+<blockquote>
 <p>Following data presents the number of nucleotides of gene sequence (A, C, G, T). This is illustrated by the Zyxin gene which plays an important role in cell adhesion (Golub et al, 1999). The accession number (X94991.1) of one of its variants can be found in a data base like NCBI (UniGene). Given data will be used to illustrate the construction of pie chart from the frequency table of four nucleotides.</p>
+</blockquote>
 <table>
 <thead>
 <tr class="header">
@@ -43,20 +280,20 @@ output:
 </tr>
 </tbody>
 </table>
+<blockquote>
 <p>Data from the GenBank can also be imported directly by the following code.</p>
+</blockquote>
 <pre class="r"><code># install.packages(pkgs = &quot;ape&quot;, repo = &quot;http://cran.r-project.org&quot;, dependencies =TRUE)
 # library(ape)
-# df1 &lt;- table(read.GenBank(c(&quot;X94991.1&quot;),as.character=TRUE))
-# df1</code></pre>
-<div id="simple-bar-chart" class="section level2">
-<h2>Simple Bar Chart</h2>
-<pre class="r"><code>if (!require(&quot;tidyverse&quot;)) install.packages(&quot;tidyverse&quot;)
-# library(tidyverse)
-df2 &lt;- tibble(
+# df2 &lt;- table(read.GenBank(c(&quot;X94991.1&quot;),as.character=TRUE))
+# df2</code></pre>
+<div id="frequency-table-1" class="section level4">
+<h4>Frequency Table</h4>
+<pre class="r"><code>df3 &lt;- tibble(
     G.Sequence   = c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;)
   , Nucleotides  = c(410, 789, 573, 394)
   )
-df2</code></pre>
+df3</code></pre>
 <pre><code># A tibble: 4 x 2
   G.Sequence Nucleotides
   &lt;chr&gt;            &lt;dbl&gt;
@@ -64,26 +301,452 @@ df2</code></pre>
 2 C                  789
 3 G                  573
 4 T                  394</code></pre>
+</div>
+<div id="simple-bar-chart-1" class="section level4">
+<h4>Simple Bar Chart</h4>
 <pre class="r"><code>ggplot(
-        data = df2
+        data = df3
       , mapping = aes(x = G.Sequence, y = Nucleotides)) +
   geom_bar(stat = &quot;identity&quot;) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-1-1.svg" width="672" style="display: block; margin: auto;" /></p>
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Gene Sequence&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-6-1.svg" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="two-way-contingency-table" class="section level1">
-<h1>Two Way Contingency Table</h1>
+</div>
+<div id="ordinal-data" class="section level2">
+<h2>Ordinal Data</h2>
+<div id="example-2" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following data shows the grades of a sample of twenty students from the University of Agriculture, Faisalabad.</p>
+</blockquote>
+<p> </p>
+<table>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>df4 &lt;- tibble::tibble(
+    Student = seq(from = 1, to = 20, by = 1)
+  , Grade  = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;A&quot;, &quot;D&quot;, &quot;F&quot;, &quot;C&quot;, &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;C&quot;,  &quot;B&quot;, &quot;C&quot;, &quot;D&quot;)
+  )
+df4</code></pre>
+<pre><code># A tibble: 20 x 2
+   Student Grade
+     &lt;dbl&gt; &lt;chr&gt;
+ 1       1 A    
+ 2       2 B    
+ 3       3 B    
+ 4       4 C    
+ 5       5 A    
+ 6       6 D    
+ 7       7 F    
+ 8       8 C    
+ 9       9 B    
+10      10 D    
+11      11 F    
+12      12 A    
+13      13 B    
+14      14 B    
+15      15 C    
+16      16 D    
+17      17 C    
+18      18 B    
+19      19 C    
+20      20 D    </code></pre>
+<div id="frequency-table-2" class="section level4">
+<h4>Frequency Table</h4>
+<pre class="r"><code>df4Freq &lt;- 
+      df4 %&gt;%
+      dplyr::count(Grade) %&gt;%
+      dplyr::rename(f = n) %&gt;%
+      dplyr::mutate(
+        rf = f/sum(f)
+      , pf = rf*100
+      , cf = cumsum(f)
+      )
+df4Freq</code></pre>
+<pre><code># A tibble: 5 x 5
+  Grade     f    rf    pf    cf
+  &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1 A         3  0.15    15     3
+2 B         6  0.3     30     9
+3 C         5  0.25    25    14
+4 D         4  0.2     20    18
+5 F         2  0.1     10    20</code></pre>
+</div>
+<div id="simple-bar-chart-2" class="section level4">
+<h4>Simple Bar Chart</h4>
+<pre class="r"><code>ggplot(
+       data = df4
+    ,  mapping = aes(x = Grade)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Grades&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-9-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+</div>
+<div id="two-way-contingency-table" class="section level2">
+<h2>Two Way Contingency Table</h2>
+<div id="example-3" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following data shows the gender and residental status of a sample of twenty students from the University of Agriculture, Faisalabad.</p>
+</blockquote>
+<p> </p>
+<table>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Gender</th>
+<th>RS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Male</td>
+<td>Boarding</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Female</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Female</td>
+<td>Boarding</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Female</td>
+<td>Boarding</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Female</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Male</td>
+<td>Boarding</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Female</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Female</td>
+<td>Boarding</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Female</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Female</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Male</td>
+<td>Non-Boarding</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Male</td>
+<td>Boarding</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>df5 &lt;- tibble::tibble(
+    Student = seq(from = 1, to = 20, by = 1)
+  , Gender  = rep(x = c(&quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;), c(2, 4, 4, 2, 2, 2, 4))
+  , RS      = c(&quot;B&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;B&quot;, &quot;B&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;B&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;B&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;NB&quot;, &quot;B&quot;)
+  )
+df5</code></pre>
+<pre><code># A tibble: 20 x 3
+   Student Gender RS   
+     &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
+ 1       1 Male   B    
+ 2       2 Male   NB   
+ 3       3 Female NB   
+ 4       4 Female B    
+ 5       5 Female B    
+ 6       6 Female NB   
+ 7       7 Male   NB   
+ 8       8 Male   B    
+ 9       9 Male   NB   
+10      10 Male   NB   
+11      11 Female NB   
+12      12 Female B    
+13      13 Male   NB   
+14      14 Male   NB   
+15      15 Female NB   
+16      16 Female NB   
+17      17 Male   NB   
+18      18 Male   NB   
+19      19 Male   NB   
+20      20 Male   B    </code></pre>
+<div id="cross-tables" class="section level4">
+<h4>Cross Tables</h4>
+<pre class="r"><code>df5 %&gt;%
+  dplyr::count(Gender) %&gt;%
+  dplyr::rename(f = n)</code></pre>
+<pre><code># A tibble: 2 x 2
+  Gender     f
+  &lt;chr&gt;  &lt;int&gt;
+1 Female     8
+2 Male      12</code></pre>
+<pre class="r"><code>df5 %&gt;%
+  dplyr::count(RS) %&gt;%
+  dplyr::rename(f = n)</code></pre>
+<pre><code># A tibble: 2 x 2
+  RS        f
+  &lt;chr&gt; &lt;int&gt;
+1 B         6
+2 NB       14</code></pre>
+<pre class="r"><code>df5 %&gt;%
+  dplyr::count(Gender, RS) %&gt;%
+  dplyr::rename(f = n)</code></pre>
+<pre><code># A tibble: 4 x 3
+  Gender RS        f
+  &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;
+1 Female B         3
+2 Female NB        5
+3 Male   B         3
+4 Male   NB        9</code></pre>
+<pre class="r"><code>if (!require(&quot;janitor&quot;)) install.packages(&quot;janitor&quot;)
+# library(janitor)
+df5CrossTab &lt;- 
+      df5 %&gt;%
+      janitor::tabyl(dat = ., var1 = Gender, var2 = RS) %&gt;%
+      janitor::adorn_totals(dat = ., where = c(&quot;row&quot;, &quot;col&quot;))
+df5CrossTab</code></pre>
+<pre><code> Gender B NB Total
+ Female 3  5     8
+   Male 3  9    12
+  Total 6 14    20</code></pre>
+</div>
+<div id="simple-bar-charts" class="section level4">
+<h4>Simple Bar Charts</h4>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = Gender)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Gender&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-15-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = RS)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Residental Status&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-16-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="multiple-bar-charts" class="section level4">
+<h4>Multiple Bar Charts</h4>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = Gender, fill = RS)) +
+  geom_bar(position = &quot;dodge&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Multiple Bar Chart&quot;, x = &quot;Gender&quot;, fill = &quot;Residental Status&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-17-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = RS, fill = Gender)) +
+  geom_bar(position = &quot;dodge&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Multiple Bar Chart&quot;, x = &quot;Residental Status&quot;, fill = &quot;Gender&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-18-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="component-bar-charts" class="section level4">
+<h4>Component Bar Charts</h4>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = Gender, fill = RS)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Component Bar Chart&quot;, x = &quot;Gender&quot;, fill = &quot;Residental Status&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-19-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+       data = df5
+    ,  mapping = aes(x = RS, fill = Gender)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Component Bar Chart&quot;, x = &quot;Residental Status&quot;, fill = &quot;Gender&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-20-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="example-4" class="section level3">
+<h3>Example</h3>
+<blockquote>
 <p>Source: OMB Statistical Policy Working Paper 22. <a href="https://www.hhs.gov/sites/default/files/spwp22.pdf" class="uri">https://www.hhs.gov/sites/default/files/spwp22.pdf</a>
 Following data set consists of information concerning delinquent children. Recorded variables are Number of Delinquent Children by County and Education Level of Household Head.</p>
-<pre class="r"><code>df3 &lt;- tibble(
-  Delinquent = gl(n = 4, k = 4, length = 16, labels = c(&quot;Alpha&quot;,&quot;Beta&quot;,&quot;Gamma&quot;,&quot;Delta&quot;))
-, EduLevel   = gl(n = 4, k = 1, length = 16, labels = c(&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;,&quot;Very High&quot;))
+</blockquote>
+<div id="cross-tables-1" class="section level4">
+<h4>Cross Tables</h4>
+<pre class="r"><code>df6 &lt;- tibble(
+  Delinquent = gl(n = 4, k = 4, length = 16, labels = c(&quot;Alpha&quot;, &quot;Beta&quot;, &quot;Gamma&quot;, &quot;Delta&quot;))
+, EduLevel   = gl(n = 4, k = 1, length = 16, labels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Very High&quot;))
 , Freq       = c(15, 0, 5, 0, 20, 10, 10, 15, 5, 10, 10, 0, 10, 15, 5, 5)
 )
 
-df3</code></pre>
+df6</code></pre>
 <pre><code># A tibble: 16 x 3
    Delinquent EduLevel   Freq
    &lt;fct&gt;      &lt;fct&gt;     &lt;dbl&gt;
@@ -103,45 +766,358 @@ df3</code></pre>
 14 Delta      Medium       15
 15 Delta      High          5
 16 Delta      Very High     5</code></pre>
+<pre class="r"><code>df6 %&gt;%
+  xtabs(data = ., Freq ~ Delinquent)</code></pre>
+<pre><code>Delinquent
+Alpha  Beta Gamma Delta 
+   20    55    25    35 </code></pre>
+<pre class="r"><code>df6 %&gt;%
+  xtabs(data = ., Freq ~ EduLevel)</code></pre>
+<pre><code>EduLevel
+      Low    Medium      High Very High 
+       50        35        30        20 </code></pre>
+<pre class="r"><code>df6 %&gt;%
+  xtabs(data = ., Freq ~ Delinquent + EduLevel)</code></pre>
+<pre><code>          EduLevel
+Delinquent Low Medium High Very High
+     Alpha  15      0    5         0
+     Beta   20     10   10        15
+     Gamma   5     10   10         0
+     Delta  10     15    5         5</code></pre>
+</div>
+<div id="multiple-bar-charts-1" class="section level4">
+<h4>Multiple Bar Charts</h4>
 <pre class="r"><code>ggplot(
-       data = df3
-    ,  mapping = aes(x = Delinquent, y = Freq)) +
-  geom_bar(stat = &quot;identity&quot;) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-3-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(
-    data = df3
-  , mapping = aes(x = EduLevel, y = Freq)) +
-  geom_bar(stat = &quot;identity&quot;) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-4-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(
-       data = df3
-     , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
-  geom_bar(stat = &quot;identity&quot;) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-5-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(
-        data = df3
-      , mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+       data = df6
+    ,  mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
   geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-6-1.svg" width="672" style="display: block; margin: auto;" /></p>
+  labs(title = &quot;Multiple Bar Chart&quot;, x = &quot;Delinquent&quot;, fill = &quot;Education Level&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-25-1.svg" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(
-        data = df3
-      , mapping = aes(x = EduLevel, y = Freq, fill = Delinquent)) +
-  geom_bar(stat = &quot;identity&quot;,position = &quot;dodge&quot;) +
+       data = df6
+    ,  mapping = aes(x = EduLevel, y = Freq, fill = Delinquent)) +
+  geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-7-1.svg" width="672" style="display: block; margin: auto;" /></p>
+  labs(title = &quot;Multiple Bar Chart&quot;, x = &quot;Education Level&quot;, fill = &quot;Delinquent&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-26-1.svg" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="continuous-data-presentation" class="section level1">
-<h1>Continuous Data Presentation</h1>
+<div id="component-bar-charts-1" class="section level4">
+<h4>Component Bar Charts</h4>
+<pre class="r"><code>ggplot(
+       data = df6
+    ,  mapping = aes(x = Delinquent, y = Freq, fill = EduLevel)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Component Bar Chart&quot;, x = &quot;Delinquent&quot;, fill = &quot;Education Level&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-27-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(
+       data = df6
+    ,  mapping = aes(x = EduLevel, y = Freq, fill = Delinquent)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Component Bar Chart&quot;, x = &quot;Education Level&quot;, fill = &quot;Delinquent&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-28-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="count-data" class="section level2">
+<h2>Count Data</h2>
+<div id="example-5" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following data shows the number of notebook a sample of twenty students keeping.</p>
+</blockquote>
+<p> </p>
+<table>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>Notebook</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<pre class="r"><code>df7 &lt;- tibble::tibble(
+    Student  = seq(from = 1, to = 20, by = 1)
+  , Notebook = c(3, 1, 0, 2, 2, 4, 5, 1, 1, 2, 3, 4, 2, 5, 1, 5, 4, 2, 2, 3)
+  )
+df7</code></pre>
+<pre><code># A tibble: 20 x 2
+   Student Notebook
+     &lt;dbl&gt;    &lt;dbl&gt;
+ 1       1        3
+ 2       2        1
+ 3       3        0
+ 4       4        2
+ 5       5        2
+ 6       6        4
+ 7       7        5
+ 8       8        1
+ 9       9        1
+10      10        2
+11      11        3
+12      12        4
+13      13        2
+14      14        5
+15      15        1
+16      16        5
+17      17        4
+18      18        2
+19      19        2
+20      20        3</code></pre>
+<div id="frequency-table-3" class="section level4">
+<h4>Frequency Table</h4>
+<pre class="r"><code>df7Freq &lt;- 
+      df7 %&gt;%
+      dplyr::count(Notebook) %&gt;%
+      dplyr::rename(f = n) %&gt;%
+      dplyr::mutate(
+        rf = f/sum(f)
+      , pf = rf*100
+      , cf = cumsum(f)
+      )
+df7Freq</code></pre>
+<pre><code># A tibble: 6 x 5
+  Notebook     f    rf    pf    cf
+     &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1        0     1  0.05     5     1
+2        1     4  0.2     20     5
+3        2     6  0.3     30    11
+4        3     3  0.15    15    14
+5        4     3  0.15    15    17
+6        5     3  0.15    15    20</code></pre>
+</div>
+<div id="simple-bar-chart-3" class="section level4">
+<h4>Simple Bar Chart</h4>
+<pre class="r"><code>ggplot(
+       data = df7
+    ,  mapping = aes(x = Notebook)) +
+  geom_bar() +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = &quot;Simple Bar Chart&quot;, x = &quot;Notebooks&quot;, y = &quot;Frequency&quot;) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-31-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+</div>
+<div id="continuous-data" class="section level2">
+<h2>Continuous Data</h2>
+<div id="example-6" class="section level3">
+<h3>Example</h3>
+<blockquote>
+<p>The following data is the final plant height (cm) of thirty plants of wheat.
+87 91 89 88 89 91 87 92 90 98 95 97 96 100 101
+96 98 99 98 100 102 99 101 105 103 107 105 106 107 112</p>
+</blockquote>
+<pre class="r"><code>df8 &lt;- tibble::tibble(
+  PlantHeight = c(
+  87,   91, 89, 88, 89, 91, 87, 92, 90, 98, 95, 97, 96, 100,    101,
+  96,   98, 99, 98, 100,    102,    99, 101,    105,    103,    107,    105,    106,    107,    112
+  )
+)
+df8</code></pre>
+<pre><code># A tibble: 30 x 1
+   PlantHeight
+         &lt;dbl&gt;
+ 1          87
+ 2          91
+ 3          89
+ 4          88
+ 5          89
+ 6          91
+ 7          87
+ 8          92
+ 9          90
+10          98
+# ... with 20 more rows</code></pre>
+<div id="frequency-distribution" class="section level4">
+<h4>Frequency Distribution</h4>
+<pre class="r"><code>df9 &lt;- df8 %&gt;% 
+  summarize(
+    R = max(PlantHeight) - min(PlantHeight)
+  , k = floor(1 + 3.3*log10(length(PlantHeight)))
+  , h = R/k
+    )
+
+df8Freq &lt;- df8 %&gt;% 
+  mutate(
+          Classes = cut(
+                         x              = PlantHeight
+                       , breaks         = df9$k
+                       , include.lowest = TRUE
+                       , right          = FALSE
+                       )
+          ) %&gt;%
+  count(Classes) %&gt;% 
+  tidyr::separate(col = Classes, into = c(&quot;LB&quot;, &quot;UB&quot;), sep = &quot;,&quot;, remove = FALSE) %&gt;%
+  rename(f = n) %&gt;%
+  mutate(
+    LB = readr::parse_number(x = LB)
+  , UB = readr::parse_number(x = UB)
+  , rf = f/sum(f)
+  , pf = f/sum(f)*100
+  , cf = cumsum(f)
+  , MidPoint = (LB + UB)/2
+  ) 
+  
+df8Freq</code></pre>
+<pre><code># A tibble: 5 x 8
+  Classes      LB    UB     f    rf    pf    cf MidPoint
+  &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;
+1 [87,92)      87    92     8 0.267  26.7     8     89.5
+2 [92,97)      92    97     4 0.133  13.3    12     94.5
+3 [97,102)     97   102    10 0.333  33.3    22     99.5
+4 [102,107)   102   107     5 0.167  16.7    27    104. 
+5 [107,112]   107   112     3 0.1    10      30    110. </code></pre>
+</div>
+<div id="histogram" class="section level4">
+<h4>Histogram</h4>
+<pre class="r"><code>ggplot(
+       data = df8
+     , mapping = aes(x = PlantHeight)) + 
+  geom_histogram() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()+
+    labs(title = &quot;Histogram for Plant Height&quot;, x = &quot;Plant Height&quot;, y = &quot;Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-34-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df8Freq, mapping = aes(x = MidPoint, y = f))  + 
+  geom_point() + 
+  geom_line() + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()+
+    labs(title = &quot;Frequency for Plant Height&quot;, x = &quot;Mid Point&quot;, y = &quot;Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-35-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df8Freq, mapping = aes(x = MidPoint, y = cf)) + 
+  geom_point()+ 
+  geom_line() +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()+
+    labs(title = &quot;Cummulative Frequency Polygon&quot;, x = &quot;Mid Point&quot;, y = &quot;Cummulative Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-36-1.svg" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="stem-and-leaf-plot" class="section level4">
+<h4>Stem and Leaf Plot</h4>
+<pre class="r"><code>stem(x = df8$PlantHeight, scale = 1, width = 80, atom = 1e-08)</code></pre>
+<pre><code>
+  The decimal point is 1 digit(s) to the right of the |
+
+   8 | 77899
+   9 | 0112
+   9 | 566788899
+  10 | 001123
+  10 | 55677
+  11 | 2</code></pre>
+</div>
+<div id="box-plot" class="section level4">
+<h4>Box Plot</h4>
+<pre class="r"><code>ggplot(data = df8 , aes( y = PlantHeight)) + 
+  geom_boxplot()+
+  theme_bw()</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-38-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="example-7" class="section level3">
+<h3>Example</h3>
+<blockquote>
 <p>The golub table contains gene expression values from 3051 genes taken from 38 Leukemia patients. Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and eleven as acute myeloid leukemia (AML). The golub.gnames table contains information on the gene, including gene index, manufacturing ID, and biological name. Following table presents the gene expression value by their tumor type.</p>
+</blockquote>
 <table>
 <thead>
 <tr class="header">
@@ -268,7 +1244,7 @@ df3</code></pre>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>df4 &lt;- tibble(
+<pre class="r"><code>df10 &lt;- tibble(
    genevalue = c(
               2.10892, 1.52405, 1.96403, 2.33597, 1.85111, 1.99391
             , 2.06597, 1.81649, 2.17622, 1.80861, 2.44562, 1.90496
@@ -281,7 +1257,7 @@ df3</code></pre>
   , tumortype = rep(c(&quot;ALL&quot;,&quot;AML&quot;), c(27, 11))
 )
 
-df4</code></pre>
+df10</code></pre>
 <pre><code># A tibble: 38 x 2
    genevalue tumortype
        &lt;dbl&gt; &lt;chr&gt;    
@@ -296,21 +1272,20 @@ df4</code></pre>
  9      2.18 ALL      
 10      1.81 ALL      
 # ... with 28 more rows</code></pre>
-</div>
-<div id="frequency-distribution" class="section level1">
-<h1>Frequency Distribution</h1>
-<pre class="r"><code>df5 &lt;- df4 %&gt;% 
+<div id="frequency-distribution-1" class="section level4">
+<h4>Frequency Distribution</h4>
+<pre class="r"><code>df11 &lt;- df10 %&gt;% 
   summarize(
     R = max(genevalue) - min(genevalue)
   , k = floor(1 + 3.3*log10(length(genevalue)))
   , h = R/k
     )
 
-df4Freq &lt;- df4 %&gt;% 
+df10Freq &lt;- df10 %&gt;% 
   mutate(
           Classes = cut(
                          x              = genevalue
-                       , breaks         = df5$k
+                       , breaks         = df11$k
                        , include.lowest = TRUE
                        , right          = FALSE
                        )
@@ -327,7 +1302,7 @@ df4Freq &lt;- df4 %&gt;%
   , MidPoint = (LB + UB)/2
   ) 
   
-df4Freq</code></pre>
+df10Freq</code></pre>
 <pre><code># A tibble: 6 x 8
   Classes             LB     UB     f     rf    pf    cf MidPoint
   &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;
@@ -337,49 +1312,38 @@ df4Freq</code></pre>
 4 [1.01,1.6)       1.01   1.6       8 0.211  21.1     17    1.31 
 5 [1.6,2.18)       1.6    2.18     15 0.395  39.5     32    1.89 
 6 [2.18,2.77]      2.18   2.77      6 0.158  15.8     38    2.48 </code></pre>
-<div id="histogram" class="section level2">
-<h2>Histogram</h2>
+</div>
+<div id="histogram-1" class="section level4">
+<h4>Histogram</h4>
 <pre class="r"><code>ggplot(
-       data = df4
+       data = df10
      , mapping = aes(x = genevalue)) + 
-  geom_histogram(color = &quot;blue&quot;, fill = &quot;white&quot;, binwidth = 0.25) +
+  geom_histogram() +
+  scale_y_continuous(expand = c(0, 0)) +
   theme_bw()+
-  scale_y_continuous(expand = c(0, 0)) +
-  labs(title = &quot;Histogram for Gene Value&quot;, x = &quot;Gene Value&quot;, y = &quot;Count&quot;)</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-10-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f)) +
-  geom_bar(stat = &quot;identity&quot;, width = 0.5, colour = &quot;black&quot;, fill = &quot;white&quot;) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-11-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = f))  + 
+    labs(title = &quot;Histogram for Gene Value&quot;, x = &quot;Gene Value&quot;, y = &quot;Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-41-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df10Freq, mapping = aes(x = MidPoint, y = f))  + 
   geom_point() + 
   geom_line() + 
   scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-12-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = rf)) + 
-  geom_point() + 
-  geom_line() + 
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-13-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = pf)) + 
-  geom_point() + 
-  geom_line() +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-14-1.svg" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(data = df4Freq, mapping = aes(x = MidPoint, y = cf)) + 
+  theme_bw()+
+    labs(title = &quot;Frequency for Gene Value&quot;, x = &quot;Mid Point&quot;, y = &quot;Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-42-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = df10Freq, mapping = aes(x = MidPoint, y = cf)) + 
   geom_point()+ 
   geom_line() +
   scale_y_continuous(expand = c(0, 0)) +
-  theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-15-1.svg" width="672" style="display: block; margin: auto;" /></p>
+  theme_bw()+
+    labs(title = &quot;Cummulative Frequency Polygon&quot;, x = &quot;Mid Point&quot;, y = &quot;Cummulative Frequency&quot;) + 
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-43-1.svg" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="stem-and-leaf-plot" class="section level2">
-<h2>Stem and Leaf Plot</h2>
-<pre class="r"><code>stem(x = df4$genevalue, scale = 1, width = 80, atom = 1e-08)</code></pre>
+<div id="stem-and-leaf-plot-1" class="section level4">
+<h4>Stem and Leaf Plot</h4>
+<pre class="r"><code>stem(x = df10$genevalue, scale = 1, width = 80, atom = 1e-08)</code></pre>
 <pre><code>
   The decimal point is at the |
 
@@ -392,17 +1356,50 @@ df4Freq</code></pre>
    2 | 00011223344
    2 | 68</code></pre>
 </div>
-<div id="box-plot" class="section level2">
-<h2>Box Plot</h2>
-<pre class="r"><code>ggplot(data = df4 , aes(x = tumortype, y = genevalue)) + 
+<div id="box-plot-1" class="section level4">
+<h4>Box Plot</h4>
+<pre class="r"><code>ggplot(data = df10 , aes(x = tumortype, y = genevalue)) + 
   geom_boxplot()+
   theme_bw()</code></pre>
-<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-17-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/myaseen208/2018-09-20_BioInfoR_files/figure-html/unnamed-chunk-45-1.svg" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
 </div>
 </div>
 <div id="measures-of-centeral-tendency" class="section level1">
 <h1>Measures of Centeral Tendency</h1>
-<pre class="r"><code>df4 %&gt;%
+<pre class="r"><code>df7 %&gt;%
+  summarize(
+            n       = length(Notebook)
+          , Mean    = mean(Notebook)
+          , Median  = median(Notebook)
+          , Minimum = min(Notebook) 
+          , Maximum = max(Notebook) 
+          , Q1      = quantile(x = Notebook, probs = 0.25)
+          , Q2      = quantile(x = Notebook, probs = 0.50)
+          , Q3      = quantile(x = Notebook, probs = 0.75)
+  )</code></pre>
+<pre><code># A tibble: 1 x 8
+      n  Mean Median Minimum Maximum    Q1    Q2    Q3
+  &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1    20   2.6      2       0       5  1.75     2     4</code></pre>
+<pre class="r"><code>df8 %&gt;%
+  summarize(
+            n       = length(PlantHeight)
+          , Mean    = mean(PlantHeight)
+          , Median  = median(PlantHeight)
+          , Minimum = min(PlantHeight) 
+          , Maximum = max(PlantHeight) 
+          , Q1      = quantile(x = PlantHeight, probs = 0.25)
+          , Q2      = quantile(x = PlantHeight, probs = 0.50)
+          , Q3      = quantile(x = PlantHeight, probs = 0.75)
+  )</code></pre>
+<pre><code># A tibble: 1 x 8
+      n  Mean Median Minimum Maximum    Q1    Q2    Q3
+  &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1    30  97.6     98      87     112  91.2    98  102.</code></pre>
+<pre class="r"><code>df10 %&gt;%
   group_by(tumortype) %&gt;%
   summarize(
             n       = length(genevalue)
@@ -419,10 +1416,31 @@ df4Freq</code></pre>
   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 1 ALL          27 1.89   1.93    0.458    2.77 1.80  1.93  2.18 
 2 AML          11 0.636  0.738  -0.743    1.45 0.462 0.738 0.956</code></pre>
+<p> </p>
 </div>
 <div id="measures-of-dispersion" class="section level1">
 <h1>Measures of Dispersion</h1>
-<pre class="r"><code>df4 %&gt;%
+<pre class="r"><code>df7 %&gt;%
+  summarize(
+            IQR      = IQR(Notebook)
+          , Variance = var(Notebook)
+          ,  SD      = sd(Notebook)
+          )</code></pre>
+<pre><code># A tibble: 1 x 3
+    IQR Variance    SD
+  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1  2.25     2.25  1.50</code></pre>
+<pre class="r"><code>df8 %&gt;%
+  summarize(
+            IQR      = IQR(PlantHeight)
+          , Variance = var(PlantHeight)
+          ,  SD      = sd(PlantHeight)
+          )</code></pre>
+<pre><code># A tibble: 1 x 3
+    IQR Variance    SD
+  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1  10.5     45.0  6.71</code></pre>
+<pre class="r"><code>df10 %&gt;%
   group_by(tumortype) %&gt;%
   summarize(
             IQR      = IQR(genevalue)
@@ -434,10 +1452,27 @@ df4Freq</code></pre>
   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
 1 ALL       0.383    0.241 0.491
 2 AML       0.494    0.338 0.582</code></pre>
+<p> </p>
 </div>
 <div id="measures-of-skewness" class="section level1">
 <h1>Measures of Skewness</h1>
-<pre class="r"><code>df4 %&gt;% 
+<pre class="r"><code>df7 %&gt;% 
+  summarize(
+           SK = sum((Notebook - mean(Notebook))^3)/(n()*(sd(Notebook))^3)
+          )</code></pre>
+<pre><code># A tibble: 1 x 1
+     SK
+  &lt;dbl&gt;
+1 0.217</code></pre>
+<pre class="r"><code>df8 %&gt;% 
+  summarize(
+           SK = sum((PlantHeight - mean(PlantHeight))^3)/(n()*(sd(PlantHeight))^3)
+          )</code></pre>
+<pre><code># A tibble: 1 x 1
+      SK
+   &lt;dbl&gt;
+1 0.0574</code></pre>
+<pre class="r"><code>df10 %&gt;% 
   group_by(tumortype) %&gt;%
   summarize(
            SK = sum((genevalue - mean(genevalue))^3)/(n()*(sd(genevalue))^3)
@@ -447,10 +1482,27 @@ df4Freq</code></pre>
   &lt;chr&gt;      &lt;dbl&gt;
 1 ALL       -0.802
 2 AML       -0.937</code></pre>
+<p> </p>
 </div>
 <div id="measures-of-skewness-1" class="section level1">
 <h1>Measures of Skewness</h1>
-<pre class="r"><code>df4 %&gt;% 
+<pre class="r"><code>df7 %&gt;%
+  summarize(
+            K = sum((Notebook - mean(Notebook))^4)/(n()*(sd(Notebook))^4) - 3
+          )</code></pre>
+<pre><code># A tibble: 1 x 1
+      K
+  &lt;dbl&gt;
+1 -1.19</code></pre>
+<pre class="r"><code>df8 %&gt;%
+  summarize(
+            K = sum((PlantHeight - mean(PlantHeight))^4)/(n()*(sd(PlantHeight))^4) - 3
+          )</code></pre>
+<pre><code># A tibble: 1 x 1
+       K
+   &lt;dbl&gt;
+1 -0.960</code></pre>
+<pre class="r"><code>df10 %&gt;% 
   group_by(tumortype) %&gt;%
   summarize(
             K = sum((genevalue - mean(genevalue))^4)/(n()*(sd(genevalue))^4) - 3
