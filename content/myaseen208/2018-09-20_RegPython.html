@@ -1,0 +1,275 @@
+---
+title: "Regression Analysis with Python"
+description: |
+  Regression Analysis with Python.
+author:
+  - name: Muhammad Yaseen 
+    url: http://myaseen208.netlify.com/
+    affiliation: Dept of Math & Stat, Univ of Agriculture, Faisalabad Pakistan
+    affiliation_url: http://uaf.edu.pk/
+date: 2018-09-20
+comments: false
+slug: 2018-RegPython
+categories:
+- Python
+- Statistics
+- Regression Analysis
+mathjax: true
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#statistics">Statistics</a></li>
+<li><a href="#variable">Variable</a></li>
+<li><a href="#measurement">Measurement</a></li>
+<li><a href="#measurement-scales">Measurement Scales</a></li>
+<li><a href="#regression-analysis">Regression Analysis</a></li>
+<li><a href="#simple-linear-regression">Simple Linear Regression</a><ul>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="statistics" class="section level1">
+<h1>Statistics</h1>
+<blockquote>
+<ul>
+<li>Statistics is the science of uncertainty &amp; variability</li>
+<li>Statistics turns data into information</li>
+<li>Data -&gt; Information -&gt; Knowledge -&gt; Wisdom</li>
+<li>Data Driven Decisions (3Ds)</li>
+<li>Statistics is the interpretation of Science</li>
+<li>Statistics is the Art &amp; Science of learning from data</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="variable" class="section level1">
+<h1>Variable</h1>
+<blockquote>
+<ul>
+<li>Characteristic that may vary from individual to individual</li>
+<li>Height, Weight, CGPA etc</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="measurement" class="section level1">
+<h1>Measurement</h1>
+<blockquote>
+<ul>
+<li>Process of assigning numbers or labels to objects or states in accordance with logically accepted rules</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="measurement-scales" class="section level1">
+<h1>Measurement Scales</h1>
+<blockquote>
+<ul>
+<li><strong>Nominal Scale:</strong> Obersvations may be classified into mutually exclusive &amp; exhaustive classes or categories</li>
+<li><strong>Ordinal Scale:</strong> Obersvations may be ranked</li>
+<li><strong>Interval Scale:</strong> Difference between obersvations is meaningful</li>
+<li><strong>Ratio Scale:</strong> Ratio between obersvations is meaningful &amp; true zero point</li>
+</ul>
+</blockquote>
+<p> </p>
+</div>
+<div id="regression-analysis" class="section level1">
+<h1>Regression Analysis</h1>
+<blockquote>
+<ul>
+<li>Quantifying dependency of a normal response on quantitative explanatory variable(s)</li>
+</ul>
+</blockquote>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:PopRegFn"></span>
+<img src="/img/PopRegFn.png" alt="Population Regression Function" width="100%" />
+<p class="caption">
+Figure 1: Population Regression Function
+</p>
+</div>
+<p> </p>
+</div>
+<div id="simple-linear-regression" class="section level1">
+<h1>Simple Linear Regression</h1>
+<blockquote>
+<ul>
+<li>Quantifying dependency of a normal response on a quantitative explanatory variable</li>
+</ul>
+</blockquote>
+<p> </p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Weekly Income ($)</th>
+<th>Weekly Expenditures ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>80</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>100</td>
+<td>65</td>
+</tr>
+<tr class="odd">
+<td>120</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>140</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td>160</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<td>180</td>
+<td>115</td>
+</tr>
+<tr class="odd">
+<td>200</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td>220</td>
+<td>140</td>
+</tr>
+<tr class="odd">
+<td>240</td>
+<td>155</td>
+</tr>
+<tr class="even">
+<td>260</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>Income = [80, 100, 120, 140, 160, 180, 200, 220, 240, 260]
+Expend = [70, 65, 90, 95, 110, 115, 120, 140, 155, 150]</code></pre>
+<pre class="python"><code>import pandas as pd
+df1 = pd.DataFrame(
+ {
+   &quot;Income&quot;: Income
+ , &quot;Expend&quot;: Expend
+ }
+ )
+
+print(df1)</code></pre>
+<pre><code>   Expend  Income
+0      70      80
+1      65     100
+2      90     120
+3      95     140
+4     110     160
+5     115     180
+6     120     200
+7     140     220
+8     155     240
+9     150     260</code></pre>
+<pre class="python"><code>from matplotlib import pyplot as plt
+plt.plot(
+df1[&quot;Income&quot;]
+, df1[&quot;Expend&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+, linestyle = &quot;solid&quot;
+)
+plt.title(&quot;Scatter plot of Weekly Income (\$) and Weekly Expenditures (\$)&quot;)
+plt.xlabel(&quot;Weekly Income (\$)&quot;)
+plt.ylabel(&quot;Weekly Expenditures (\$)&quot;)
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-5-1.svg" style="display: block; margin: auto;" /></p>
+<pre class="python"><code>from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+Reg1 = ols(formula = &quot;Expend ~ Income&quot;, data = df1)
+Fit1 = Reg1.fit()
+print(Fit1.summary())</code></pre>
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Expend   R-squared:                       0.962
+Model:                            OLS   Adj. R-squared:                  0.957
+Method:                 Least Squares   F-statistic:                     202.9
+Date:                Thu, 20 Sep 2018   Prob (F-statistic):           5.75e-07
+Time:                        14:25:16   Log-Likelihood:                -31.781
+No. Observations:                  10   AIC:                             67.56
+Df Residuals:                       8   BIC:                             68.17
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     24.4545      6.414      3.813      0.005       9.664      39.245
+Income         0.5091      0.036     14.243      0.000       0.427       0.592
+==============================================================================
+Omnibus:                        1.060   Durbin-Watson:                   2.680
+Prob(Omnibus):                  0.589   Jarque-Bera (JB):                0.777
+Skew:                          -0.398   Prob(JB):                        0.678
+Kurtosis:                       1.891   Cond. No.                         561.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+<pre class="python"><code>print(Fit1.params)</code></pre>
+<pre><code>Intercept    24.454545
+Income        0.509091
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit1.fittedvalues)</code></pre>
+<pre><code>0     65.181818
+1     75.363636
+2     85.545455
+3     95.727273
+4    105.909091
+5    116.090909
+6    126.272727
+7    136.454545
+8    146.636364
+9    156.818182
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit1.resid)</code></pre>
+<pre><code>0     4.818182
+1   -10.363636
+2     4.454545
+3    -0.727273
+4     4.090909
+5    -1.090909
+6    -6.272727
+7     3.545455
+8     8.363636
+9    -6.818182
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit1.bse)</code></pre>
+<pre><code>Intercept    6.413817
+Income       0.035743
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit1.centered_tss)</code></pre>
+<pre><code>8890.0</code></pre>
+<pre class="python"><code>print(anova_lm(Fit1))</code></pre>
+<pre><code>           df       sum_sq      mean_sq           F        PR(&gt;F)
+Income    1.0  8552.727273  8552.727273  202.867925  5.752746e-07
+Residual  8.0   337.272727    42.159091         NaN           NaN</code></pre>
+<pre class="python"><code>plt.scatter(
+  df1[&quot;Income&quot;]
+, df1[&quot;Expend&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+)
+plt.plot(df1[&quot;Income&quot;], Fit1.fittedvalues)
+plt.title(&quot;Regression plot of Weekly Income (\$) and Weekly Expenditures (\$)&quot;)
+plt.xlabel(&quot;Weekly Income (\$)&quot;)
+plt.ylabel(&quot;Weekly Expenditures (\$)&quot;)
+
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" /></p>
+</div>
+</div>
