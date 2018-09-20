@@ -220,6 +220,7 @@ plt.show()
 
 &nbsp;
 
+## Example
 
 Fertilizer (Kg)  | Rainfall (mm) | Yield (Kg)
   ------------| -------------| -------------
