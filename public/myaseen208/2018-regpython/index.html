@@ -259,7 +259,7 @@ print(df1)</code></pre>
 9     150     260</code></pre>
 <pre class="python"><code>from matplotlib import pyplot as plt
 plt.plot(
-df1[&quot;Income&quot;]
+  df1[&quot;Income&quot;]
 , df1[&quot;Expend&quot;]
 , color = &quot;green&quot;
 , marker = &quot;o&quot;
@@ -281,7 +281,7 @@ Dep. Variable:                 Expend   R-squared:                       0.962
 Model:                            OLS   Adj. R-squared:                  0.957
 Method:                 Least Squares   F-statistic:                     202.9
 Date:                Thu, 20 Sep 2018   Prob (F-statistic):           5.75e-07
-Time:                        14:25:16   Log-Likelihood:                -31.781
+Time:                        14:40:17   Log-Likelihood:                -31.781
 No. Observations:                  10   AIC:                             67.56
 Df Residuals:                       8   BIC:                             68.17
 Df Model:                           1                                         
@@ -348,7 +348,6 @@ plt.plot(df1[&quot;Income&quot;], Fit1.fittedvalues)
 plt.title(&quot;Regression plot of Weekly Income (\$) and Weekly Expenditures (\$)&quot;)
 plt.xlabel(&quot;Weekly Income (\$)&quot;)
 plt.ylabel(&quot;Weekly Expenditures (\$)&quot;)
-
 plt.show()</code></pre>
 <p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" /></p>
 </div>

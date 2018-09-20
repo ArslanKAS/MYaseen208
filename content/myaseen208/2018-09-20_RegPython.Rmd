@@ -154,7 +154,7 @@ print(df1)
 ```{python}
 from matplotlib import pyplot as plt
 plt.plot(
-df1["Income"]
+  df1["Income"]
 , df1["Expend"]
 , color = "green"
 , marker = "o"
@@ -210,7 +210,6 @@ plt.plot(df1["Income"], Fit1.fittedvalues)
 plt.title("Regression plot of Weekly Income (\$) and Weekly Expenditures (\$)")
 plt.xlabel("Weekly Income (\$)")
 plt.ylabel("Weekly Expenditures (\$)")
-
 plt.show()
 ```
     
