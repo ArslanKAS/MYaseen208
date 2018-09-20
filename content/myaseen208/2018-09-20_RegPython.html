@@ -31,6 +31,10 @@ output:
 <li><a href="#simple-linear-regression">Simple Linear Regression</a><ul>
 <li><a href="#example">Example</a></li>
 </ul></li>
+<li><a href="#multiple-linear-regression">Multiple Linear Regression</a></li>
+<li><a href="#polynomial-regression-analysis">Polynomial Regression Analysis</a><ul>
+<li><a href="#example-1">Example</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -178,6 +182,7 @@ print(df1)</code></pre>
 8     155     240
 9     150     260</code></pre>
 <pre class="python"><code>from matplotlib import pyplot as plt
+fig = plt.figure()
 plt.plot(
   df1[&quot;Income&quot;]
 , df1[&quot;Expend&quot;]
@@ -201,7 +206,7 @@ Dep. Variable:                 Expend   R-squared:                       0.962
 Model:                            OLS   Adj. R-squared:                  0.957
 Method:                 Least Squares   F-statistic:                     202.9
 Date:                Thu, 20 Sep 2018   Prob (F-statistic):           5.75e-07
-Time:                        14:40:17   Log-Likelihood:                -31.781
+Time:                        16:51:15   Log-Likelihood:                -31.781
 No. Observations:                  10   AIC:                             67.56
 Df Residuals:                       8   BIC:                             68.17
 Df Model:                           1                                         
@@ -258,7 +263,8 @@ dtype: float64</code></pre>
 <pre><code>           df       sum_sq      mean_sq           F        PR(&gt;F)
 Income    1.0  8552.727273  8552.727273  202.867925  5.752746e-07
 Residual  8.0   337.272727    42.159091         NaN           NaN</code></pre>
-<pre class="python"><code>plt.scatter(
+<pre class="python"><code>fig = plt.figure()
+plt.scatter(
   df1[&quot;Income&quot;]
 , df1[&quot;Expend&quot;]
 , color = &quot;green&quot;
@@ -270,5 +276,365 @@ plt.xlabel(&quot;Weekly Income (\$)&quot;)
 plt.ylabel(&quot;Weekly Expenditures (\$)&quot;)
 plt.show()</code></pre>
 <p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="multiple-linear-regression" class="section level1">
+<h1>Multiple Linear Regression</h1>
+<blockquote>
+<ul>
+<li>Quantifying dependency of a normal response on two or more quantitative explanatory variables</li>
+</ul>
+</blockquote>
+<p> </p>
+<table>
+<thead>
+<tr class="header">
+<th>Fertilizer (Kg)</th>
+<th>Rainfall (mm)</th>
+<th>Yield (Kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>10</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>200</td>
+<td>20</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>300</td>
+<td>10</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>400</td>
+<td>30</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>20</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>600</td>
+<td>20</td>
+<td>65</td>
+</tr>
+<tr class="odd">
+<td>700</td>
+<td>30</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>import numpy as np
+Fertilizer = np.arange(100, 800, 100)
+Rainfall   = [10, 20, 10, 30, 20, 20, 30]
+Yield      = [40, 50, 50, 70, 65, 65, 80]</code></pre>
+<pre class="python"><code>import pandas as pd
+df2 = pd.DataFrame(
+ {
+   &quot;Fertilizer&quot;: Fertilizer
+ , &quot;Rainfall&quot;: Rainfall
+ , &quot;Yield&quot;: Yield
+ }
+ )
+
+print(df2)</code></pre>
+<pre><code>   Fertilizer  Rainfall  Yield
+0         100        10     40
+1         200        20     50
+2         300        10     50
+3         400        30     70
+4         500        20     65
+5         600        20     65
+6         700        30     80</code></pre>
+<pre class="python"><code>from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111, projection = &quot;3d&quot;)
+ax.scatter(
+  df2[&quot;Fertilizer&quot;]
+, df2[&quot;Rainfall&quot;]
+, df2[&quot;Yield&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+, alpha  = 1
+)
+ax.set_xlabel(&quot;Fertilizer&quot;)
+ax.set_ylabel(&quot;Rainfall&quot;)
+ax.set_zlabel(&quot;Yield&quot;)
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-16-1.svg" style="display: block; margin: auto;" /></p>
+<pre class="python"><code>from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+Reg2 = ols(formula = &quot;Yield ~ Fertilizer + Rainfall&quot;, data = df2)
+Fit2 = Reg2.fit()
+print(Fit2.summary())</code></pre>
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Yield   R-squared:                       0.981
+Model:                            OLS   Adj. R-squared:                  0.972
+Method:                 Least Squares   F-statistic:                     105.3
+Date:                Thu, 20 Sep 2018   Prob (F-statistic):           0.000347
+Time:                        16:51:16   Log-Likelihood:                -13.848
+No. Observations:                   7   AIC:                             33.70
+Df Residuals:                       4   BIC:                             33.53
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     28.0952      2.491     11.277      0.000      21.178      35.013
+Fertilizer     0.0381      0.006      6.532      0.003       0.022       0.054
+Rainfall       0.8333      0.154      5.401      0.006       0.405       1.262
+==============================================================================
+Omnibus:                          nan   Durbin-Watson:                   2.249
+Prob(Omnibus):                    nan   Jarque-Bera (JB):                0.705
+Skew:                          -0.408   Prob(JB):                        0.703
+Kurtosis:                       1.677   Cond. No.                     1.28e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.28e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.</code></pre>
+<pre class="python"><code>print(Fit2.params)</code></pre>
+<pre><code>Intercept     28.095238
+Fertilizer     0.038095
+Rainfall       0.833333
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit2.fittedvalues)</code></pre>
+<pre><code>0    40.238095
+1    52.380952
+2    47.857143
+3    68.333333
+4    63.809524
+5    67.619048
+6    79.761905
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit2.resid)</code></pre>
+<pre><code>0   -0.238095
+1   -2.380952
+2    2.142857
+3    1.666667
+4    1.190476
+5   -2.619048
+6    0.238095
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit2.bse)</code></pre>
+<pre><code>Intercept     2.491482
+Fertilizer    0.005832
+Rainfall      0.154303
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit2.centered_tss)</code></pre>
+<pre><code>1150.0</code></pre>
+<pre class="python"><code>print(anova_lm(Fit2))</code></pre>
+<pre><code>             df      sum_sq     mean_sq           F    PR(&gt;F)
+Fertilizer  1.0  972.321429  972.321429  181.500000  0.000176
+Rainfall    1.0  156.250000  156.250000   29.166667  0.005690
+Residual    4.0   21.428571    5.357143         NaN       NaN</code></pre>
+<pre class="python"><code>from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+from matplotlib import cm
+fig = plt.figure()
+ax = fig.add_subplot(111, projection = &quot;3d&quot;)
+ax.scatter(
+  df2[&quot;Fertilizer&quot;]
+, df2[&quot;Rainfall&quot;]
+, df2[&quot;Yield&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+, alpha  = 1
+)
+ax.set_xlabel(&quot;Fertilizer&quot;)
+ax.set_ylabel(&quot;Rainfall&quot;)
+ax.set_zlabel(&quot;Yield&quot;)
+x_surf = np.arange(100, 720, 20)                
+y_surf = np.arange(10, 32, 2)
+x_surf, y_surf = np.meshgrid(x_surf, y_surf)
+
+exog = pd.core.frame.DataFrame({
+   &quot;Fertilizer&quot;: x_surf.ravel()
+ , &quot;Rainfall&quot;: y_surf.ravel()
+ })
+out = Fit2.predict(exog = exog)
+ax.plot_surface(
+           x_surf
+         , y_surf
+         , out.reshape(x_surf.shape)
+         , rstride=1
+         , cstride=1
+         , color=&quot;None&quot;
+         , alpha = 0.4
+         )
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-24-1.svg" style="display: block; margin: auto;" /></p>
+</div>
+<div id="polynomial-regression-analysis" class="section level1">
+<h1>Polynomial Regression Analysis</h1>
+<blockquote>
+<ul>
+<li>Quantifying non-linear dependency of a normal response on quantitative explanatory variable(s)</li>
+</ul>
+</blockquote>
+<div id="example-1" class="section level2">
+<h2>Example</h2>
+<blockquote>
+<p>An experiment was conducted to evaluate the effects of different
+levels of nitrogen. Three levels of nitrogen: 0, 10 and 20 grams per
+plot were used in the experiment. Each treatment was replicated
+twice and data is given below:</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th>Nitrogen</th>
+<th>Yield</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>Nitrogen = [0, 0, 10, 10, 20, 20]
+Yield    = [5, 7, 15, 17,  9, 11]</code></pre>
+<pre class="python"><code>import pandas as pd
+df3 = pd.DataFrame(
+ {
+   &quot;Nitrogen&quot;: Nitrogen
+ , &quot;Yield&quot;: Yield
+ }
+ )
+
+print(df3)</code></pre>
+<pre><code>   Nitrogen  Yield
+0         0      5
+1         0      7
+2        10     15
+3        10     17
+4        20      9
+5        20     11</code></pre>
+<pre class="python"><code>from matplotlib import pyplot as plt
+fig = plt.figure()
+plt.plot(
+  df3[&quot;Nitrogen&quot;]
+, df3[&quot;Yield&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+, linestyle = &quot;solid&quot;
+)
+plt.title(&quot;Scatter plot of Nitrogen and Yield&quot;)
+plt.xlabel(&quot;Nitrogen&quot;)
+plt.ylabel(&quot;Yield&quot;)
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-27-1.svg" style="display: block; margin: auto;" /></p>
+<pre class="python"><code>from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+Reg3 = ols(formula = &quot;Yield ~ Nitrogen + I(Nitrogen**2)&quot;, data = df3)
+Fit3 = Reg3.fit()
+print(Fit3.summary())</code></pre>
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Yield   R-squared:                       0.944
+Model:                            OLS   Adj. R-squared:                  0.907
+Method:                 Least Squares   F-statistic:                     25.33
+Date:                Thu, 20 Sep 2018   Prob (F-statistic):             0.0132
+Time:                        16:51:16   Log-Likelihood:                -8.5136
+No. Observations:                   6   AIC:                             23.03
+Df Residuals:                       3   BIC:                             22.40
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------------
+Intercept            6.0000      1.000      6.000      0.009       2.818       9.182
+Nitrogen             1.8000      0.255      7.060      0.006       0.989       2.611
+I(Nitrogen ** 2)    -0.0800      0.012     -6.532      0.007      -0.119      -0.041
+==============================================================================
+Omnibus:                          nan   Durbin-Watson:                   3.333
+Prob(Omnibus):                    nan   Jarque-Bera (JB):                1.000
+Skew:                           0.000   Prob(JB):                        0.607
+Kurtosis:                       1.000   Cond. No.                         418.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+<pre class="python"><code>print(Fit3.params)</code></pre>
+<pre><code>Intercept           6.00
+Nitrogen            1.80
+I(Nitrogen ** 2)   -0.08
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit3.fittedvalues)</code></pre>
+<pre><code>0     6.0
+1     6.0
+2    16.0
+3    16.0
+4    10.0
+5    10.0
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit3.resid)</code></pre>
+<pre><code>0   -1.0
+1    1.0
+2   -1.0
+3    1.0
+4   -1.0
+5    1.0
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit3.bse)</code></pre>
+<pre><code>Intercept           1.000000
+Nitrogen            0.254951
+I(Nitrogen ** 2)    0.012247
+dtype: float64</code></pre>
+<pre class="python"><code>print(Fit3.centered_tss)</code></pre>
+<pre><code>107.333333333</code></pre>
+<pre class="python"><code>print(anova_lm(Fit3))</code></pre>
+<pre><code>                   df     sum_sq    mean_sq          F    PR(&gt;F)
+Nitrogen          1.0  16.000000  16.000000   8.000000  0.066276
+I(Nitrogen ** 2)  1.0  85.333333  85.333333  42.666667  0.007292
+Residual          3.0   6.000000   2.000000        NaN       NaN</code></pre>
+<pre class="python"><code>fig = plt.figure()
+plt.scatter(
+  df3[&quot;Nitrogen&quot;]
+, df3[&quot;Yield&quot;]
+, color = &quot;green&quot;
+, marker = &quot;o&quot;
+)
+plt.plot(df3[&quot;Nitrogen&quot;], Fit3.fittedvalues)
+plt.title(&quot;Regression plot of Nitrogen and Yield&quot;)
+plt.xlabel(&quot;Nitrogen&quot;)
+plt.ylabel(&quot;Yield&quot;)
+plt.show()</code></pre>
+<p><img src="/myaseen208/2018-09-20_RegPython_files/figure-html/unnamed-chunk-35-1.svg" style="display: block; margin: auto;" /></p>
 </div>
 </div>

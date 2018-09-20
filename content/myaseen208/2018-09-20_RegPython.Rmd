@@ -153,6 +153,7 @@ print(df1)
 
 ```{python}
 from matplotlib import pyplot as plt
+fig = plt.figure()
 plt.plot(
   df1["Income"]
 , df1["Expend"]
@@ -200,6 +201,7 @@ print(anova_lm(Fit1))
 ```
     
 ```{python}
+fig = plt.figure()
 plt.scatter(
   df1["Income"]
 , df1["Expend"]
@@ -213,4 +215,234 @@ plt.ylabel("Weekly Expenditures (\$)")
 plt.show()
 ```
     
+
+# Multiple Linear Regression
+> * Quantifying dependency of a normal response on two or more quantitative explanatory variables
+
+&nbsp;
+
+
+Fertilizer (Kg)  | Rainfall (mm) | Yield (Kg)
+  ------------| -------------| -------------
+       100    |  10   |  40
+       200    |  20   |  50
+       300    |  10   |  50
+       400    |  30   |  70
+       500    |  20   |  65
+       600    |  20   |  65
+       700    |  30   |  80
+
+  
+```{python}
+import numpy as np
+Fertilizer = np.arange(100, 800, 100)
+Rainfall   = [10, 20, 10, 30, 20, 20, 30]
+Yield      = [40, 50, 50, 70, 65, 65, 80]
+```
+
+
+```{python}
+import pandas as pd
+df2 = pd.DataFrame(
+ {
+   "Fertilizer": Fertilizer
+ , "Rainfall": Rainfall
+ , "Yield": Yield
+ }
+ )
+
+print(df2)
+```
+
+```{python}
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111, projection = "3d")
+ax.scatter(
+  df2["Fertilizer"]
+, df2["Rainfall"]
+, df2["Yield"]
+, color = "green"
+, marker = "o"
+, alpha  = 1
+)
+ax.set_xlabel("Fertilizer")
+ax.set_ylabel("Rainfall")
+ax.set_zlabel("Yield")
+plt.show()
+```
+    
+```{python}
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+Reg2 = ols(formula = "Yield ~ Fertilizer + Rainfall", data = df2)
+Fit2 = Reg2.fit()
+print(Fit2.summary())
+```
+
+```{python}
+print(Fit2.params)
+```
+
+```{python}
+print(Fit2.fittedvalues)
+```
+
+
+```{python}
+print(Fit2.resid)
+```
+
+```{python}
+print(Fit2.bse)
+```
+    
+```{python}
+print(Fit2.centered_tss)
+```
+    
+```{python}
+print(anova_lm(Fit2))
+```
+
+```{python}
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+from matplotlib import cm
+fig = plt.figure()
+ax = fig.add_subplot(111, projection = "3d")
+ax.scatter(
+  df2["Fertilizer"]
+, df2["Rainfall"]
+, df2["Yield"]
+, color = "green"
+, marker = "o"
+, alpha  = 1
+)
+ax.set_xlabel("Fertilizer")
+ax.set_ylabel("Rainfall")
+ax.set_zlabel("Yield")
+x_surf = np.arange(100, 720, 20)                
+y_surf = np.arange(10, 32, 2)
+x_surf, y_surf = np.meshgrid(x_surf, y_surf)
+
+exog = pd.core.frame.DataFrame({
+   "Fertilizer": x_surf.ravel()
+ , "Rainfall": y_surf.ravel()
+ })
+out = Fit2.predict(exog = exog)
+ax.plot_surface(
+           x_surf
+         , y_surf
+         , out.reshape(x_surf.shape)
+         , rstride=1
+         , cstride=1
+         , color="None"
+         , alpha = 0.4
+         )
+plt.show()
+```
+
+# Polynomial Regression Analysis
+> * Quantifying non-linear dependency of a normal response on quantitative explanatory variable(s)
+
+## Example
+> An experiment was conducted to evaluate the effects of different
+levels of nitrogen. Three levels of nitrogen: 0, 10 and 20 grams per
+plot were used in the experiment. Each treatment was replicated
+twice and data is given below:
+  
+  Nitrogen    | Yield
+  ------------| -------------
+        0     |   5
+        0     |   7
+       10     |  15
+       10     |  17
+       20     |   9
+       20     |  11
+
+
+```{python}
+Nitrogen = [0, 0, 10, 10, 20, 20]
+Yield    = [5, 7, 15, 17,  9, 11]
+```
+
+```{python}
+import pandas as pd
+df3 = pd.DataFrame(
+ {
+   "Nitrogen": Nitrogen
+ , "Yield": Yield
+ }
+ )
+
+print(df3)
+```
+
+```{python}
+from matplotlib import pyplot as plt
+fig = plt.figure()
+plt.plot(
+  df3["Nitrogen"]
+, df3["Yield"]
+, color = "green"
+, marker = "o"
+, linestyle = "solid"
+)
+plt.title("Scatter plot of Nitrogen and Yield")
+plt.xlabel("Nitrogen")
+plt.ylabel("Yield")
+plt.show()
+```
+    
+```{python}
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+Reg3 = ols(formula = "Yield ~ Nitrogen + I(Nitrogen**2)", data = df3)
+Fit3 = Reg3.fit()
+print(Fit3.summary())
+```
+
+```{python}
+print(Fit3.params)
+```
+
+```{python}
+print(Fit3.fittedvalues)
+```
+
+
+```{python}
+print(Fit3.resid)
+```
+
+```{python}
+print(Fit3.bse)
+```
+    
+```{python}
+print(Fit3.centered_tss)
+```
+    
+```{python}
+print(anova_lm(Fit3))
+```
+    
+```{python}
+fig = plt.figure()
+plt.scatter(
+  df3["Nitrogen"]
+, df3["Yield"]
+, color = "green"
+, marker = "o"
+)
+plt.plot(df3["Nitrogen"], Fit3.fittedvalues)
+plt.title("Regression plot of Nitrogen and Yield")
+plt.xlabel("Nitrogen")
+plt.ylabel("Yield")
+plt.show()
+```
     
