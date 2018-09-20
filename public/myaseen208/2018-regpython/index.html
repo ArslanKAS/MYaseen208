@@ -263,12 +263,11 @@ print(df1)</code></pre>
 9     150     260</code></pre>
 <pre class="python"><code>from matplotlib import pyplot as plt
 fig = plt.figure()
-plt.plot(
+plt.scatter(
   df1[&quot;Income&quot;]
 , df1[&quot;Expend&quot;]
 , color = &quot;green&quot;
 , marker = &quot;o&quot;
-, linestyle = &quot;solid&quot;
 )
 plt.title(&quot;Scatter plot of Weekly Income (\$) and Weekly Expenditures (\$)&quot;)
 plt.xlabel(&quot;Weekly Income (\$)&quot;)
@@ -286,7 +285,7 @@ Dep. Variable:                 Expend   R-squared:                       0.962
 Model:                            OLS   Adj. R-squared:                  0.957
 Method:                 Least Squares   F-statistic:                     202.9
 Date:                Thu, 20 Sep 2018   Prob (F-statistic):           5.75e-07
-Time:                        16:51:15   Log-Likelihood:                -31.781
+Time:                        16:53:59   Log-Likelihood:                -31.781
 No. Observations:                  10   AIC:                             67.56
 Df Residuals:                       8   BIC:                             68.17
 Df Model:                           1                                         
@@ -462,7 +461,7 @@ Dep. Variable:                  Yield   R-squared:                       0.981
 Model:                            OLS   Adj. R-squared:                  0.972
 Method:                 Least Squares   F-statistic:                     105.3
 Date:                Thu, 20 Sep 2018   Prob (F-statistic):           0.000347
-Time:                        16:51:16   Log-Likelihood:                -13.848
+Time:                        16:54:00   Log-Likelihood:                -13.848
 No. Observations:                   7   AIC:                             33.70
 Df Residuals:                       4   BIC:                             33.53
 Df Model:                           2                                         
@@ -627,12 +626,11 @@ print(df3)</code></pre>
 5        20     11</code></pre>
 <pre class="python"><code>from matplotlib import pyplot as plt
 fig = plt.figure()
-plt.plot(
+plt.scatter(
   df3[&quot;Nitrogen&quot;]
 , df3[&quot;Yield&quot;]
 , color = &quot;green&quot;
 , marker = &quot;o&quot;
-, linestyle = &quot;solid&quot;
 )
 plt.title(&quot;Scatter plot of Nitrogen and Yield&quot;)
 plt.xlabel(&quot;Nitrogen&quot;)
@@ -650,7 +648,7 @@ Dep. Variable:                  Yield   R-squared:                       0.944
 Model:                            OLS   Adj. R-squared:                  0.907
 Method:                 Least Squares   F-statistic:                     25.33
 Date:                Thu, 20 Sep 2018   Prob (F-statistic):             0.0132
-Time:                        16:51:16   Log-Likelihood:                -8.5136
+Time:                        16:54:01   Log-Likelihood:                -8.5136
 No. Observations:                   6   AIC:                             23.03
 Df Residuals:                       3   BIC:                             22.40
 Df Model:                           2                                         
@@ -720,7 +718,7 @@ plt.show()</code></pre>
 </div>
 
 
-      <meta itemprop="wordCount" content="1439">
+      <meta itemprop="wordCount" content="1431">
       <meta itemprop="datePublished" content="2018-09-20">
       <meta itemprop="url" content="/myaseen208/2018-regpython/">
 

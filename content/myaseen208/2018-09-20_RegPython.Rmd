@@ -154,12 +154,11 @@ print(df1)
 ```{python}
 from matplotlib import pyplot as plt
 fig = plt.figure()
-plt.plot(
+plt.scatter(
   df1["Income"]
 , df1["Expend"]
 , color = "green"
 , marker = "o"
-, linestyle = "solid"
 )
 plt.title("Scatter plot of Weekly Income (\$) and Weekly Expenditures (\$)")
 plt.xlabel("Weekly Income (\$)")
@@ -385,12 +384,11 @@ print(df3)
 ```{python}
 from matplotlib import pyplot as plt
 fig = plt.figure()
-plt.plot(
+plt.scatter(
   df3["Nitrogen"]
 , df3["Yield"]
 , color = "green"
 , marker = "o"
-, linestyle = "solid"
 )
 plt.title("Scatter plot of Nitrogen and Yield")
 plt.xlabel("Nitrogen")
